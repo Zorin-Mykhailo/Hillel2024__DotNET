@@ -13,9 +13,9 @@ internal class Program
         ShowProgramName();
         try
         {
-            int digit = AskDesiredDigitFactorial();
-            Int128 digitFactorial = CalculateFactorialOf(digit);
-            AnsiConsole.Markup($"[yellow]{digit}! = {digitFactorial}[/]");
+            int number = AskDesiredNumberFactorial();
+            Int128 factorial = CalculateFactorialOf(number);
+            AnsiConsole.Markup($"[yellow]{number}! = {factorial}[/]");
         }
         catch(Exception ex)
         {
@@ -33,14 +33,14 @@ internal class Program
         return fact;
     }
 
-    private static int AskDesiredDigitFactorial()
+    private static int AskDesiredNumberFactorial()
     {
         int digit = 0;
         do
         {
             digit = AnsiConsole.Ask<int>("[green]Факторіал[/] якого [green]числа[/] ви бажаєте отримати:");
             if(digit < 0)
-                AnsiConsole.MarkupLine("[black on red] Input error: [/] [red]Число повинне бути > 0[/]");
+                AnsiConsole.MarkupLine("[black on red] Input error: [/] [red]Число повинне бути >= 0[/]");
         } while(digit < 0);
         return digit;
     }
