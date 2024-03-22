@@ -44,9 +44,10 @@ public class Person
         Phone = phone;
     }
 
-    public virtual void Print()
+    public virtual void Print(string? title = null)
     {
-        AnsiConsole.MarkupLine("[blue]Персона:[/]");
+        string header = string.IsNullOrWhiteSpace(title) ? "[blue]Персона:[/]" : title;
+        AnsiConsole.MarkupLine(header);
         Table table = new ();
         table.Border(TableBorder.Rounded);
         table.AddColumn("[blue]Прізвище[/]");

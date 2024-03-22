@@ -7,31 +7,31 @@ using System.Xml.Linq;
 namespace HW01_05;
 public class AcademyGroup
 {
-    private List<Student> _students;
+    private List<Student> Students { get; set; }
     
-    public int Count { get => _students.Count; }
+    public int Count { get => Students.Count; }
 
     public AcademyGroup()
     {
-        _students = new ();
+        Students = new ();
     }
 
     public void Add(Student student)
     {
-        _students.Add(student);
+        Students.Add(student);
     }
 
     public bool Remove(string surname)
     {
-        Student? student = _students.FirstOrDefault(s => s.Surname == surname);
+        Student? student = Students.FirstOrDefault(s => s.Surname == surname);
         if(student == null) return false;
-        _students.Remove(student);
+        Students.Remove(student);
         return true;
     }
 
     public Student? Edit(string surname)
     {
-        return _students.FirstOrDefault(s => s.Surname == surname);
+        return Students.FirstOrDefault(s => s.Surname == surname);
     }
 
     public void Print()
@@ -46,7 +46,7 @@ public class AcademyGroup
         table.AddColumn("[blue]Група[/]");
         table.AddColumn("[blue]Середній бал[/]");
 
-        _students.ForEach(s => table.AddRow(s.Surname, s.Name, $"{s.Age,4}", s.Phone, $"{s.NumberOfGroup}", $"{s.Average,6:0.00}"));
+        Students.ForEach(s => table.AddRow(s.Surname, s.Name, $"{s.Age,4}", s.Phone, $"{s.NumberOfGroup}", $"{s.Average,6:0.00}"));
         
         AnsiConsole.Write(table);
     }
@@ -59,12 +59,12 @@ public class AcademyGroup
         if(!Directory.Exists(Path.GetDirectoryName(dataFilePath))) 
             Directory.CreateDirectory(Path.GetDirectoryName(dataFilePath)!);
 
-        File.WriteAllText(dataFilePath, JsonConvert.SerializeObject(_students, Formatting.Indented));
+        File.WriteAllText(dataFilePath, JsonConvert.SerializeObject(Students, Formatting.Indented));
 
         //using StreamWriter file = File.CreateText(dataFilePath);
         //JsonSerializer serializer = new ();
 
-        //serializer.Serialize(file, _students);
+        //serializer.Serialize(file, Students);
         AnsiConsole.MarkupLine($"Дані збережено до файлу [yellow]{dataFilePath}[/]");
     }
 
@@ -78,38 +78,81 @@ public class AcademyGroup
         }
 
         string jsonString = File.ReadAllText(dataFilePath);
-        _students = JsonConvert.DeserializeObject<List<Student>>(jsonString) ?? new();
+        Students = JsonConvert.DeserializeObject<List<Student>>(jsonString) ?? new();
 
         AnsiConsole.MarkupLine($"З файлу [yellow]{dataFilePath}[/] записів завантажено: [green]{Count} шт.[/]");
     }
 
-    public List<Student> Search_Name(string name)
+    public List<Student> SearchByName(string name)
+        => SearchByName(Students, name);
+
+    public List<Student> SearchByName(List<Student> source, string name)
     {
-        throw new NotImplementedException("Не реалізовано");
+        List<Student> searchResult = new ();
+        if(source == null || source.Count == 0) return searchResult;
+        searchResult = source.Where(s => s.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase)).ToList();
+        return searchResult;
     }
 
-    public List<Student> Search_Surname(string name)
+    public List<Student> SearchBySurname(string surname)
+        => SearchBySurname(Students, surname);
+
+    public List<Student> SearchBySurname(List<Student> source, string surname)
     {
-        throw new NotImplementedException("Не реалізовано");
+        List<Student> searchResult = new ();
+        if(source == null || source.Count == 0) return searchResult;
+        searchResult = source.Where(s => s.Surname.Contains(surname, StringComparison.InvariantCultureIgnoreCase)).ToList();
+        return searchResult;
     }
 
-    public List<Student> Search_Age(int from, int? till = null)
+    public List<Student> SearchByAge(int from, int? till = null)
+        => SearchByAge(Students, from, till);
+
+    public List<Student> SearchByAge(List<Student> source, int from, int? till = null)
     {
-        throw new NotImplementedException("Не реалізовано");
+        int to = till ?? from;
+        if(from > to) (from, to) = (to, from);
+        List<Student> searchResult = new ();
+        if(source == null || source.Count == 0) return searchResult;
+        searchResult = source.Where(s => s.Age >= from || s.Age <= to).ToList();
+        return searchResult;
     }
 
-    public List<Student> Search_Phone(string name)
+    public List<Student> SearchByPhone(string phone)
+        => SearchByPhone(Students, phone);
+
+    public List<Student> SearchByPhone(List<Student> source, string phone)
     {
-        throw new NotImplementedException("Не реалізовано");
+        List<Student> searchResult = new ();
+        if(source == null || source.Count == 0) return searchResult;
+        searchResult = source.Where(s => NormalizePhone(s.Phone) == NormalizePhone(phone)).ToList();
+        return searchResult;
+        string NormalizePhone(string phone) => new (phone.Where(c => char.IsDigit(c)).ToArray());
     }
 
-    public List<Student> Search_Group(int from, int? till = null)
+    public List<Student> SearchByGroup(int from, int? till = null)
+        => SearchByGroup(Students, from, till);
+
+    public List<Student> SearchByGroup(List<Student> source, int from, int? till = null)
     {
-        throw new NotImplementedException("Не реалізовано");
+        int to = till ?? from;
+        if(from > to) (from, to) = (to, from);
+        List<Student> searchResult = new ();
+        if(source == null || source.Count == 0) return searchResult;
+        searchResult = source.Where(s => s.NumberOfGroup >= from || s.NumberOfGroup <= to).ToList();
+        return searchResult;
     }
 
-    public List<Student> Search_AvgGrade(double from, double? till = null)
+    public List<Student> SearchByAvgGrade(double from, double? till = null)
+        => SearchByAvgGrade(Students, from, till);
+
+    public List<Student> SearchByAvgGrade(List<Student> source, double from, double? till = null)
     {
-        throw new NotImplementedException("Не реалізовано");
+        double to = till ?? from;
+        if(from > to) (from, to) = (to, from);
+        List<Student> searchResult = new ();
+        if(source == null || source.Count == 0) return searchResult;
+        searchResult = source.Where(s => s.Average >= from || s.Average <= to).ToList();
+        return searchResult;
     }
 }

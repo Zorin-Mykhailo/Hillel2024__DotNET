@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "Average": 85.4,
+    "NumberOfGroup": 56,
+    "Name": "Василь",
+    "Surname": "Приходько",
+    "Age": 22,
+    "Phone": "9876543210"
+  },
+  {
+    "Average": 91.6,
+    "NumberOfGroup": 53,
+    "Name": "Ольга",
+    "Surname": "Олійник",
+    "Age": 20,
+    "Phone": "9435761384"
+  },
+  {
+    "Average": 88.5,
+    "NumberOfGroup": 56,
+    "Name": "Людьмила",
+    "Surname": "Ромашкіна",
+    "Age": 19,
+    "Phone": "3186750446"
+  },
+  {
+    "Average": 79.6,
+    "NumberOfGroup": 52,
+    "Name": "Іван",
+    "Surname": "Іванов",
+    "Age": 18,
+    "Phone": "6076642138"
+  },
+  {
+    "Average": 86.9,
+    "NumberOfGroup": 52,
+    "Name": "Микола",
+    "Surname": "Поліщук",
+    "Age": 17,
+    "Phone": "4766105499"
+  }
+]

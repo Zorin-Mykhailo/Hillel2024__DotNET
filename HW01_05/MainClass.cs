@@ -2,6 +2,8 @@
 using System.Text;
 
 namespace HW01_05;
+
+
 public  class MainClass
 {
     private AcademyGroup _academyGroup {  get; set; }
@@ -13,51 +15,36 @@ public  class MainClass
 
     
 
-    public void ShowMenu()
+    public void TreatingUserCommands()
     {        
         bool programContinue = true;
         do
         {
-            string selection = AnsiConsole.Prompt(
-            new SelectionPrompt<string>()
-            .Title("Виберіть один із пунктів [green]МЕНЮ[/]?")
-            .PageSize(10)
-            .MoreChoicesText("[grey](Move up and down to reveal more fruits)[/]")
-            .AddChoices(new[]
-            {
-                Menu.DataRecortsFind,
-                Menu.DataRecortAdd,
-                Menu.DataRecortEdit,
-                Menu.DataRecortRemove,
-                Menu.DataSave,
-                Menu.DataLoad,
-                Menu.ProgramExit
-            }));
-
+            string userChoice = MainMenu.Show();
             Console.Clear();
             ShowProgramName();
 
-            switch(selection)
+            switch(userChoice)
             {
-                case Menu.DataRecortsFind:
+                case MainMenu.DataRecortsFind:
                     DataRecortsFind();
                     break;
-                case Menu.DataRecortAdd:
+                case MainMenu.DataRecortAdd:
                     DataRecortAdd();
                     break;
-                case Menu.DataRecortEdit:
+                case MainMenu.DataRecortEdit:
                     DataRecortEdit();
                     break;
-                case Menu.DataRecortRemove:
+                case MainMenu.DataRecortRemove:
                     DataRecortRemove();
                     break;
-                case Menu.DataSave:
+                case MainMenu.DataSave:
                     DataSave();
                     break;
-                case Menu.DataLoad:
+                case MainMenu.DataLoad:
                     DataLoad();
                     break;
-                case Menu.ProgramExit:
+                case MainMenu.ProgramExit:
                     ProgramExit();
                     programContinue = false;
                     break;
@@ -73,17 +60,82 @@ public  class MainClass
 
     private void DataRecortAdd()
     {
-        string studentSurname = AskStudentSurname();
-        string studentName = AskStudentName();
-        int studentAge = AskStudentAge();
-        String studentPhone = AskStudentPhone();
-        AnsiConsole.MarkupLine("[red]Додання записів не реалізовано повністю[/]");
+        string surname = Ask.Student.Surname();
+        string name = Ask.Student.Name();
+        int age = Ask.Student.Age();
+        string phone = Ask.Student.Phone();
+        int groupNumber = Ask.Student.GroupNumber();
+        double avgGrade = Ask.Student.AvgGrade();
+
+        Student student = new (surname, name, age, phone, groupNumber, avgGrade);
+
+        _academyGroup.Add(student);
         _academyGroup.Print();
     }
 
     private void DataRecortEdit()
     {
-        AnsiConsole.MarkupLine("[red]Редагування запису не реалізовано[/]");
+        Student? selectedRecord = null;
+        do
+        {
+            string surname = Ask.Student.Surname();
+            List<Student> foundedStudents = _academyGroup.SearchBySurname(surname);
+            if(foundedStudents.Count == 0)
+                AnsiConsole.MarkupLine("[yellow]Не знайдено жодного запису для редагування[/]");
+            else if(foundedStudents.Count == 1)
+                selectedRecord = _academyGroup.SearchBySurname(surname).First();
+            else
+                AnsiConsole.MarkupLine("[yellow]Не знайдено більше одного запису[/]");
+        } while(selectedRecord == null);
+
+        Student editableRecord = selectedRecord.Clone();
+
+        string userChoice = null!;
+        do
+        {
+            Console.Clear();
+            ShowProgramName();
+            selectedRecord.Print("[black on yellow] Редагування запису: [/]");
+            editableRecord.Print("[yellow]Нові дані:[/]");
+
+            userChoice = StudentEditMenu.Show();
+            switch(userChoice)
+            {
+                case StudentEditMenu.EditSurname:
+                    editableRecord.Surname = Ask.Student.Surname();
+                    break;
+                case StudentEditMenu.EditName:
+                    editableRecord.Name = Ask.Student.Name();
+                    break;
+                case StudentEditMenu.EditAge:
+                    editableRecord.Age = Ask.Student.Age();
+                    break;
+                case StudentEditMenu.EditPhone:
+                    editableRecord.Phone = Ask.Student.Phone();
+                    break;
+                case StudentEditMenu.EditGroupNumber:
+                    editableRecord.NumberOfGroup = Ask.Student.GroupNumber();
+                    break;
+                case StudentEditMenu.EditAvgGrade:
+                    editableRecord.Average = Ask.Student.AvgGrade();
+                    break;
+                default:
+                    break;
+            }
+        }while(!StudentEditMenu.WorkIsFinished(userChoice));
+
+        Console.Clear();
+        ShowProgramName();
+        if(userChoice == StudentEditMenu.Save)
+        {
+            selectedRecord.CopyFrom(editableRecord);
+            AnsiConsole.MarkupLine("[yellow]Дані збережено[/]");
+        }
+        else if(userChoice == StudentEditMenu.Cancel)
+            AnsiConsole.MarkupLine("[yellow]Редагування відмінено[/]");
+        else
+            AnsiConsole.MarkupLine("[red]Сталась помилка[/]");
+        
         _academyGroup.Print();
     }
 
@@ -120,85 +172,5 @@ public  class MainClass
         table.AddColumn(new TableColumn(new Markup("[blue] ДЗ 01.05 • Academy_Group [/]")));
         AnsiConsole.Write(table);
         AnsiConsole.MarkupLine("");
-    }
-
-    private string AskStudentName()
-    {
-        string? name = null;
-        do
-        {
-            name = AnsiConsole.Ask<string>("[green]Ім'я[/] студента:");
-            if(!IsValid(name.Trim()))
-                AnsiConsole.MarkupLine("[black on red] Input error: [/] [red]Значення не повинно бути пустим та повино мати більше однієї літери[/]");
-        } while(!IsValid(name.Trim()));
-        return name!;
-        bool IsValid(string? name) => !string.IsNullOrWhiteSpace(name) && name.Length > 1;
-    }
-
-    private string AskStudentSurname()
-    {
-        string? name = null;
-        do
-        {
-            name = AnsiConsole.Ask<string>("[green]Прізвище[/] студента:");
-            if(!IsValid(name.Trim()))
-                AnsiConsole.MarkupLine("[black on red] Input error: [/] [red]Значення не повинно бути пустим та повино мати більше однієї літери[/]");
-        } while(!IsValid(name.Trim()));
-        return name!;
-        bool IsValid(string? name) => !string.IsNullOrWhiteSpace(name) && name.Length > 1;
-    }
-
-    private static int AskStudentAge()
-    {
-        int age = 0;
-        do
-        {
-            age = AnsiConsole.Ask<int>("[green]Вік[/] студента:");
-            if(!IsValid(age))
-                AnsiConsole.MarkupLine("[black on red] Input error: [/] [red]Вік студента повинен бути >= 15 та <= 80 років[/]");
-        } while(age < 0);
-        return age;
-        bool IsValid(int age) => age > 15 && age < 80;
-    }
-
-    private string AskStudentPhone()
-    {
-        string? phone = null;
-        do
-        {
-            phone = AnsiConsole.Ask<string>("[green]Телефон[/] студента:");
-            if(!IsValid(phone.Trim()))
-                AnsiConsole.MarkupLine("[black on red] Input error: [/] [red]Значення повинно містити символи лише з наботу \"9876543210 -()\" та повинно містити рівно 10 цифр[/]");
-        } while(!IsValid(phone.Trim()));
-        return phone!;
-        
-        bool IsValid(string? phone)
-        {
-            HashSet<char> allowedSymbols = new ("9876543210 -()");
-            bool isPreValid = !string.IsNullOrWhiteSpace(phone) 
-                && phone.All(symb => allowedSymbols.Contains(symb));
-            if(!isPreValid)
-                return false;
-            int digitsCount = 0;
-            foreach(char symb in phone)
-                if(char.IsDigit(symb)) ++digitsCount;
-            return digitsCount == 10;
-        }
-    }
-}
-
-public static class DataInput
-{
-    
-}
-
-public static class Menu
-{
-    public const string DataRecortsFind = "🔍 Знайти записи *";
-    public const string DataRecortAdd = "➕ Додати запис *";
-    public const string DataRecortEdit = "✏️ Редагувати запис *";
-    public const string DataRecortRemove = "❌ Видадлити запис *";
-    public const string DataSave = "💾 Зберегти дані";
-    public const string DataLoad = "📥 Завантажити дані";
-    public const string ProgramExit = "⛔ Вихід";
+    }    
 }

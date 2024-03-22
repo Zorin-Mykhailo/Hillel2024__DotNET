@@ -26,9 +26,23 @@ public class Student : Person
         Average = average;
     }
 
-    public override void Print()
+    public Student Clone()
+        => new(Surname, Name, Age, Phone, NumberOfGroup, Average);
+
+    public void CopyFrom(Student anotherStudent)
     {
-        AnsiConsole.MarkupLine("[blue]Студент:[/]");
+        Surname = anotherStudent.Surname;
+        Name = anotherStudent.Name;
+        Age = anotherStudent.Age;
+        Phone = anotherStudent.Phone;
+        NumberOfGroup = anotherStudent.NumberOfGroup;
+        Average = anotherStudent.Average;
+    }
+
+    public override void Print(string? title = null)
+    {
+        string header = string.IsNullOrWhiteSpace(title) ? "[blue]Студент:[/]" : title;
+        AnsiConsole.MarkupLine(header);
         Table table = new ();
         table.Border(TableBorder.Rounded);
         table.AddColumn("[blue]Прізвище[/]");
