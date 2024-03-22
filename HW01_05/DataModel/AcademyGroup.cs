@@ -21,9 +21,8 @@ public class AcademyGroup
         Students.Add(student);
     }
 
-    public bool Remove(string surname)
+    public bool Remove(Student student)
     {
-        Student? student = Students.FirstOrDefault(s => s.Surname == surname);
         if(student == null) return false;
         Students.Remove(student);
         return true;
@@ -34,9 +33,14 @@ public class AcademyGroup
         return Students.FirstOrDefault(s => s.Surname == surname);
     }
 
-    public void Print()
+    public void Print(string? title = null)
+        => AcademyGroup.Print(Students, title);
+
+    public static void Print(List<Student> students, string? title = null)
     {
-        AnsiConsole.MarkupLine($"[blue]Академічна група ({Count} чол.):[/]");
+        string header = string.IsNullOrWhiteSpace(title) ? $"[blue]Академічна група ({students.Count} чол.):[/]" :
+            $"{title}[blue] ({students.Count} чол.):[/]";
+        AnsiConsole.MarkupLine(header);
         Table table = new ();
         table.Border(TableBorder.Rounded);
         table.AddColumn("[blue]Прізвище[/]");
@@ -46,10 +50,11 @@ public class AcademyGroup
         table.AddColumn("[blue]Група[/]");
         table.AddColumn("[blue]Середній бал[/]");
 
-        Students.ForEach(s => table.AddRow(s.Surname, s.Name, $"{s.Age,4}", s.Phone, $"{s.NumberOfGroup}", $"{s.Average,6:0.00}"));
-        
+        students.ForEach(s => table.AddRow(s.Surname, s.Name, $"{s.Age,4}", s.Phone, $"{s.NumberOfGroup}", $"{s.Average,6:0.00}"));
+
         AnsiConsole.Write(table);
     }
+
 
     private const string DataFileRelativePath = @"..\..\..\AppData\Data.json";
 
@@ -83,6 +88,9 @@ public class AcademyGroup
         AnsiConsole.MarkupLine($"З файлу [yellow]{dataFilePath}[/] записів завантажено: [green]{Count} шт.[/]");
     }
 
+    public List<Student> GetAllStudents()
+        => Students.ToList();
+
     public List<Student> SearchByName(string name)
         => SearchByName(Students, name);
 
@@ -114,7 +122,7 @@ public class AcademyGroup
         if(from > to) (from, to) = (to, from);
         List<Student> searchResult = new ();
         if(source == null || source.Count == 0) return searchResult;
-        searchResult = source.Where(s => s.Age >= from || s.Age <= to).ToList();
+        searchResult = source.Where(s => s.Age >= from && s.Age <= to).ToList();
         return searchResult;
     }
 
@@ -139,7 +147,7 @@ public class AcademyGroup
         if(from > to) (from, to) = (to, from);
         List<Student> searchResult = new ();
         if(source == null || source.Count == 0) return searchResult;
-        searchResult = source.Where(s => s.NumberOfGroup >= from || s.NumberOfGroup <= to).ToList();
+        searchResult = source.Where(s => s.NumberOfGroup >= from && s.NumberOfGroup <= to).ToList();
         return searchResult;
     }
 
@@ -152,7 +160,7 @@ public class AcademyGroup
         if(from > to) (from, to) = (to, from);
         List<Student> searchResult = new ();
         if(source == null || source.Count == 0) return searchResult;
-        searchResult = source.Where(s => s.Average >= from || s.Average <= to).ToList();
+        searchResult = source.Where(s => s.Average >= from && s.Average <= to).ToList();
         return searchResult;
     }
 }

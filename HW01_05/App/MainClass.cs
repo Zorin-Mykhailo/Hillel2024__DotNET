@@ -1,4 +1,5 @@
 ﻿using Spectre.Console;
+using System;
 using System.Text;
 
 namespace HW01_05;
@@ -54,7 +55,51 @@ public  class MainClass
 
     private void DataRecortsFind()
     {
-        AnsiConsole.MarkupLine("[red]Пошук записів не реалізовано[/]");
+        List<Student> students = _academyGroup.GetAllStudents();
+        string userChoice = null!;
+        do
+        {
+            Console.Clear();
+            ShowProgramName();
+            AcademyGroup.Print(students, "[black on yellow]Знайдені записи[/]");
+            userChoice = StudentSearchMenu.Show();
+            switch(userChoice)
+            {
+                case StudentSearchMenu.SearchByName:
+                    string name = Ask.SearchFilter.Name();
+                    students = _academyGroup.SearchByName(students, name);
+                    break;
+                case StudentSearchMenu.SearchBySurname:
+                    string surname = Ask.SearchFilter.Surname();
+                    students = _academyGroup.SearchBySurname(students, surname);
+                    break;
+                case StudentSearchMenu.SearchByAge:
+                    int minAge = Ask.SearchFilter.MinAge();
+                    int maxAge = Ask.SearchFilter.MaxAge(minAge);
+                    students = _academyGroup.SearchByAge(students, minAge, maxAge);
+                    break;
+                case StudentSearchMenu.SearchByPhone:
+                    string phone = Ask.SearchFilter.Phone();
+                    students = _academyGroup.SearchByPhone(students, phone);
+                    break;
+                case StudentSearchMenu.SearchByGroupNumber:
+                    int minGroupNumb = Ask.SearchFilter.MinGroupNumber();
+                    int maxGroupNumb = Ask.SearchFilter.MaxGroupNumber(minGroupNumb);
+                    students = _academyGroup.SearchByGroup(students, minGroupNumb, maxGroupNumb);
+                    break;
+                case StudentSearchMenu.SearchByAvgGrade:
+                    double minAvgGrade = Ask.SearchFilter.MinAvgGrade();
+                    double maxAvgGrade = Ask.SearchFilter.MaxAvgGrade(minAvgGrade);
+                    students = _academyGroup.SearchByAvgGrade(students, minAvgGrade, maxAvgGrade);
+                    break;
+                case StudentSearchMenu.Reset:
+                    students = _academyGroup.GetAllStudents();
+                    break;
+                default: break;
+            }
+        } while(!StudentSearchMenu.WorkIsFinished(userChoice));
+        Console.Clear();
+        ShowProgramName();
         _academyGroup.Print();
     }
 
@@ -73,20 +118,40 @@ public  class MainClass
         _academyGroup.Print();
     }
 
-    private void DataRecortEdit()
+    private Student? SelectSingleStudent()
     {
+        if(_academyGroup.Count == 0) return null;
         Student? selectedRecord = null;
         do
         {
             string surname = Ask.Student.Surname();
             List<Student> foundedStudents = _academyGroup.SearchBySurname(surname);
             if(foundedStudents.Count == 0)
-                AnsiConsole.MarkupLine("[yellow]Не знайдено жодного запису для редагування[/]");
+                AnsiConsole.MarkupLine("[yellow]Не знайдено жодного запису[/]");
             else if(foundedStudents.Count == 1)
                 selectedRecord = _academyGroup.SearchBySurname(surname).First();
             else
-                AnsiConsole.MarkupLine("[yellow]Не знайдено більше одного запису[/]");
+            {
+                AnsiConsole.MarkupLine("[yellow]Знайдено більше одного запису. Оберіть порядковий номер запису, з яким необхідно продовжити роботу[/]");
+                AcademyGroup.Print(foundedStudents, "[yellow]Знайдені записи[/]");
+                int recordIndex = Ask.Record.OrderNumber(foundedStudents.Count - 1);
+                selectedRecord = foundedStudents[recordIndex];
+            }
         } while(selectedRecord == null);
+        return selectedRecord;
+    }
+
+    private void DataRecortEdit()
+    {
+        Student? selectedRecord = SelectSingleStudent();
+        if(selectedRecord == null)
+        {
+            Console.Clear();
+            ShowProgramName();
+            AnsiConsole.MarkupLine("[red]Записи для редагування відсутні[/]");
+            _academyGroup.Print();
+            return;
+        }
 
         Student editableRecord = selectedRecord.Clone();
 
@@ -141,7 +206,32 @@ public  class MainClass
 
     private void DataRecortRemove()
     {
-        AnsiConsole.MarkupLine("[red]Видалення даних не реалізовано[/]");
+        Student? selectedRecord = SelectSingleStudent();
+        if(selectedRecord == null)
+        {
+            Console.Clear();
+            ShowProgramName();
+            AnsiConsole.MarkupLine("[red]Записи для видалення відсутні[/]");
+            _academyGroup.Print();
+            return;
+        }
+
+        selectedRecord.Print("[black on red] Запис обраний для видалення [/]");
+        string userChoice = StudentDeleteMenu.Show();
+
+        Console.Clear();
+        ShowProgramName();
+        if(userChoice == StudentDeleteMenu.Delete)
+        {
+            bool isDeleted = _academyGroup.Remove(selectedRecord);
+            if(_academyGroup.Remove(selectedRecord))
+                AnsiConsole.MarkupLine("[yellow]Запис видалено[/]");
+            else
+                AnsiConsole.MarkupLine("[red]Не вдалось видалити запис[/]");
+        }
+        else
+            AnsiConsole.MarkupLine("[yellow]Видалення відмінено[/]");
+
         _academyGroup.Print();
     }
 
