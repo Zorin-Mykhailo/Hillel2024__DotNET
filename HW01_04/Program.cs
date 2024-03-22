@@ -1,4 +1,6 @@
-﻿using Spectre.Console;
+﻿// Опис завдання та примітки по його виконанню в файлі readme.md
+
+using Spectre.Console;
 using System.Text;
 
 namespace HW01_04;
