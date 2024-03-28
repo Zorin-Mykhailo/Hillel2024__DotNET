@@ -1,19 +1,19 @@
-# [ДЗ 3 (04.01) Web API. REST API](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/65f2ff97dcabf5dbd18dcb0f)
+п»ї# [Р”Р— 3 (04.01) Web API. REST API](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/65f2ff97dcabf5dbd18dcb0f)
 
-Створити REST API для інтернет магазина за допомогою Web API.
-Зберігати все в MS SQL базу даних за допомогою code-first підходу, використовуючи Entity Framework Core.
+РЎС‚РІРѕСЂРёС‚Рё REST API РґР»СЏ С–РЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅР° Р·Р° РґРѕРїРѕРјРѕРіРѕСЋ Web API.
+Р—Р±РµСЂС–РіР°С‚Рё РІСЃРµ РІ MS SQL Р±Р°Р·Сѓ РґР°РЅРёС… Р·Р° РґРѕРїРѕРјРѕРіРѕСЋ code-first РїС–РґС…РѕРґСѓ, РІРёРєРѕСЂРёСЃС‚РѕРІСѓСЋС‡Рё Entity Framework Core.
 
-Таблицi:
+РўР°Р±Р»РёС†i:
 - Category
 - Product
 - Order
 - Customer
-- і т.д.
+- С– С‚.Рґ.
 
-Створити ендпоінти для CRUD (create, read, update, delete) операцій із кожною сутністю.
-Використовувати HTTP методи (GET, POST, PUT, PATCH, DELETE).
+РЎС‚РІРѕСЂРёС‚Рё РµРЅРґРїРѕС–РЅС‚Рё РґР»СЏ CRUD (create, read, update, delete) РѕРїРµСЂР°С†С–Р№ С–Р· РєРѕР¶РЅРѕСЋ СЃСѓС‚РЅС–СЃС‚СЋ.
+Р’РёРєРѕСЂРёСЃС‚РѕРІСѓРІР°С‚Рё HTTP РјРµС‚РѕРґРё (GET, POST, PUT, PATCH, DELETE).
 
-Необхідно, що API відповідало підходам REST API.
-- [Гайд по написанию требований к REST API](https://wearecommunity.io/communities/bakyiv/articles/1264)
+РќРµРѕР±С…С–РґРЅРѕ, С‰Рѕ API РІС–РґРїРѕРІС–РґР°Р»Рѕ РїС–РґС…РѕРґР°Рј REST API.
+- [Р“Р°Р№Рґ РїРѕ РЅР°РїРёСЃР°РЅРёСЋ С‚СЂРµР±РѕРІР°РЅРёР№ Рє REST API](https://wearecommunity.io/communities/bakyiv/articles/1264)
 - [6 Rules of REST APIs](https://appmaster.io/blog/the-six-rules-of-rest-apis)
-- [Які є конвенції в REST API та для чого їх дотримуватись](https://dou.ua/forums/topic/34550/)
+- [РЇРєС– С” РєРѕРЅРІРµРЅС†С–С— РІ REST API С‚Р° РґР»СЏ С‡РѕРіРѕ С—С… РґРѕС‚СЂРёРјСѓРІР°С‚РёСЃСЊ](https://dou.ua/forums/topic/34550/)
