@@ -2,6 +2,8 @@
 using Store.Contract.Request.Category;
 using Store.Contract.Response.Category;
 using Store.Service;
+using Store.Service.CommandsAndQueries.CategoryCommands;
+using System.Dynamic;
 
 namespace Store.Api.Controllers;
 
@@ -17,8 +19,20 @@ public class CategoryController : ControllerBase
     public async Task<IActionResult> GetCategoryByIdAsync(int categoryId, [FromServices] IRequestHandler<int, CategoryResponse> getCategoryByIdQuery)
         => Ok(await getCategoryByIdQuery.Handle(categoryId));
 
-    public async Task<IActionResult> UpsertCategoryAsync([FromServices] IRequestHandler<UpsertCategoryRequest, CategoryResponse> upsertCategoryComand, [FromBody] UpsertCategoryRequest request)
+    public async Task<IActionResult> UpsertCategoryAsync([FromServices] IRequestHandler<UpsertCategoryCommand, CategoryResponse> upsertCategoryComand, [FromBody] UpsertCategoryRequest request)
     {
-        var category = await upsertCategoryComand.Handle(new UpsertCa);
+        var category = await upsertCategoryComand.Handle(new UpsertCategoryCommand
+        {
+             Id = request.Id,
+             Name = request.Name,
+             Description = request.Description,
+             CreatedDate = request.CreatedDate,
+        });
+
+        return Ok(category);
     }
+
+    [HttpDelete("{categoryId}")]
+    public async Task<IActionResult> DeleteCategoryById(int categoryId, [FromServices] IRequestHandler<DeleteCategoryCommand, bool> deleteCategoryByIdCommand)
+        => await deleteCategoryByIdCommand.Handle(new DeleteCategoryCommand { CategoryId = categoryId }) ? Ok(true) : NotFound();
 }
