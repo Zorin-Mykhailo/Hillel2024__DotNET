@@ -1,0 +1,41 @@
+POST {{HostAddress}}/Category
+content-type: application/json
+
+{
+    "id": 1,
+    "name": "Ноутбуки та комп'ютери",
+    "description": ""
+}
+
+###
+
+POST {{HostAddress}}/Category
+content-type: application/json
+
+{
+    "id": 2,
+    "name": "Смартфони, ТВ та електроніка",
+    "description": ""
+}
+
+###
+
+POST {{HostAddress}}/Category
+content-type: application/json
+
+{
+    "id": 3,
+    "name": "Товари для геймерів",
+    "description": ""
+}
+
+###
+
+POST {{HostAddress}}/Category
+content-type: application/json
+
+{
+    "id": 4,
+    "name": "Побутова техніка",
+    "description": "Пральні маниши; Холодильники; Праски; тощо"
+}

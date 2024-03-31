@@ -1,6 +1,0 @@
-@Store.Api_HostAddress = https://localhost:30443
-
-GET {{Store.Api_HostAddress}}/Category/
-Accept: application/json
-
-###
