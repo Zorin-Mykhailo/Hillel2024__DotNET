@@ -85,7 +85,7 @@ public class DesignTimeAppDbContextContextFactory : IDesignTimeDbContextFactory<
     {
         IConfigurationBuilder builder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: false);
+            .AddJsonFile("appsettings.Development.json", optional: false);
 
         IConfigurationRoot config = builder.Build();
         return config;

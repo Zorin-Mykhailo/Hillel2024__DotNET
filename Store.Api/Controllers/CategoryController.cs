@@ -19,6 +19,7 @@ public class CategoryController : ControllerBase
     public async Task<IActionResult> GetCategoryByIdAsync(int categoryId, [FromServices] IRequestHandler<int, CategoryResponse> getCategoryByIdQuery)
         => Ok(await getCategoryByIdQuery.Handle(categoryId));
 
+    [HttpPost]
     public async Task<IActionResult> UpsertCategoryAsync([FromServices] IRequestHandler<UpsertCategoryCommand, CategoryResponse> upsertCategoryComand, [FromBody] UpsertCategoryRequest request)
     {
         var category = await upsertCategoryComand.Handle(new UpsertCategoryCommand
@@ -26,7 +27,6 @@ public class CategoryController : ControllerBase
              Id = request.Id,
              Name = request.Name,
              Description = request.Description,
-             CreatedDate = request.CreatedDate,
         });
 
         return Ok(category);

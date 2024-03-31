@@ -13,17 +13,21 @@ builder.Services.AddCore(builder.Configuration);
 builder.Services.AddLogging();
 builder.Services.AddDefaultCorrelationId();
 var app = builder.Build();
+
 if(app.Environment.IsDevelopment())
 {
     app.UseSwagger();
+    //app.UseSwaggerUI();
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("v1/swagger.json", "Movie Manager API V1");
         c.OAuthAppName("Movie Manager API");
     });
 }
-//app.UseCorrelationId();
-//app.UseMiddleware<GlobalExceptionMiddleware>();
+app.UseDeveloperExceptionPage();
+
+app.UseCorrelationId();
+app.UseMiddleware<GlobalExceptionMiddleware>();
 //app.UseHttpLogging();
 app.UseHttpsRedirection();
 app.UseAuthorization();

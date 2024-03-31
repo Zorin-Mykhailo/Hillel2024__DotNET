@@ -12,8 +12,8 @@ using Store.Data.Context;
 namespace Store.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240329122800_InitialStore")]
-    partial class InitialStore
+    [Migration("20240331104517_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,9 @@ namespace Store.Data.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastModifiedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
