@@ -1,4 +1,8 @@
-POST {{HostAddress}}/Category
+###
+# --- Upsert categories --------------------
+###
+
+POST {{Store_HostAddress}}/Category
 content-type: application/json
 
 {
@@ -9,7 +13,7 @@ content-type: application/json
 
 ###
 
-POST {{HostAddress}}/Category
+POST {{Store_HostAddress}}/Category
 content-type: application/json
 
 {
@@ -20,7 +24,7 @@ content-type: application/json
 
 ###
 
-POST {{HostAddress}}/Category
+POST {{Store_HostAddress}}/Category
 content-type: application/json
 
 {
@@ -31,7 +35,7 @@ content-type: application/json
 
 ###
 
-POST {{HostAddress}}/Category
+POST {{Store_HostAddress}}/Category
 content-type: application/json
 
 {
@@ -39,3 +43,22 @@ content-type: application/json
     "name": "Побутова техніка",
     "description": "Пральні маниши; Холодильники; Праски; тощо"
 }
+
+###
+# --- Get categories --------------------
+###
+
+GET {{Store_HostAddress}}/Category
+content-type: application/json
+
+###
+
+GET {{Store_HostAddress}}/Category/2
+content-type: application/json
+
+###
+# --- Delete category --------------------
+###
+
+DELETE {{Store_HostAddress}}/Category/1
+content-type: application/json

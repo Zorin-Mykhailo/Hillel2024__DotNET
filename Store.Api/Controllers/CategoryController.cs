@@ -12,11 +12,11 @@ namespace Store.Api.Controllers;
 public class CategoryController : ControllerBase
 {
     [HttpGet]
-    public async Task<IActionResult> GetCategoryAsync([FromServices] IRequestHandler<IList<CategoryResponse>> getCategoriesQuery)
+    public async Task<IActionResult> GetCategoriesAsync([FromServices] IRequestHandler<IList<CategoryResponse>> getCategoriesQuery)
         => Ok(await getCategoriesQuery.Handle());
 
     [HttpGet("{categoryId}")]
-    public async Task<IActionResult> GetCategoryByIdAsync(int categoryId, [FromServices] IRequestHandler<int, CategoryResponse> getCategoryByIdQuery)
+    public async Task<IActionResult> GetCategoryByIdAsync(int categoryId, [FromServices] IRequestHandler<int, CategoryResponse?> getCategoryByIdQuery)
         => Ok(await getCategoryByIdQuery.Handle(categoryId));
 
     [HttpPost]
