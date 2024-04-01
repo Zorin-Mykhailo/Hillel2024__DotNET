@@ -12,7 +12,7 @@ using Store.Data.Context;
 namespace Store.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240331104517_Initial")]
+    [Migration("20240401075609_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -84,6 +84,9 @@ namespace Store.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("LastModifiedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(250)
@@ -107,6 +110,9 @@ namespace Store.Data.Migrations
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("LastModifiedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<double>("TotalSum")
                         .HasColumnType("float");
@@ -151,13 +157,14 @@ namespace Store.Data.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastModifiedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

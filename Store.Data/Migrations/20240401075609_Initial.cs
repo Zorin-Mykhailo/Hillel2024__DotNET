@@ -34,6 +34,7 @@ namespace Store.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -49,8 +50,9 @@ namespace Store.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CurrentPricePerUnit = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
@@ -65,6 +67,7 @@ namespace Store.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CustomerId = table.Column<int>(type: "int", nullable: false),
                     TotalSum = table.Column<double>(type: "float", nullable: false)
                 },

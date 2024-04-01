@@ -2,7 +2,8 @@
 using Store.Contract.Responses;
 using Store.Data.Context;
 
-namespace Store.Service.CommandsAndQueries.CategoryQueries;
+namespace Store.Service.Queries;
+
 public class GetCategoriesQueryHandler(AppDbContext appDbContext) : IRequestHandler<IList<CategoryResponse>>
 {
     public async Task<IList<CategoryResponse>> Handle(CancellationToken cancellationToken = default)

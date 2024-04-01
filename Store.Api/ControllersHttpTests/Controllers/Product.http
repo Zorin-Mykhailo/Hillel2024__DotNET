@@ -1,7 +1,7 @@
-# For more info on HTTP files go to https://aka.ms/vs/httpfile
+﻿# For more info on HTTP files go to https://aka.ms/vs/httpfile
 
 ###
-# --- Upsert products --------------------
+# ███ Upsert products ██████████████████████████████████████████████████
 ###
 
 POST {{Store_HostAddress}}/Product
@@ -9,12 +9,158 @@ content-type: application/json
 
 {
     "id": 1,
-    "name": "�������� �� ����'�����",
-    "description": ""
+    "name": "Ноутбук Lenovo IdeaPad Slim 5 16IAH8 (83BG001ARA) Cloud Grey / 16\" IPS WUXGA / Intel Core i5-12450H / RAM 16 ГБ / SSD 512 ГБ / Підсвічування клавіатури / Зарядка через Type-C",
+    "description": "Екран 16\" IPS (1920x1200) WUXGA, матовий / Intel Core i5-12450H (2.0 - 4.4 ГГц) / RAM 16 ГБ / SSD 512 ГБ / Intel UHD Graphics / без ОД / Wi-Fi / Bluetooth / веб-камера / без ОС / 1.89 кг / сірий",
+    "currentPricePerUnit" : 25999.00
 }
 
 ###
-# --- Get products --------------------
+
+POST {{Store_HostAddress}}/Product
+content-type: application/json
+
+{
+    "id": 2,
+    "name": "Ноутбук Acer Aspire 7 A715-76G-560W (NH.QMMEU.002) Charcoal Black / Intel Core i5-12450H / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce RTX 3050, 4 ГБ / Підсвітка клавіатури",
+    "description": "Екран 15.6\" IPS (1920x1080) Full HD, матовий / Intel Core i5-12450H (2.0 - 4.4 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce RTX 3050, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.1 кг / чорний",
+    "currentPricePerUnit" : 32999.00
+}
+
+###
+
+POST {{Store_HostAddress}}/Product
+content-type: application/json
+
+{
+    "id": 3,
+    "name": "Ноутбук ASUS TUF Gaming F15 (2022) FX507ZC4-HN087 (90NR0GW1-M00HJ0) Mecha Gray / 15.6\" IPS Full HD 144 Гц / Intel Core i5-12500H / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce RTX 3050",
+    "description": "Екран 15.6\" IPS (1920x1080) Full HD 144 Гц, матовий / Intel Core i5-12500H (2.5 - 4.5 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce RTX 3050, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / вебкамера / без ОС / 2.2 кг / сірий",
+    "currentPricePerUnit" : 35499.00
+}
+
+###
+
+POST {{Store_HostAddress}}/Product
+content-type: application/json
+
+{
+    "id": 4,
+    "name": "Ноутбук Apple MacBook Air 13\" M1 8/256GB 2020 (MGN63) Space Gray",
+    "description": "Екран 13.3\" Retina (2560x1600) WQXGA, глянсовий / Apple M1 / RAM 8 ГБ / SSD 256 ГБ / Apple M1 Graphics / Wi-Fi / Bluetooth / macOS Big Sur / 1.29 кг / сірий",
+    "currentPricePerUnit" : 43499.00
+}
+
+###
+
+POST {{Store_HostAddress}}/Product
+content-type: application/json
+
+{
+    "id": 5,
+    "name": "Ноутбук HP Laptop 15s-fq5032ua (8F322EA) Spruce Blue / Intel Core i5-1235U / RAM 16 ГБ / SSD 512 ГБ",
+    "description": "Экран 15.6\" IPS (1920x1080) Full HD, матовый / Intel Core i5-1235U (0.9 - 4.4 ГГц) / RAM 16 ГБ / SSD 512 ГБ / Intel Iris Xe Graphics / без ОД / Wi-Fi / Bluetooth / веб-камера / DOS / 1.69 кг / синий с серебристым",
+    "currentPricePerUnit" : 22999.00
+}
+
+###
+
+POST {{Store_HostAddress}}/Product
+content-type: application/json
+
+{
+    "id": 6,
+    "name": "Мобільний телефон Samsung Galaxy A24 6/128GB Black (SM-A245FZKVSEK)",
+    "description": "Екран (6.5\", Super AMOLED, 2340x1080) / Mediatek Helio G99 (2 x 2.6 ГГц + 6 x 2.0 ГГц) / основна потрійна камера: 50 Мп + 5 Мп + 2 Мп, фронтальна камера: 13 Мп / RAM 6 ГБ / 128 ГБ вбудованої пам'яті + microSD (до 1 ТБ) / 3G / LTE / GPS / ГЛОНАСС / BDS / підтримка 2х SIM-карток (Nano-SIM) / Android 13 / 5000 мА*год",
+    "currentPricePerUnit" : 7599.00
+}
+
+###
+
+POST {{Store_HostAddress}}/Product
+content-type: application/json
+
+{
+    "id": 7,
+    "name": "Телевізор LG 50UR81006LJ",
+    "description": "Екран (50\", 3840x2160) / WebOS",
+    "currentPricePerUnit" : 20999.00
+}
+
+###
+
+POST {{Store_HostAddress}}/Product
+content-type: application/json
+
+{
+    "id": 8,
+    "name": "Планшет Lenovo Tab M10 Plus (3rd Gen) 4/64 Wi-Fi Storm Grey (ZAAM0190UA) + чохол у комплекті!",
+    "description": "Екран 10.61\" IPS (2000x1200), MultiTouch / Qualcomm Snapdragon 680 (2.4 ГГц + 1.9 ГГц) / RAM 4 ГБ / 64 ГБ вбудованої пам'яті + microSD / Wi-Fi / Bluetooth 5.1 / основная камера 8 Мп + фронтальна - 8 Мп / GPS / ГЛОНАСС / Android 12 / 465 г / сірий",
+    "currentPricePerUnit" : 6999.00
+}
+
+###
+
+POST {{Store_HostAddress}}/Product
+content-type: application/json
+
+{
+    "id": 9,
+    "name": "Зарядна станція EcoFlow DELTA 2 (ZMR330-EU)",
+    "description": "1.024 кВт/год / LiFePO4/ Швидке заряджання батареї",
+    "currentPricePerUnit" : 38999.00
+}
+
+###
+
+POST {{Store_HostAddress}}/Product
+content-type: application/json
+
+{
+    "id": 10,
+    "name": "Смарт-годинник Amazfit GTR 4 Superspeed Black (955544)",
+    "description": "Екран (1.43\", AMOLED) / 475 мА·год",
+    "currentPricePerUnit" : 6999.00
+}
+
+###
+
+POST {{Store_HostAddress}}/Product
+content-type: application/json
+
+{
+    "id": 11,
+    "name": "Пральна машина вузька LG F2J3WS2W",
+    "description": "6.5 кг / 85 х 60 х 44",
+    "currentPricePerUnit" : 16499.00
+}
+
+###
+
+POST {{Store_HostAddress}}/Product
+content-type: application/json
+
+{
+    "id": 12,
+    "name": "Робот-пилосос Xiaomi Robot Vacuum X10+ EU",
+    "description": "Сухе та вологе прибирання, док станція",
+    "currentPricePerUnit" : 35999.00
+}
+
+###
+
+POST {{Store_HostAddress}}/Product
+content-type: application/json
+
+{
+    "id": 13,
+    "name": "Двокамерний холодильник Whirlpool W7X 82O OX H",
+    "description": "378 л + 248 л / Двокамерний, інверторний / No Frost / 191.2 х 59.6 х 67.8 см",
+    "currentPricePerUnit" : 20555
+}
+
+
+###
+# ███ Get products ██████████████████████████████████████████████████
 ###
 
 GET {{Store_HostAddress}}/Product
@@ -26,7 +172,7 @@ GET {{Store_HostAddress}}/Product/1
 content-type: application/json
 
 ###
-# --- Delete product --------------------
+# ███ Delete products ██████████████████████████████████████████████████
 ###
 
 DELETE {{Store_HostAddress}}/Product/1

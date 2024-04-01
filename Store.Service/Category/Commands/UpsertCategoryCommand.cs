@@ -3,7 +3,7 @@ using Store.Contract.Responses;
 using Store.Data.Context;
 using Store.Data.Entities;
 
-namespace Store.Service.Queries;
+namespace Store.Service.Commands;
 
 public class UpsertCategoryCommand
 {

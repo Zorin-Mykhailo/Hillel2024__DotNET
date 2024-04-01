@@ -2,10 +2,6 @@
 
 public class UpsertProductRequest
 {
-    public DateTime CreatedDate { get; set; }
-
-    public DateTime LastModifiedDate { get; set; }
-
     public int Id { get; set; }
 
     public string Name { get; set; } = string.Empty!;

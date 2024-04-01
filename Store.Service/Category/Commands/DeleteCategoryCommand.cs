@@ -9,7 +9,7 @@ public class DeleteCategoryCommand
     public int CategoryId { get; set; }
 }
 
-public class DeleteCategoryCommandHandler(AppDbContext appDbContext): IRequestHandler<DeleteCategoryCommand, bool>
+public class DeleteCategoryCommandHandler(AppDbContext appDbContext) : IRequestHandler<DeleteCategoryCommand, bool>
 {
     public async Task<bool> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
     {

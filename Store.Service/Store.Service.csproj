@@ -11,9 +11,4 @@
     <ProjectReference Include="..\Store.Data\Store.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Product\Commands\" />
-    <Folder Include="Product\Queries\" />
-  </ItemGroup>
-
 </Project>
