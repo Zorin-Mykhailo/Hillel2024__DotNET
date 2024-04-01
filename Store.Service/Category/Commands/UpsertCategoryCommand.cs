@@ -51,8 +51,8 @@ public class UpsertCategoryCommandHandler(AppDbContext appDbContext) : IRequestH
             CreatedDate = category.CreatedDate,
             LastModifiedDate = category.LastModifiedDate,
             Id = category.Id,
-            Name = request.Name,
-            Description = request.Description,
+            Name = category.Name,
+            Description = category.Description,
         };
     }
 

@@ -1,0 +1,53 @@
+﻿###
+# ███ Upsert customer ██████████████████████████████████████████████████
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 1,
+    "name": "Ноутбуки та комп'ютери",
+    "description": "Ноутбуки; Комп'ютери, неттопи, моноблоки; Монітори, Gaming, Планшети, ..."
+}
+
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 2,
+    "name": "Смартфони, ТВ та електроніка",
+    "description": ""
+}
+
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 3,
+    "name": "Побутова техніка",
+    "description": "Пральні маниши; Холодильники; Праски; тощо"
+}
+
+###
+# ███ Get customers ██████████████████████████████████████████████████
+###
+
+GET {{Store_HostAddress}}/Customer
+content-type: application/json
+
+###
+
+GET {{Store_HostAddress}}/Customer/2
+content-type: application/json
+
+###
+# ███ Delete customer ██████████████████████████████████████████████████
+###
+
+DELETE {{Store_HostAddress}}/Customer/1
+content-type: application/json# For more info on HTTP files go to https://aka.ms/vs/httpfile
