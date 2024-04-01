@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Store.Contract.Response.Category;
+using Store.Contract.Responses;
 using Store.Data.Context;
 
 namespace Store.Service.CommandsAndQueries.CategoryQueries;

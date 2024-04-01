@@ -9,6 +9,9 @@ public class Order
     [Required]
     public DateTime CreatedDate { get; set; }
 
+    [Required]
+    public DateTime LastModifiedDate { get; set; }
+
     [Key]
     public int Id { get; set; }
 

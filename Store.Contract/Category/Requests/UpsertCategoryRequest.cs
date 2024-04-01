@@ -1,6 +1,6 @@
-﻿namespace Store.Contract.Response.Category;
+﻿namespace Store.Contract.Requests;
 
-public class CategoryResponse
+public class UpsertCategoryRequest
 {
     public DateTime CreatedDate { get; set; }
 
@@ -11,6 +11,4 @@ public class CategoryResponse
     public string Name { get; set; } = string.Empty!;
 
     public string? Description { get; set; }
-
-    public List<int>? ProductsId { get; set; }
 }

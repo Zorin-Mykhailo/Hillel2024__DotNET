@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Store.Contract.Response.Category;
+using Store.Contract.Responses;
 using Store.Data.Context;
 using Store.Data.Entities;
 
-namespace Store.Service.CommandsAndQueries.CategoryCommands;
+namespace Store.Service.Queries;
+
 public class UpsertCategoryCommand
 {
     public int Id { get; set; }

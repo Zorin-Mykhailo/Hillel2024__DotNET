@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Store.Contract.Response.Category;
+using Store.Contract.Responses;
 using Store.Data.Context;
 
-namespace Store.Service.CommandsAndQueries.CategoryQueries;
+namespace Store.Service.Queries;
+
 internal class GetCategoryByIdQueryHandler(AppDbContext appDbContext) : IRequestHandler<int, CategoryResponse?>
 {
     public async Task<CategoryResponse?> Handle(int categoryId, CancellationToken cancellationToken = default)

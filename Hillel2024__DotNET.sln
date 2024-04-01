@@ -28,13 +28,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW02_01", "HW02_01\HW02_01.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW04", "HW04", "{B737A107-5B44-44A6-B750-9E49A4E55856}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Api", "Store.Api\Store.Api.csproj", "{0D5C91C0-199E-4ACE-9400-000921E41382}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Api", "Store.Api\Store.Api.csproj", "{0D5C91C0-199E-4ACE-9400-000921E41382}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Contract", "Store.Contract\Store.Contract.csproj", "{292EAECD-4D2A-40C8-9555-259C13571D31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Contract", "Store.Contract\Store.Contract.csproj", "{292EAECD-4D2A-40C8-9555-259C13571D31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Data", "Store.Data\Store.Data.csproj", "{C5320D84-79C2-4C3E-BCB1-D393B55FA387}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Data", "Store.Data\Store.Data.csproj", "{C5320D84-79C2-4C3E-BCB1-D393B55FA387}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Service", "Store.Service\Store.Service.csproj", "{04DF9AAD-6487-44B2-AC7F-C861351CBBBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Service", "Store.Service\Store.Service.csproj", "{04DF9AAD-6487-44B2-AC7F-C861351CBBBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,7 +2,7 @@
 using Store.Data.Context;
 using Store.Data.Entities;
 
-namespace Store.Service.CommandsAndQueries.CategoryCommands;
+namespace Store.Service.Commands;
 
 public class DeleteCategoryCommand
 {

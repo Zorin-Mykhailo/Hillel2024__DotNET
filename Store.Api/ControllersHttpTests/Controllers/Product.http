@@ -1,0 +1,33 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+
+###
+# --- Upsert products --------------------
+###
+
+POST {{Store_HostAddress}}/Product
+content-type: application/json
+
+{
+    "id": 1,
+    "name": "Ноутбуки та комп'ютери",
+    "description": ""
+}
+
+###
+# --- Get products --------------------
+###
+
+GET {{Store_HostAddress}}/Product
+content-type: application/json
+
+###
+
+GET {{Store_HostAddress}}/Product/1
+content-type: application/json
+
+###
+# --- Delete product --------------------
+###
+
+DELETE {{Store_HostAddress}}/Product/1
+content-type: application/json
