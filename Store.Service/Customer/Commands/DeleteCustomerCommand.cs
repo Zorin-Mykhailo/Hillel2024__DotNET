@@ -4,10 +4,7 @@ using Store.Data.Entities;
 
 namespace Store.Service.Commands;
 
-public class DeleteCustomerCommand
-{
-    public int CustomerId { get; set; }
-}
+public record DeleteCustomerCommand(int CustomerId);
 
 public class DeleteCustomerCommandHandler(AppDbContext appDbContext) : IRequestHandler<DeleteCustomerCommand, bool>
 {

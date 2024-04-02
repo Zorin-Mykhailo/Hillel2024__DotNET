@@ -23,7 +23,9 @@ public class Product
     [Required]
     public double CurrentPricePerUnit { get; set; }
 
-    public ICollection<Category__Product>? Categories { get; set; }
+    public int CategoryId { get; set; }
 
-    public ICollection<Order__Product>? Orders { get; set; }
+    public Category Category { get; set; } = default!;
+
+    public ICollection<ProductInOrder>? Orders { get; set; }
 }

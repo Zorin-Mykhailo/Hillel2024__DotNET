@@ -20,5 +20,5 @@ public class Category
 
     public string? Description { get; set; }
 
-    public ICollection<Category__Product>? Products { get; set; }
+    public ICollection<Product>? Products { get; set; }
 }

@@ -3,11 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Store.Data.Entities;
 
-[Table($"Orders__Products")]
-public class Order__Product
+[Table($"ProductsInOrders")]
+public class ProductInOrder
 {
     [Required]
     public DateTime CreatedDate { get; set; }
+
+    [Required]
+    public DateTime LastModifiedDate { get; set; }
 
     [Key, Required]
     public int OrderId { get; set; }
@@ -18,4 +21,15 @@ public class Order__Product
     public int ProductId { get; set; }
 
     public Product? Product { get; set; }
+
+    public string? Notes { get; set; } = string.Empty;
+
+    [Required]
+    public double ProductAmount { get; set; }
+
+    [Required]
+    public double PricePerUnit { get; set; }
+
+    [Required]
+    public double TotalSum  { get; set; }
 }

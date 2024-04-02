@@ -12,5 +12,7 @@ public class CategoryResponse
 
     public string? Description { get; set; }
 
-    public List<int>? ProductsId { get; set; }
+
+    //? Як тут варто вчинити?
+    // public List<int>? ProductsId { get; set; }
 }

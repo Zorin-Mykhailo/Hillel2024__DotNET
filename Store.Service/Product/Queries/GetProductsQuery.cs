@@ -18,8 +18,7 @@ public class GetProductsQueryHandler(AppDbContext appDbContext) : IRequestHandle
                 Description = e.Description,
                 Name = e.Name,
                 CurrentPricePerUnit = e.CurrentPricePerUnit,
-                //Categories
-                //Orders
+                CategoryId = e.CategoryId,
             }).OrderByDescending(e => e.Id)
             .ToListAsync(cancellationToken);
     }

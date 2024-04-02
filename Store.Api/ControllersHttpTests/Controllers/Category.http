@@ -46,6 +46,11 @@ GET {{Store_HostAddress}}/Category/2
 content-type: application/json
 
 ###
+
+GET {{Store_HostAddress}}/Category/1/Product/
+content-type: application/json
+
+###
 # ███ Delete category ██████████████████████████████████████████████████
 ###
 

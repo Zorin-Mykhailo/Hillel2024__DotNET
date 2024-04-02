@@ -18,11 +18,9 @@ public class GetProductByIdQueryHandler(AppDbContext appDbContext) : IRequestHan
                 LastModifiedDate = v.LastModifiedDate,
                 Description = v.Description,
                 Id = v.Id,
+                CategoryId = v.CategoryId,
                 Name = v.Name,
                 CurrentPricePerUnit = v.CurrentPricePerUnit,
-
-                //TODO Categories
-                //TODO Orders
             }).SingleOrDefaultAsync(cancellationToken);
     }
 }

@@ -8,6 +8,8 @@ namespace Store.Service.Commands;
 public class UpsertProductComand
 {
     public int Id { get; set; }
+    
+    public int CategoryId { get; set; }
 
     public string Name { get; set; } = string.Empty!;
 
@@ -15,15 +17,15 @@ public class UpsertProductComand
 
     public double CurrentPricePerUnit { get; set; }
 
-    public int CategoryId { get; set; }
 
     public Product UpsertProduct()
     {
         Product product = new ()
         {
+            CategoryId = CategoryId,
             Name = Name,
             Description = Description,
-            CurrentPricePerUnit = CurrentPricePerUnit,            
+            CurrentPricePerUnit = CurrentPricePerUnit,          
         };
         return product;
     }
@@ -43,6 +45,7 @@ public class UpsertProductCommandHandler(AppDbContext appDbContext) : IRequestHa
         }
         else
         {
+            product.CategoryId = request.CategoryId;
             product.Name = request.Name;
             product.Description = request.Description;
             product.CurrentPricePerUnit = request.CurrentPricePerUnit;
@@ -56,6 +59,7 @@ public class UpsertProductCommandHandler(AppDbContext appDbContext) : IRequestHa
             CreatedDate = product.CreatedDate,
             LastModifiedDate = product.LastModifiedDate,
             Id = product.Id,
+            CategoryId = product.CategoryId,
             Name = product.Name,
             Description = product.Description,
             CurrentPricePerUnit = product.CurrentPricePerUnit

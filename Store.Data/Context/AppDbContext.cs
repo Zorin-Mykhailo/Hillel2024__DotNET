@@ -10,25 +10,6 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Category__Product>()
-            .HasKey(k => new { k.CategoryId, k.ProductId });
-
-        modelBuilder.Entity<Category__Product>()
-            .HasOne(o => o.Category)
-            .WithMany(m => m.Products)
-            .HasForeignKey(f => f.CategoryId)
-            .IsRequired()
-            .OnDelete(DeleteBehavior.Cascade);
-
-        modelBuilder.Entity<Category__Product>()
-            .HasOne(o => o.Product)
-            .WithMany(m => m.Categories)
-            .HasForeignKey(f => f.ProductId)
-            .IsRequired()
-            .OnDelete(DeleteBehavior.Cascade);
-
-
-
         modelBuilder.Entity<Order>()
             .HasOne(o => o.Customer)
             .WithMany(m => m.Orders)
@@ -37,17 +18,17 @@ public class AppDbContext : DbContext
 
 
 
-        modelBuilder.Entity<Order__Product>()
+        modelBuilder.Entity<ProductInOrder>()
             .HasKey(k => new { k.OrderId, k.ProductId });
 
-        modelBuilder.Entity<Order__Product>()
+        modelBuilder.Entity<ProductInOrder>()
             .HasOne(o => o.Order)
             .WithMany(m => m.Products)
             .HasForeignKey(f => f.OrderId)
             .IsRequired()
             .OnDelete(DeleteBehavior.Cascade);
 
-        modelBuilder.Entity<Order__Product>()
+        modelBuilder.Entity<ProductInOrder>()
             .HasOne(o => o.Product)
             .WithMany(m => m.Orders)
             .HasForeignKey(f => f.ProductId)
@@ -59,13 +40,11 @@ public class AppDbContext : DbContext
 
     public virtual DbSet<Category> Categories => Set<Category>();
 
-    public virtual DbSet<Category__Product> Categories__Products => Set<Category__Product>();
-
     public virtual DbSet<Customer> Customers => Set<Customer>();
 
     public virtual DbSet<Order> Orders => Set<Order>();
 
-    public virtual DbSet<Order__Product> Orders__Products => Set<Order__Product>();
+    public virtual DbSet<ProductInOrder> Orders__Products => Set<ProductInOrder>();
 
     public virtual DbSet<Product> Products => Set<Product>();
 }

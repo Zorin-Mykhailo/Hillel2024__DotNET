@@ -1,0 +1,42 @@
+﻿###
+# ███ Upsert order ██████████████████████████████████████████████████
+###
+
+POST {{Store_HostAddress}}/Order
+content-type: application/json
+
+{
+    "id": 1,
+    "customerId" : 1,
+    "notes": "Для роботи"
+}
+
+###
+
+POST {{Store_HostAddress}}/Order
+content-type: application/json
+
+{
+    "id": 2,
+    "customerId" : 2,
+    "notes": "Подарунки на день народження"
+}
+
+###
+# ███ Get orders ██████████████████████████████████████████████████
+###
+
+GET {{Store_HostAddress}}/Order
+content-type: application/json
+
+###
+
+GET {{Store_HostAddress}}/Order/1
+content-type: application/json
+
+###
+# ███ Delete order ██████████████████████████████████████████████████
+###
+
+DELETE {{Store_HostAddress}}/Order/1
+content-type: application/json#

@@ -9,4 +9,6 @@ public class UpsertProductRequest
     public string? Description { get; set; }
 
     public double CurrentPricePerUnit { get; set; }
+
+    public int CategoryId { get; set; }
 }

@@ -15,9 +15,10 @@ public class ProductController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> UpsertProductAsync([FromServices] IRequestHandler<UpsertProductComand, ProductResponse> upsertProductComand, [FromBody] UpsertProductRequest request)
     {
-        var product = await upsertProductComand.Handle(new UpsertProductComand
+        ProductResponse product = await upsertProductComand.Handle(new UpsertProductComand
         {
             Id = request.Id,
+            CategoryId = request.CategoryId,
             Name = request.Name,
             Description = request.Description,
             CurrentPricePerUnit = request.CurrentPricePerUnit,
@@ -42,5 +43,5 @@ public class ProductController : ControllerBase
 
     [HttpDelete("{ProductId}")]
     public async Task<IActionResult> DeleteProductById(int productId, [FromServices] IRequestHandler<DeleteProductCommand, bool> deleteProductByIdCommand)
-        => await deleteProductByIdCommand.Handle(new DeleteProductCommand { ProductId = productId }) ? Ok(true) : NotFound();
+        => await deleteProductByIdCommand.Handle(new DeleteProductCommand(productId)) ? Ok(true) : NotFound();
 }

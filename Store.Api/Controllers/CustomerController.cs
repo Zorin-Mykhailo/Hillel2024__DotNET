@@ -14,7 +14,7 @@ public class CustomerController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> UpsertCustomerAsync([FromServices] IRequestHandler<UpsertCustomerCommand, CustomerResponse> upsertCustomerComand, [FromBody] UpsertCustomerRequest request)
     {
-        var customer = await upsertCustomerComand.Handle(new UpsertCustomerCommand
+        CustomerResponse customer = await upsertCustomerComand.Handle(new UpsertCustomerCommand
         {
             Id = request.Id,
             Name = request.Name,
@@ -40,5 +40,5 @@ public class CustomerController : ControllerBase
 
     [HttpDelete("{customerId}")]
     public async Task<IActionResult> DeleteCustomerById(int customerId, [FromServices] IRequestHandler<DeleteCustomerCommand, bool> deleteCustomerByIdCommand)
-        => await deleteCustomerByIdCommand.Handle(new DeleteCustomerCommand { CustomerId = customerId }) ? Ok(true) : NotFound();
+        => await deleteCustomerByIdCommand.Handle(new DeleteCustomerCommand(customerId)) ? Ok(true) : NotFound();
 }

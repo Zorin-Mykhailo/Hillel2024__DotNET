@@ -49,24 +49,6 @@ namespace Store.Data.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("Store.Data.Entities.Category__Product", b =>
-                {
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("CategoryId", "ProductId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Categories__Products");
-                });
-
             modelBuilder.Entity("Store.Data.Entities.Customer", b =>
                 {
                     b.Property<int>("Id")
@@ -111,6 +93,9 @@ namespace Store.Data.Migrations
                     b.Property<DateTime>("LastModifiedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<double>("TotalSum")
                         .HasColumnType("float");
 
@@ -121,24 +106,6 @@ namespace Store.Data.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("Store.Data.Entities.Order__Product", b =>
-                {
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("OrderId", "ProductId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Orders__Products");
-                });
-
             modelBuilder.Entity("Store.Data.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -146,6 +113,9 @@ namespace Store.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -165,26 +135,42 @@ namespace Store.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Store.Data.Entities.Category__Product", b =>
+            modelBuilder.Entity("Store.Data.Entities.ProductInOrder", b =>
                 {
-                    b.HasOne("Store.Data.Entities.Category", "Category")
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
 
-                    b.HasOne("Store.Data.Entities.Product", "Product")
-                        .WithMany("Categories")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
 
-                    b.Navigation("Category");
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
 
-                    b.Navigation("Product");
+                    b.Property<DateTime>("LastModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("PricePerUnit")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ProductAmount")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TotalSum")
+                        .HasColumnType("float");
+
+                    b.HasKey("OrderId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductsInOrders");
                 });
 
             modelBuilder.Entity("Store.Data.Entities.Order", b =>
@@ -198,7 +184,18 @@ namespace Store.Data.Migrations
                     b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("Store.Data.Entities.Order__Product", b =>
+            modelBuilder.Entity("Store.Data.Entities.Product", b =>
+                {
+                    b.HasOne("Store.Data.Entities.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Store.Data.Entities.ProductInOrder", b =>
                 {
                     b.HasOne("Store.Data.Entities.Order", "Order")
                         .WithMany("Products")
@@ -234,8 +231,6 @@ namespace Store.Data.Migrations
 
             modelBuilder.Entity("Store.Data.Entities.Product", b =>
                 {
-                    b.Navigation("Categories");
-
                     b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618

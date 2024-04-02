@@ -36,9 +36,14 @@ public class CategoryController : ControllerBase
     public async Task<IActionResult> GetCategoryByIdAsync(int categoryId, [FromServices] IRequestHandler<int, CategoryResponse?> getCategoryByIdQuery)
         => Ok(await getCategoryByIdQuery.Handle(categoryId));
 
+    
+    [HttpGet("{categoryId}/Product")]
+    public async Task<IActionResult> GetCategoryByIdWithProductsAsync(int categoryId, [FromServices] IRequestHandler<int, CategoryWithProductsResponse?> getCategoryByIdQuery)
+        => Ok(await getCategoryByIdQuery.Handle(categoryId));
+
 
 
     [HttpDelete("{categoryId}")]
     public async Task<IActionResult> DeleteCategoryById(int categoryId, [FromServices] IRequestHandler<DeleteCategoryCommand, bool> deleteCategoryByIdCommand)
-        => await deleteCategoryByIdCommand.Handle(new DeleteCategoryCommand { CategoryId = categoryId }) ? Ok(true) : NotFound();
+        => await deleteCategoryByIdCommand.Handle(new DeleteCategoryCommand(categoryId)) ? Ok(true) : NotFound();
 }

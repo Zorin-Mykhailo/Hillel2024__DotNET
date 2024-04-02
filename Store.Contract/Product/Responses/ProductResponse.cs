@@ -14,7 +14,5 @@ public class ProductResponse
 
     public double CurrentPricePerUnit { get; set; }
 
-    public List<int>? Categories { get; set; }
-
-    public List<int>? Orders { get; set; }
+    public int CategoryId { get; set; }
 }

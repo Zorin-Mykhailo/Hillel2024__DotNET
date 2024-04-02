@@ -16,8 +16,7 @@ public class GetCategoriesQueryHandler(AppDbContext appDbContext) : IRequestHand
                 LastModifiedDate = v.LastModifiedDate,
                 Id = v.Id,
                 Description = v.Description,
-                Name = v.Name,
-                ProductsId = v.Products == null ? new List<int>() : v.Products.Select(e => e.ProductId).ToList(),
+                Name = v.Name,                
             }).OrderByDescending(e => e.Id)
             .ToListAsync(cancellationToken);
     }    

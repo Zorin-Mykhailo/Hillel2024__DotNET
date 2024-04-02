@@ -4,10 +4,7 @@ using Store.Data.Entities;
 
 namespace Store.Service.Commands;
 
-public class DeleteCategoryCommand
-{
-    public int CategoryId { get; set; }
-}
+public record DeleteCategoryCommand(int CategoryId);
 
 public class DeleteCategoryCommandHandler(AppDbContext appDbContext) : IRequestHandler<DeleteCategoryCommand, bool>
 {
