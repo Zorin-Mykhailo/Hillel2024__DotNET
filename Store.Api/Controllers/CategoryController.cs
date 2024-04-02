@@ -14,7 +14,7 @@ public class CategoryController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> UpsertCategoryAsync([FromServices] IRequestHandler<UpsertCategoryCommand, CategoryResponse> upsertCategoryComand, [FromBody] UpsertCategoryRequest request)
     {
-        var category = await upsertCategoryComand.Handle(new UpsertCategoryCommand
+        CategoryResponse category = await upsertCategoryComand.Handle(new UpsertCategoryCommand
         {
             Id = request.Id,
             Name = request.Name,
