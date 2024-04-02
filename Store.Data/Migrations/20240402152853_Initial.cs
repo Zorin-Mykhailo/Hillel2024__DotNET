@@ -91,7 +91,7 @@ namespace Store.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductsInOrders",
+                name: "OrdersProducts",
                 columns: table => new
                 {
                     OrderId = table.Column<int>(type: "int", nullable: false),
@@ -105,15 +105,15 @@ namespace Store.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductsInOrders", x => new { x.OrderId, x.ProductId });
+                    table.PrimaryKey("PK_OrdersProducts", x => new { x.OrderId, x.ProductId });
                     table.ForeignKey(
-                        name: "FK_ProductsInOrders_Orders_OrderId",
+                        name: "FK_OrdersProducts_Orders_OrderId",
                         column: x => x.OrderId,
                         principalTable: "Orders",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProductsInOrders_Products_ProductId",
+                        name: "FK_OrdersProducts_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
@@ -126,21 +126,21 @@ namespace Store.Data.Migrations
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_OrdersProducts_ProductId",
+                table: "OrdersProducts",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",
                 table: "Products",
                 column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProductsInOrders_ProductId",
-                table: "ProductsInOrders",
-                column: "ProductId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ProductsInOrders");
+                name: "OrdersProducts");
 
             migrationBuilder.DropTable(
                 name: "Orders");

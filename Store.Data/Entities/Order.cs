@@ -20,7 +20,7 @@ public class Order
 
     public Customer? Customer { get; set; }
 
-    public ICollection<ProductInOrder>? Products { get; set; }
+    public ICollection<OrderProduct>? Products { get; set; }
 
     [Required]
     public double TotalSum { get; set; }

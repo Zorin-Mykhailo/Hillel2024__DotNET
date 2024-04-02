@@ -27,5 +27,5 @@ public class Product
 
     public Category Category { get; set; } = default!;
 
-    public ICollection<ProductInOrder>? Orders { get; set; }
+    public ICollection<OrderProduct>? Orders { get; set; }
 }

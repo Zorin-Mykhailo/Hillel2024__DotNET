@@ -18,17 +18,17 @@ public class AppDbContext : DbContext
 
 
 
-        modelBuilder.Entity<ProductInOrder>()
+        modelBuilder.Entity<OrderProduct>()
             .HasKey(k => new { k.OrderId, k.ProductId });
 
-        modelBuilder.Entity<ProductInOrder>()
+        modelBuilder.Entity<OrderProduct>()
             .HasOne(o => o.Order)
             .WithMany(m => m.Products)
             .HasForeignKey(f => f.OrderId)
             .IsRequired()
             .OnDelete(DeleteBehavior.Cascade);
 
-        modelBuilder.Entity<ProductInOrder>()
+        modelBuilder.Entity<OrderProduct>()
             .HasOne(o => o.Product)
             .WithMany(m => m.Orders)
             .HasForeignKey(f => f.ProductId)
@@ -44,7 +44,7 @@ public class AppDbContext : DbContext
 
     public virtual DbSet<Order> Orders => Set<Order>();
 
-    public virtual DbSet<ProductInOrder> Orders__Products => Set<ProductInOrder>();
+    public virtual DbSet<OrderProduct> Orders__Products => Set<OrderProduct>();
 
     public virtual DbSet<Product> Products => Set<Product>();
 }

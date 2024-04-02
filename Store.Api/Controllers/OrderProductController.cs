@@ -9,6 +9,6 @@ namespace Store.Api.Controllers;
 
 [Route("[Controller]")]
 [ApiController]
-public class ProductInOrderController : ControllerBase
+public class OrderProductController : ControllerBase
 {
 }

@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Store.Data.Entities;
 
-[Table($"ProductsInOrders")]
-public class ProductInOrder
+[Table($"OrdersProducts")]
+public class OrderProduct
 {
     [Required]
     public DateTime CreatedDate { get; set; }

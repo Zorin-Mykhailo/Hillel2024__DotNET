@@ -106,6 +106,39 @@ namespace Store.Data.Migrations
                     b.ToTable("Orders");
                 });
 
+            modelBuilder.Entity("Store.Data.Entities.OrderProduct", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("LastModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("PricePerUnit")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ProductAmount")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TotalSum")
+                        .HasColumnType("float");
+
+                    b.HasKey("OrderId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrdersProducts");
+                });
+
             modelBuilder.Entity("Store.Data.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -140,39 +173,6 @@ namespace Store.Data.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Store.Data.Entities.ProductInOrder", b =>
-                {
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("LastModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Notes")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("PricePerUnit")
-                        .HasColumnType("float");
-
-                    b.Property<double>("ProductAmount")
-                        .HasColumnType("float");
-
-                    b.Property<double>("TotalSum")
-                        .HasColumnType("float");
-
-                    b.HasKey("OrderId", "ProductId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductsInOrders");
-                });
-
             modelBuilder.Entity("Store.Data.Entities.Order", b =>
                 {
                     b.HasOne("Store.Data.Entities.Customer", "Customer")
@@ -184,18 +184,7 @@ namespace Store.Data.Migrations
                     b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("Store.Data.Entities.Product", b =>
-                {
-                    b.HasOne("Store.Data.Entities.Category", "Category")
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("Store.Data.Entities.ProductInOrder", b =>
+            modelBuilder.Entity("Store.Data.Entities.OrderProduct", b =>
                 {
                     b.HasOne("Store.Data.Entities.Order", "Order")
                         .WithMany("Products")
@@ -212,6 +201,17 @@ namespace Store.Data.Migrations
                     b.Navigation("Order");
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Store.Data.Entities.Product", b =>
+                {
+                    b.HasOne("Store.Data.Entities.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Store.Data.Entities.Category", b =>
