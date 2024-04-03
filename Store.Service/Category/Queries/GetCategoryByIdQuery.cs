@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Store.Contract.Responses;
-using Store.Data.Context;
+using Store.Data.Db;
 
 namespace Store.Service.Queries;
 
@@ -14,12 +14,10 @@ internal class GetCategoryByIdQueryHandler(AppDbContext appDbContext) : IRequest
             .Select(e => new CategoryResponse
             {
                 CreatedDate = e.CreatedDate,
-                LastModifiedDate = e.LastModifiedDate,
+                UpdateDate = e.UpdateDate,
                 Id = e.Id,
                 Description = e.Description,
-                Name = e.Name,
-                //TODO products
-                //ProductsId = e.Products == null ? new List<int>() : e.Products.Select(e => e.ProductId).ToList(),
+                Name = e.Name
             }).SingleOrDefaultAsync(cancellationToken);
     }
 }

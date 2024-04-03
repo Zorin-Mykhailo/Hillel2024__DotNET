@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Store.Contract.Responses;
-using Store.Data.Context;
+using Store.Data.Db;
 
 namespace Store.Service.Queries;
 
@@ -12,21 +12,21 @@ public class GetOrderByIdQueryHandler(AppDbContext appDbContext) : IRequestHandl
             .AsNoTracking()
             .Where(e => e.Id == orderId)
             .Include(e => e.Customer)
-            .Select(e => new OrderResponse
+            .Include(e => e.OrderLines)            
+            .Select(e => new OrderResponse(e.Id, e.CreatedDate, e.UpdateDate)
             {
-                CreatedDate = e.CreatedDate,
-                LastModifiedDate = e.LastModifiedDate,
-                Id = e.Id,
                 Notes = e.Notes,
                 CustomerId = e.CustomerId,
                 Customer = new CustomerResponse()
                 {
                     CreatedDate = e.Customer!.CreatedDate,
-                    LastModifiedDate = e.Customer!.LastModifiedDate,
+                    UdateDate = e.Customer!.UpdateDate,
                     Id = e.Customer!.Id,
                     Name = e.Customer!.Name,
                     Description = e.Customer!.Description,
-                }
+                },
+                TotalSum = e.TotalSum,
+
             }).SingleOrDefaultAsync(cancellationToken);
     }
 

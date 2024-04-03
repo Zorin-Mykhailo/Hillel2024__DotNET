@@ -3,6 +3,9 @@ using CorrelationId.DependencyInjection;
 using Store.Api.Middleware;
 using Store.Api.Modules;
 
+//Console.WriteLine(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"));
+
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();

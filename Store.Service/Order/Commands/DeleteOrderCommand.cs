@@ -1,14 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Store.Data.Context;
+using Store.Contract.Requests;
+using Store.Data.Db;
 using Store.Data.Entities;
 
 namespace Store.Service.Commands;
 
-public record DeleteOrderCommand(int OrderId);
-
-public class DeleteOrderCommandHandler(AppDbContext appDbContext) : IRequestHandler<DeleteOrderCommand, bool>
+public class DeleteOrderCommandHandler(AppDbContext appDbContext) : IRequestHandler<DeleteOrderRequest, bool>
 {
-    public async Task<bool> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
+    public async Task<bool> Handle(DeleteOrderRequest request, CancellationToken cancellationToken)
     {
         Order? order = await GetOrderAsync(request.OrderId, cancellationToken);
         if(order == null) return false;

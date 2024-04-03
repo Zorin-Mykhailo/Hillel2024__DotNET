@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Store.Contract.Responses;
-using Store.Data.Context;
+using Store.Data.Db;
 
 namespace Store.Service.Queries;
 
@@ -13,11 +13,10 @@ public class GetCustomersQueryHandler(AppDbContext appDbContext) : IRequestHandl
             .Select(e => new  CustomerResponse
             {
                 CreatedDate = e.CreatedDate,
-                LastModifiedDate = e.LastModifiedDate,
+                UdateDate = e.UpdateDate,
                 Id = e.Id,
                 Description = e.Description,
                 Name = e.Name,
-                //TODO orders
             }).OrderByDescending(e => e.Id)
             .ToListAsync(cancellationToken);
     }

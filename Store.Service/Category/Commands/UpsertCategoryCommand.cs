@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Store.Contract.Responses;
-using Store.Data.Context;
+using Store.Data.Db;
 using Store.Data.Entities;
 
 namespace Store.Service.Commands;
@@ -30,11 +30,11 @@ public class UpsertCategoryCommandHandler(AppDbContext appDbContext) : IRequestH
     public async Task<CategoryResponse> Handle(UpsertCategoryCommand request, CancellationToken cancelationToken = default)
     {
         Category? category = await GetCategoryAsync(request.Id, cancelationToken);
-
+         
         if(category == null)
         {
             category = request.UpsertCategory();
-            category.CreatedDate = DateTime.Now;
+            category.CreatedDate = DateTime.UtcNow;
             await appDbContext.AddAsync(category, cancelationToken);
         }
         else
@@ -43,13 +43,13 @@ public class UpsertCategoryCommandHandler(AppDbContext appDbContext) : IRequestH
             category.Description = request.Description;
         }
 
-        category.LastModifiedDate = DateTime.Now;
+        category.UpdateDate = DateTime.UtcNow;
         await appDbContext.SaveChangesAsync(cancelationToken);
 
         return new CategoryResponse
         {
             CreatedDate = category.CreatedDate,
-            LastModifiedDate = category.LastModifiedDate,
+            UpdateDate = category.UpdateDate,
             Id = category.Id,
             Name = category.Name,
             Description = category.Description,

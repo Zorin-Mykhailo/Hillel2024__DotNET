@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Store.Contract.Responses;
-using Store.Data.Context;
+using Store.Data.Db;
 using System;
 
 namespace Store.Service.Queries;
@@ -15,7 +15,7 @@ public class GetProductByIdQueryHandler(AppDbContext appDbContext) : IRequestHan
             .Select(v => new ProductResponse
             {
                 CreatedDate = v.CreatedDate,
-                LastModifiedDate = v.LastModifiedDate,
+                UdateDate = v.UpdateDate,
                 Description = v.Description,
                 Id = v.Id,
                 CategoryId = v.CategoryId,

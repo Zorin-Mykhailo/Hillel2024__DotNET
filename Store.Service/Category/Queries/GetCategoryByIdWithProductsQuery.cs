@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Store.Contract.Responses;
-using Store.Data.Context;
+using Store.Data.Db;
 
 namespace Store.Service.Queries;
 
@@ -10,20 +10,19 @@ internal class GetCategoryByIdWithProductsQuery(AppDbContext appDbContext) : IRe
     {
         return await appDbContext.Categories
             .AsNoTracking()
-            //.FirstOrDefaultAsync(e => e.Id == categoryId)
             .Where(e => e.Id == categoryId)
             .Include(e => e.Products)
             .Select(e => new CategoryWithProductsResponse
             {
                 CreatedDate = e.CreatedDate,
-                LastModifiedDate = e.LastModifiedDate,
+                UdateDate = e.UpdateDate,
                 Id = e.Id,
                 Description = e.Description,
                 Name = e.Name,
                 Products = e.Products.Select(p => new ProductResponse
                 {
                      CreatedDate = p.CreatedDate,
-                     LastModifiedDate = p.LastModifiedDate,
+                     UdateDate = p.UpdateDate,
                      Id = p.Id,
                      CategoryId = categoryId,
                      Name = p.Name,

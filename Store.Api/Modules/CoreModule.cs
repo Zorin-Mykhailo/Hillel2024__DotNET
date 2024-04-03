@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Store.Data.Context;
+using Store.Data.Db;
 using Store.Service;
 
 namespace Store.Api.Modules;
@@ -10,6 +10,9 @@ public static class CoreModule
     {
         services.Scan(scan => scan
            .FromAssembliesOf(typeof(IRequestHandler<>))
+           .AddClasses(classes => classes.AssignableTo(typeof(IRequestHandler<,,>)))
+               .AsImplementedInterfaces()
+               .WithTransientLifetime()
            .AddClasses(classes => classes.AssignableTo(typeof(IRequestHandler<,>)))
                .AsImplementedInterfaces()
                .WithTransientLifetime()

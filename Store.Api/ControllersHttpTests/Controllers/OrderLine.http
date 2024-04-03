@@ -1,0 +1,68 @@
+﻿###
+# ███ Upsert OrderLine ██████████████████████████████████████████████████
+###
+
+POST {{Store_HostAddress}}/OrderLine
+content-type: application/json
+
+{
+    "orderId": 1,
+    "productId" : 1,
+    "notes": "Для роботи",
+    "productAmount": 1
+}
+
+###
+
+POST {{Store_HostAddress}}/OrderLine
+content-type: application/json
+
+{
+    "orderId": 1,
+    "productId" : 6,
+    "notes": "Шоб було",
+    "productAmount": 2
+}
+
+
+###
+
+POST {{Store_HostAddress}}/OrderLine
+content-type: application/json
+
+{
+    "orderId": 1,
+    "productId" : 10,
+    "notes": "",
+    "productAmount": 1
+}
+
+###
+
+POST {{Store_HostAddress}}/Order
+content-type: application/json
+
+{
+    "id": 2,
+    "customerId" : 2,
+    "notes": "Подарунки на день народження"
+}
+
+###
+# ███ Get OrderLines ██████████████████████████████████████████████████
+###
+
+GET {{Store_HostAddress}}/OrderLine
+content-type: application/json
+
+###
+
+GET {{Store_HostAddress}}/Order/1
+content-type: application/json
+
+###
+# ███ Delete OrderLine ██████████████████████████████████████████████████
+###
+
+DELETE {{Store_HostAddress}}/Order/1
+content-type: application/json#

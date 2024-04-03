@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Store.Data.Context;
+using Store.Data.Db;
 using Store.Data.Entities;
 
 namespace Store.Service.Commands;

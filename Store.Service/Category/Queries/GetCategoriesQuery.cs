@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Store.Contract.Responses;
-using Store.Data.Context;
+using Store.Data.Db;
 
 namespace Store.Service.Queries;
 
@@ -13,7 +13,7 @@ public class GetCategoriesQueryHandler(AppDbContext appDbContext) : IRequestHand
             .Select(v => new CategoryResponse
             {
                 CreatedDate = v.CreatedDate,
-                LastModifiedDate = v.LastModifiedDate,
+                UpdateDate = v.UpdateDate,
                 Id = v.Id,
                 Description = v.Description,
                 Name = v.Name,                

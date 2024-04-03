@@ -23,20 +23,53 @@ content-type: application/json
 }
 
 ###
+# ███ Upsert OrderLine of Order ██████████████████████████████████████████████████
+###
+
+POST {{Store_HostAddress}}/Order/1/OrderLine
+content-type: application/json
+
+{
+    "productId": 1,
+    "productAmount" : 2,
+    "notes": "Чи підійде для підлітка-геймера?"
+}
+
+###
 # ███ Get orders ██████████████████████████████████████████████████
 ###
 
 GET {{Store_HostAddress}}/Order
 content-type: application/json
 
+# ███ Get Order ██████████████████████████████████████████████████
 ###
 
 GET {{Store_HostAddress}}/Order/1
 content-type: application/json
 
 ###
-# ███ Delete order ██████████████████████████████████████████████████
+# ███ Get OrderLines of Order ██████████████████████████████████████████████████
+###
+
+GET {{Store_HostAddress}}/Order/1/OrderLine
+content-type: application/json
+
+###
+# ███ Delete Order ██████████████████████████████████████████████████
 ###
 
 DELETE {{Store_HostAddress}}/Order/1
+content-type: application/json#
+
+# ███ Delete OrderLine of Order ██████████████████████████████████████████████████
+###
+
+DELETE {{Store_HostAddress}}/Order/1/OrderLine/10
+content-type: application/json#
+
+# ███ Delete OrderLines of Order ██████████████████████████████████████████████████
+###
+
+DELETE {{Store_HostAddress}}/Order/1/OrderLine
 content-type: application/json#

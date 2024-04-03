@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Store.Contract.Responses;
-using Store.Data.Context;
+using Store.Data.Db;
 using Store.Data.Entities;
 
 namespace Store.Service.Commands;
@@ -40,7 +40,7 @@ public class UpsertProductCommandHandler(AppDbContext appDbContext) : IRequestHa
         if(product == null)
         {
             product = request.UpsertProduct();
-            product.CreatedDate = DateTime.Now;
+            product.CreatedDate = DateTime.UtcNow;
             await appDbContext.AddAsync(product, cancellationToken);
         }
         else
@@ -51,13 +51,13 @@ public class UpsertProductCommandHandler(AppDbContext appDbContext) : IRequestHa
             product.CurrentPricePerUnit = request.CurrentPricePerUnit;
         }
 
-        product.LastModifiedDate = DateTime.Now;
+        product.UpdateDate = DateTime.UtcNow;
         await appDbContext.SaveChangesAsync(cancellationToken);
 
         return new ProductResponse
         {
             CreatedDate = product.CreatedDate,
-            LastModifiedDate = product.LastModifiedDate,
+            UdateDate = product.UpdateDate,
             Id = product.Id,
             CategoryId = product.CategoryId,
             Name = product.Name,

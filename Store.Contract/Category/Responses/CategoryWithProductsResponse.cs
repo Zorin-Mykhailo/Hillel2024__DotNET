@@ -10,7 +10,7 @@ public class CategoryWithProductsResponse
 {
     public DateTime CreatedDate { get; set; }
 
-    public DateTime LastModifiedDate { get; set; }
+    public DateTime UdateDate { get; set; }
 
     public int Id { get; set; }
 

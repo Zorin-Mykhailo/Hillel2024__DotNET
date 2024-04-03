@@ -2,19 +2,17 @@
 
 namespace Store.Contract.Responses;
 
-public class OrderResponse
+public record OrderResponse(int Id, DateTime CreatedDate, DateTime UdateDate)
 {
-    public DateTime CreatedDate { get; set; }
+    //public DateTime CreatedDate { get; set; }
 
-    public DateTime LastModifiedDate { get; set; }
+    //public DateTime UdateDate { get; set; }
 
-    public int Id { get; set; }
+    //public int Id { get; set; }
 
     public int CustomerId { get; set; }
 
     public CustomerResponse? Customer { get; set; }
-
-    //public List<ProductInOrderResponse>? ProductsInOrder { get; set; } = new ();
 
     public double TotalSum { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Store.Contract.Responses;
-using Store.Data.Context;
+using Store.Data.Db;
 
 namespace Store.Service.Queries;
 
@@ -14,7 +14,7 @@ public class GetCustomerByIdQueryHandler(AppDbContext appDbContext) : IRequestHa
             .Select(e => new CustomerResponse
             {
                 CreatedDate = e.CreatedDate,
-                LastModifiedDate = e.LastModifiedDate,
+                UdateDate = e.UpdateDate,
                 Id = e.Id,
                 Name = e.Name,
                 Description = e.Description,
