@@ -1,0 +1,58 @@
+﻿###
+# ███ Upsert categories ██████████████████████████████████████████████████
+###
+
+POST {{Store_HostAddress}}/Category
+content-type: application/json
+
+{
+    "id": 1,
+    "name": "Ноутбуки та комп'ютери",
+    "description": "Ноутбуки; Комп'ютери, неттопи, моноблоки; Монітори, Gaming, Планшети, ..."
+}
+
+###
+
+POST {{Store_HostAddress}}/Category
+content-type: application/json
+
+{
+    "id": 2,
+    "name": "Смартфони, ТВ та електроніка",
+    "description": ""
+}
+
+###
+
+POST {{Store_HostAddress}}/Category
+content-type: application/json
+
+{
+    "id": 3,
+    "name": "Побутова техніка",
+    "description": "Пральні маниши; Холодильники; Праски; тощо"
+}
+
+###
+# ███ Get categories ██████████████████████████████████████████████████
+###
+
+GET {{Store_HostAddress}}/Category
+content-type: application/json
+
+###
+
+GET {{Store_HostAddress}}/Category/2
+content-type: application/json
+
+###
+
+GET {{Store_HostAddress}}/Category/1/Product/
+content-type: application/json
+
+###
+# ███ Delete category ██████████████████████████████████████████████████
+###
+
+DELETE {{Store_HostAddress}}/Category/1
+content-type: application/json
