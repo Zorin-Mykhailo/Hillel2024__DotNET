@@ -23,4 +23,4 @@ add-migration InitialSchoolDB
 
 ћ≥грац≥њ 20-19
 
-Х ўо таке Eadgerloading в EF
+Х ўо таке Eadgerloading в EF?
