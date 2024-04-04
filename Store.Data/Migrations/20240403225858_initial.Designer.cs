@@ -12,7 +12,7 @@ using Store.Data.Db;
 namespace Store.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240403170133_initial")]
+    [Migration("20240403225858_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -36,7 +36,7 @@ namespace Store.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 4, 3, 17, 1, 32, 731, DateTimeKind.Utc).AddTicks(6682));
+                        .HasDefaultValue(new DateTime(2024, 4, 3, 22, 58, 58, 134, DateTimeKind.Utc).AddTicks(3537));
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -49,7 +49,7 @@ namespace Store.Data.Migrations
                     b.Property<DateTime>("UpdateDate")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 4, 3, 17, 1, 32, 731, DateTimeKind.Utc).AddTicks(7553));
+                        .HasDefaultValue(new DateTime(2024, 4, 3, 22, 58, 58, 134, DateTimeKind.Utc).AddTicks(4154));
 
                     b.HasKey("Id");
 
@@ -93,7 +93,7 @@ namespace Store.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 4, 3, 17, 1, 32, 732, DateTimeKind.Utc).AddTicks(728));
+                        .HasDefaultValue(new DateTime(2024, 4, 3, 22, 58, 58, 134, DateTimeKind.Utc).AddTicks(6078));
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -106,7 +106,7 @@ namespace Store.Data.Migrations
                     b.Property<DateTime>("UpdateDate")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 4, 3, 17, 1, 32, 732, DateTimeKind.Utc).AddTicks(1129));
+                        .HasDefaultValue(new DateTime(2024, 4, 3, 22, 58, 58, 134, DateTimeKind.Utc).AddTicks(6461));
 
                     b.HasKey("Id");
 
@@ -246,7 +246,7 @@ namespace Store.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 4, 3, 17, 1, 32, 732, DateTimeKind.Utc).AddTicks(3092));
+                        .HasDefaultValue(new DateTime(2024, 4, 3, 22, 58, 58, 134, DateTimeKind.Utc).AddTicks(8272));
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
@@ -260,7 +260,7 @@ namespace Store.Data.Migrations
                     b.Property<DateTime>("UpdateDate")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 4, 3, 17, 1, 32, 732, DateTimeKind.Utc).AddTicks(3540));
+                        .HasDefaultValue(new DateTime(2024, 4, 3, 22, 58, 58, 134, DateTimeKind.Utc).AddTicks(8762));
 
                     b.HasKey("Id");
 
@@ -453,7 +453,7 @@ namespace Store.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 4, 3, 17, 1, 32, 732, DateTimeKind.Utc).AddTicks(6700));
+                        .HasDefaultValue(new DateTime(2024, 4, 3, 22, 58, 58, 135, DateTimeKind.Utc).AddTicks(1855));
 
                     b.Property<string>("Notes")
                         .HasColumnType("nvarchar(max)");
@@ -470,7 +470,7 @@ namespace Store.Data.Migrations
                     b.Property<DateTime>("UpdateDate")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 4, 3, 17, 1, 32, 732, DateTimeKind.Utc).AddTicks(7194));
+                        .HasDefaultValue(new DateTime(2024, 4, 3, 22, 58, 58, 135, DateTimeKind.Utc).AddTicks(2251));
 
                     b.HasKey("OrderId", "ProductId");
 
@@ -493,7 +493,7 @@ namespace Store.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 4, 3, 17, 1, 32, 733, DateTimeKind.Utc).AddTicks(3551));
+                        .HasDefaultValue(new DateTime(2024, 4, 3, 22, 58, 58, 135, DateTimeKind.Utc).AddTicks(8585));
 
                     b.Property<double>("CurrentPricePerUnit")
                         .HasColumnType("float");
@@ -508,7 +508,7 @@ namespace Store.Data.Migrations
                     b.Property<DateTime>("UpdateDate")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 4, 3, 17, 1, 32, 733, DateTimeKind.Utc).AddTicks(4063));
+                        .HasDefaultValue(new DateTime(2024, 4, 3, 22, 58, 58, 135, DateTimeKind.Utc).AddTicks(9219));
 
                     b.HasKey("Id");
 
@@ -671,7 +671,7 @@ namespace Store.Data.Migrations
                     b.HasOne("Store.Data.Entities.Product", "Product")
                         .WithMany("Orders")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Order");

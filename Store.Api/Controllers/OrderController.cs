@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
-using Store.Contract.ProductInOrder.Requests;
 using Store.Contract.Requests;
 using Store.Contract.Responses;
+using Store.Data.Entities;
 using Store.Service;
 using Store.Service.Commands;
 using Store.Service.Queries;
@@ -30,15 +29,18 @@ public class OrderController : ControllerBase
 
 
     [HttpPost("{orderId}/OrderLine")]
-    public async Task<IActionResult> UpsertOrderLineAsync(int orderId, [FromServices] IRequestHandler<int, UpsertOrderLineCommand, OrderLineResponse> upsertOrderLineComand, [FromBody] UpsertOrderLineRequest request)
+    public async Task<IActionResult> InsertOrderLineAsync(int orderId, [FromServices] IRequestHandler<int, InsertOrderLineRequest, OrderLineResponse> insertOrderLineComand, [FromBody] InsertOrderLineRequest request)
     {
-        OrderLineResponse orderLineResponse = await upsertOrderLineComand.Handle(orderId, new UpsertOrderLineCommand
-        {
-            ProductId = request.ProductId,
-            Notes = request.Notes,
-            ProductAmount = request.ProductAmount,
-        });
+        OrderLineResponse orderLineResponse = await insertOrderLineComand.Handle(orderId, request);
         return Ok(orderLineResponse);
+    }
+
+
+    [HttpPut("{orderId}/OrderLine/{productId}")]
+    public async Task<IActionResult> UpdateOrderLineAsync(int orderId, int productId, [FromServices] IRequestHandler<(int orderId, int productId), UpdateOrderLineRequest, OrderLineResponse> updateOrderLineComand, [FromBody] UpdateOrderLineRequest request)
+    {
+        OrderLineResponse orderLineResponse = await updateOrderLineComand.Handle((orderId, productId), request);
+        return orderLineResponse != null ? Ok(orderLineResponse) : NotFound();
     }
 
 
@@ -50,13 +52,23 @@ public class OrderController : ControllerBase
 
     [HttpGet("{orderId}")]
     public async Task<IActionResult> GetOrderByIdAsync(int orderId, [FromServices] IRequestHandler<int, OrderResponse?> getOrderByIdQuery)
-        => Ok(await getOrderByIdQuery.Handle(orderId));
+    {
+        OrderResponse? oderResponse = await getOrderByIdQuery.Handle(orderId);
+        return oderResponse != null ? Ok(oderResponse) : NotFound();
+    }
 
 
 
     [HttpGet("{orderId}/OrderLine")]
     public async Task<IActionResult> GetOrderLinesOfOrder(int orderId, [FromServices] IRequestHandler<int, IList<OrderLineResponse>> getOrderLinesByProductIdQuery)
         => Ok(await getOrderLinesByProductIdQuery.Handle(orderId));
+
+    [HttpGet("{orderId}/OrderLine/{productId}")]
+    public async Task<IActionResult> GetOrderLineOfOrder(int orderId, int productId, [FromServices] IRequestHandler<(int orderId, int productId), OrderLineResponse?> getOrderLineByProductIdQuery)
+    {
+        OrderLineResponse? orderLineResponse = await getOrderLineByProductIdQuery.Handle((orderId, productId));
+        return orderLineResponse != null ? Ok(orderLineResponse) : NotFound();
+    }
 
 
 

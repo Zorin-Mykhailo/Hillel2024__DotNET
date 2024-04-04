@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Store.Contract.ProductInOrder.Requests;
-public class UpsertOrderLineRequest
+namespace Store.Contract.Requests;
+public record UpdateOrderLineRequest
 {
-    public int ProductId { get; set; }
-    
     public double ProductAmount { get; set; }
 
     public string? Notes { get; set; } = string.Empty;

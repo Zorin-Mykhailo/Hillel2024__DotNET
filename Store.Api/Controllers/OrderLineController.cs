@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Store.Contract.ProductInOrder.Requests;
 using Store.Contract.Requests;
 using Store.Contract.Responses;
 using Store.Service;
@@ -13,7 +12,7 @@ namespace Store.Api.Controllers;
 public class OrderLineController : ControllerBase
 {
     //[HttpPost]
-    //public async Task<IActionResult> UsertOrderLineAsync([FromServices] IRequestHandler<UpsertOrderLineCommand, OrderLineResponse> upsertOrderLineComand, [FromBody] UpsertOrderLineRequest request)
+    //public async Task<IActionResult> UsertOrderLineAsync([FromServices] IRequestHandler<UpsertOrderLineCommand, OrderLineResponse> upsertOrderLineComand, [FromBody] UpdateOrderLineRequest request)
     //{
     //    OrderLineResponse orderLine = await upsertOrderLineComand.Handle(new UpsertOrderLineCommand
     //    {

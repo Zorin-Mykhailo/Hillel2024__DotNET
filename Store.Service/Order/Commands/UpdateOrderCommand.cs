@@ -13,11 +13,15 @@ public class UpdateOrderCommandHandler(AppDbContext appDbContext) : IRequestHand
         Order? order = await GetOrderByIdAsync(orderId, cancellationToken);
         if(order == null) return null;
 
+        order.UpdateDate = DateTime.UtcNow;
         order.Notes = request.Notes;
         await appDbContext.SaveChangesAsync(cancellationToken);
 
-        return new OrderResponse(order.Id, order.CreatedDate, order.UpdateDate)
+        return new OrderResponse//(order.Id, order.CreatedDate, order.UpdateDate)
         {
+            CreatedDate = order.CreatedDate,
+            UdateDate = order.UpdateDate,
+            Id = order.Id,
             CustomerId = order.CustomerId,
             TotalSum = order.TotalSum,
             Notes = order.Notes

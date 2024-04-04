@@ -11,8 +11,11 @@ public class GetOrdersQueryHandler(AppDbContext appDbContext) : IRequestHandler<
         return await appDbContext.Orders
             .AsNoTracking()
             .Include(e => e.Customer)
-            .Select(e => new OrderResponse(e.Id, e.CreatedDate, e.UpdateDate)
+            .Select(e => new OrderResponse()
             {
+                CreatedDate = e.CreatedDate,
+                UdateDate = e.UpdateDate,
+                Id = e.Id,
                 Notes = e.Notes,
                 CustomerId = e.CustomerId,
                 Customer = new CustomerResponse ()

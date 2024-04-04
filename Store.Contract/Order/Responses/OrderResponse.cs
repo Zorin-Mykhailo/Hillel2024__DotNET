@@ -1,14 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿namespace Store.Contract.Responses;
 
-namespace Store.Contract.Responses;
-
-public record OrderResponse(int Id, DateTime CreatedDate, DateTime UdateDate)
+public class OrderResponse
 {
-    //public DateTime CreatedDate { get; set; }
+    public DateTime CreatedDate { get; set; }
 
-    //public DateTime UdateDate { get; set; }
+    public DateTime UdateDate { get; set; }
 
-    //public int Id { get; set; }
+    public int Id { get; set; }
 
     public int CustomerId { get; set; }
 

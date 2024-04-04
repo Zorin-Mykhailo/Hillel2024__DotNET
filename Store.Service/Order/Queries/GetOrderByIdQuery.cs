@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Store.Contract.Responses;
 using Store.Data.Db;
+using Store.Data.Entities;
 
 namespace Store.Service.Queries;
 
@@ -13,8 +14,11 @@ public class GetOrderByIdQueryHandler(AppDbContext appDbContext) : IRequestHandl
             .Where(e => e.Id == orderId)
             .Include(e => e.Customer)
             .Include(e => e.OrderLines)            
-            .Select(e => new OrderResponse(e.Id, e.CreatedDate, e.UpdateDate)
+            .Select(e => new OrderResponse//(order.Id, order.CreatedDate, order.UpdateDate)
             {
+                CreatedDate = e.CreatedDate,
+                UdateDate = e.UpdateDate,
+                Id = e.Id,
                 Notes = e.Notes,
                 CustomerId = e.CustomerId,
                 Customer = new CustomerResponse()

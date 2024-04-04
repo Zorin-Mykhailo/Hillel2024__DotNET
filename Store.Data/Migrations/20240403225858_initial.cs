@@ -19,8 +19,8 @@ namespace Store.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 17, 1, 32, 731, DateTimeKind.Utc).AddTicks(6682)),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 17, 1, 32, 731, DateTimeKind.Utc).AddTicks(7553)),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 22, 58, 58, 134, DateTimeKind.Utc).AddTicks(3537)),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 22, 58, 58, 134, DateTimeKind.Utc).AddTicks(4154)),
                     Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -35,8 +35,8 @@ namespace Store.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 17, 1, 32, 732, DateTimeKind.Utc).AddTicks(728)),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 17, 1, 32, 732, DateTimeKind.Utc).AddTicks(1129)),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 22, 58, 58, 134, DateTimeKind.Utc).AddTicks(6078)),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 22, 58, 58, 134, DateTimeKind.Utc).AddTicks(6461)),
                     Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -53,8 +53,8 @@ namespace Store.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CurrentPricePerUnit = table.Column<double>(type: "float", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 17, 1, 32, 733, DateTimeKind.Utc).AddTicks(3551)),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 17, 1, 32, 733, DateTimeKind.Utc).AddTicks(4063)),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 22, 58, 58, 135, DateTimeKind.Utc).AddTicks(8585)),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 22, 58, 58, 135, DateTimeKind.Utc).AddTicks(9219)),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -78,8 +78,8 @@ namespace Store.Data.Migrations
                     CustomerId = table.Column<int>(type: "int", nullable: false),
                     TotalSum = table.Column<double>(type: "float", nullable: false),
                     Notes = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 17, 1, 32, 732, DateTimeKind.Utc).AddTicks(3092)),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 17, 1, 32, 732, DateTimeKind.Utc).AddTicks(3540))
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 22, 58, 58, 134, DateTimeKind.Utc).AddTicks(8272)),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 22, 58, 58, 134, DateTimeKind.Utc).AddTicks(8762))
                 },
                 constraints: table =>
                 {
@@ -101,8 +101,8 @@ namespace Store.Data.Migrations
                     ProductAmount = table.Column<double>(type: "float", nullable: false),
                     PricePerUnit = table.Column<double>(type: "float", nullable: false),
                     TotalSum = table.Column<double>(type: "float", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 17, 1, 32, 732, DateTimeKind.Utc).AddTicks(6700)),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 17, 1, 32, 732, DateTimeKind.Utc).AddTicks(7194))
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 22, 58, 58, 135, DateTimeKind.Utc).AddTicks(1855)),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 4, 3, 22, 58, 58, 135, DateTimeKind.Utc).AddTicks(2251))
                 },
                 constraints: table =>
                 {
@@ -117,8 +117,7 @@ namespace Store.Data.Migrations
                         name: "FK_OrderLines_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.InsertData(
