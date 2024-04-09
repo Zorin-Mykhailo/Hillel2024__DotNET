@@ -34,6 +34,17 @@ content-type: application/json
 }
 
 ###
+
+POST {{Store_HostAddress}}/Category
+content-type: application/json
+
+{
+    "id": 4,
+    "name": "Побутова техніка 2",
+    "description": "Пральні маниши; Холодильники; Праски; тощо"
+}
+
+###
 # ███ Get categories ██████████████████████████████████████████████████
 ###
 
@@ -42,7 +53,7 @@ content-type: application/json
 
 ###
 
-GET {{Store_HostAddress}}/Category/2
+GET {{Store_HostAddress}}/Category/4
 content-type: application/json
 
 ###

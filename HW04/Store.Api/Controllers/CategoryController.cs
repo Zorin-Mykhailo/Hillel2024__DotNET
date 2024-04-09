@@ -21,7 +21,11 @@ public class CategoryController : ControllerBase
             Description = request.Description,
         });
 
-        return Ok(category);
+        string baseUri = $"{Request.Scheme}://{Request.Host}:{(Request.Host.Port == null ? string.Empty : $":{Request.Host.Port}")}";
+
+        return Created( $"{baseUri}/Category/{category.Id}", category);
+
+        //return Ok(category);
     }
 
 

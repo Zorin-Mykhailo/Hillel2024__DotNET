@@ -22,9 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Store.Contract\Store.Contract.csproj" />
-    <ProjectReference Include="..\Store.Data\Store.Data.csproj" />
-    <ProjectReference Include="..\Store.Service\Store.Service.csproj" />
+    <ProjectReference Include="..\Store.Contract\HW04.Store.Contract.csproj" />
+    <ProjectReference Include="..\Store.Data\HW04.Store.Data.csproj" />
+    <ProjectReference Include="..\Store.Service\HW04.Store.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>
