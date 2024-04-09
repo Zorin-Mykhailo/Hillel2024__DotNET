@@ -5,18 +5,18 @@ VisualStudioVersion = 17.10.34607.79
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleHelpers", "ConsoleHelpers\ConsoleHelpers.csproj", "{1EFFE3A5-3E9A-453E-A4EE-E1D8BE76C648}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW01 • SimpleTasks", "HW01 • SimpleTasks", "{1B32FBB1-09C4-42C9-9C59-14F0215974C9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW01 • IntroductionInDotNet", "HW01 • IntroductionInDotNet", "{1B32FBB1-09C4-42C9-9C59-14F0215974C9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other", "Other", "{6EC63871-086F-4A3E-A920-96525AF1E073}"
 	ProjectSection(SolutionItems) = preProject
 		learn.md = learn.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW02 • Semaphore", "HW02 • Semaphore", "{1EB073E8-678D-4D21-9E5A-3F5C23A096C1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW02 • MultithreadingAndTPL", "HW02 • MultithreadingAndTPL", "{1EB073E8-678D-4D21-9E5A-3F5C23A096C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW04 • REST API", "HW04 • REST API", "{B737A107-5B44-44A6-B750-9E49A4E55856}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW05 • OnionArchitectureWithCQRS", "HW05 • OnionArchitectureWithCQRS", "{437C6FE3-F3F9-47F3-9612-2A7DFF9D1D38}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW05 • OnionAndMediatR", "HW05 • OnionAndMediatR", "{437C6FE3-F3F9-47F3-9612-2A7DFF9D1D38}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{DEF0ED05-7D1E-4753-93D7-BFB2B9D4ADE6}"
 EndProject
