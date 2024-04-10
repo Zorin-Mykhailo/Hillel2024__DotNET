@@ -17,6 +17,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW04 • REST API", "HW04 • REST API", "{B737A107-5B44-44A6-B750-9E49A4E55856}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW05 • OnionAndMediatR", "HW05 • OnionAndMediatR", "{437C6FE3-F3F9-47F3-9612-2A7DFF9D1D38}"
+	ProjectSection(SolutionItems) = preProject
+		HW05\Readme.md = HW05\Readme.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{DEF0ED05-7D1E-4753-93D7-BFB2B9D4ADE6}"
 EndProject
@@ -44,13 +47,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW04.Store.Data", "HW04\Sto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW04.Store.Service", "HW04\Store.Service\HW04.Store.Service.csproj", "{06196300-E8AD-4EB4-B861-7450D0B24596}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW05.MovieManager.WebApi", "HW05\HW05.MovieManager.WebApi\HW05.MovieManager.WebApi.csproj", "{25351541-372D-4BFC-B55E-DE890EFA3884}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW05.MovieManager.WebApi", "HW05\HW05.MovieManager.WebApi\HW05.MovieManager.WebApi.csproj", "{25351541-372D-4BFC-B55E-DE890EFA3884}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW05.MovieManager.Application", "HW05\HW05.MovieManager.Application\HW05.MovieManager.Application.csproj", "{736FC38E-0671-46F0-86DA-CA38A6DA9547}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW05.MovieManager.Application", "HW05\HW05.MovieManager.Application\HW05.MovieManager.Application.csproj", "{736FC38E-0671-46F0-86DA-CA38A6DA9547}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW05.MovieManager.Domain", "HW05\HW05.MovieManager.Domain\HW05.MovieManager.Domain.csproj", "{1FD98217-1C58-4D1E-9A48-9795EAE447FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW05.MovieManager.Domain", "HW05\HW05.MovieManager.Domain\HW05.MovieManager.Domain.csproj", "{1FD98217-1C58-4D1E-9A48-9795EAE447FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW05.MovieManager.Persistence", "HW05\HW05.MovieManager.Persistence\HW05.MovieManager.Persistence.csproj", "{C88159D5-B35B-49B0-BFBC-725EBAD29109}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW05.MovieManager.Persistence", "HW05\HW05.MovieManager.Persistence\HW05.MovieManager.Persistence.csproj", "{C88159D5-B35B-49B0-BFBC-725EBAD29109}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

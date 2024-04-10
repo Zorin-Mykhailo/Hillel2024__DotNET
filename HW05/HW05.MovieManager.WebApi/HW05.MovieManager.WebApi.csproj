@@ -14,4 +14,9 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HW05.MovieManager.Application\HW05.MovieManager.Application.csproj" />
+    <ProjectReference Include="..\HW05.MovieManager.Persistence\HW05.MovieManager.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
