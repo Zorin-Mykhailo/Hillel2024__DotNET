@@ -8,9 +8,8 @@
 
 ## [Lesson materials](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/lessons/65a65fe44c3a2d3372eef96d)
 
-Асинхронні методи, async та await
-
-Повернення результату з асинхронного методу
+- Асинхронні методи, async та await
+- Повернення результату з асинхронного методу
 
 Послідовне та паралельне виконання. Task.WhenAll та Task.WhenAny
 

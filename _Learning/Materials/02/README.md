@@ -30,7 +30,7 @@ Angular SEO:
 https://windzoon.com/blog/best-angular-seo-practices/#possibility-to-do-seo-in-angular
 
 
-## [📕 Homework 02 (Lesson 02) • Threading ](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/65f0caee5ee6551a61930ae1)
+## [`📕 Homework 02 (Lesson 02)` Threading ](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/65f0caee5ee6551a61930ae1)
 
 Розглянемо перукарню, в якій працює один перукар, є одне крісло для стрижки
 
