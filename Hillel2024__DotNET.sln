@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34607.79
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleHelpers", "ConsoleHelpers\ConsoleHelpers.csproj", "{1EFFE3A5-3E9A-453E-A4EE-E1D8BE76C648}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW01 • IntroductionInDotNet", "HW01 • IntroductionInDotNet", "{1B32FBB1-09C4-42C9-9C59-14F0215974C9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other", "Other", "{6EC63871-086F-4A3E-A920-96525AF1E073}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Learning", "Learning", "{6EC63871-086F-4A3E-A920-96525AF1E073}"
 	ProjectSection(SolutionItems) = preProject
-		learn.md = learn.md
+		_Learning\Readme.md = _Learning\Readme.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW02 • MultithreadingAndTPL", "HW02 • MultithreadingAndTPL", "{1EB073E8-678D-4D21-9E5A-3F5C23A096C1}"
@@ -58,16 +56,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW05.MovieManager.Persisten
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW02_01", "HW02\HW02_01.csproj", "{BC0704DE-0ED2-4344-8D51-C27DFE36B1BC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3FDDD09D-2512-458B-8B14-27E224EC37B5}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1EFFE3A5-3E9A-453E-A4EE-E1D8BE76C648}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1EFFE3A5-3E9A-453E-A4EE-E1D8BE76C648}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1EFFE3A5-3E9A-453E-A4EE-E1D8BE76C648}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1EFFE3A5-3E9A-453E-A4EE-E1D8BE76C648}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C33E9A77-55C5-42FB-803E-26F90E46A46A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C33E9A77-55C5-42FB-803E-26F90E46A46A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C33E9A77-55C5-42FB-803E-26F90E46A46A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -129,7 +128,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{1EFFE3A5-3E9A-453E-A4EE-E1D8BE76C648} = {6EC63871-086F-4A3E-A920-96525AF1E073}
 		{DEF0ED05-7D1E-4753-93D7-BFB2B9D4ADE6} = {437C6FE3-F3F9-47F3-9612-2A7DFF9D1D38}
 		{44A4B253-2A65-4F92-B34E-DC9215C9D8E0} = {437C6FE3-F3F9-47F3-9612-2A7DFF9D1D38}
 		{D6933A66-76C5-418A-9BFB-3F82619A2A83} = {437C6FE3-F3F9-47F3-9612-2A7DFF9D1D38}

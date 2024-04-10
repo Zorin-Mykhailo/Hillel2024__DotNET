@@ -8,13 +8,12 @@ internal class SessionConfiguration : IEntityTypeConfiguration<Session>
     public void Configure(EntityTypeBuilder<Session> e)
     {
         e.HasKey(x => x.Id);
-        e.Property(e => e.Title)
+        e.Property(e => e.MovieId)
+            .IsRequired();
+        e.Property(e => e.RoomName)
             .IsRequired()
             .HasMaxLength(255);
-        e.Property(e => e.Description)
-            .IsRequired()
-            .HasMaxLength(500);
-        e.Property(e => e.ReleaseDate)
+        e.Property(e => e.StartAt)
             .IsRequired();
     }
 }
