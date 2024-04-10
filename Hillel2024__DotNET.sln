@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW01 • IntroductionInDotN
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Learning", "_Learning", "{6EC63871-086F-4A3E-A920-96525AF1E073}"
 	ProjectSection(SolutionItems) = preProject
-		_Learning\Readme.md = _Learning\Readme.md
+		_Learning\README.md = _Learning\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW02 • MultithreadingAndTPL", "HW02 • MultithreadingAndTPL", "{1EB073E8-678D-4D21-9E5A-3F5C23A096C1}"
@@ -63,52 +63,52 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01", "01", "{EE6C3ECB-8C90-436D-81B2-D29CC0CC72AF}"
 	ProjectSection(SolutionItems) = preProject
-		_Learning\Materials\01\readme.md = _Learning\Materials\01\readme.md
+		_Learning\Materials\01\README.md = _Learning\Materials\01\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02", "02", "{8F9E6F44-6335-413A-8C2C-39054CCD5064}"
 	ProjectSection(SolutionItems) = preProject
-		_Learning\Materials\02\Readme.md = _Learning\Materials\02\Readme.md
+		_Learning\Materials\02\README.md = _Learning\Materials\02\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03", "03", "{13612CB0-CC53-4B28-AA42-578CCF5AC64E}"
 	ProjectSection(SolutionItems) = preProject
-		_Learning\Materials\03\Readme.md = _Learning\Materials\03\Readme.md
+		_Learning\Materials\03\README.md = _Learning\Materials\03\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04", "04", "{045DF7D7-9087-488D-A05B-8BE7EB905E54}"
 	ProjectSection(SolutionItems) = preProject
-		_Learning\Materials\04\readme.md = _Learning\Materials\04\readme.md
+		_Learning\Materials\04\README.md = _Learning\Materials\04\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05", "05", "{A3A49B7D-E15C-468F-B384-DE091A9DFB87}"
 	ProjectSection(SolutionItems) = preProject
-		_Learning\Materials\05\readme.md = _Learning\Materials\05\readme.md
+		_Learning\Materials\05\README.md = _Learning\Materials\05\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06", "06", "{C0E99C08-D5FC-4E40-A3BC-0332E48F3875}"
 	ProjectSection(SolutionItems) = preProject
-		_Learning\Materials\06\Readme.md = _Learning\Materials\06\Readme.md
+		_Learning\Materials\06\README.md = _Learning\Materials\06\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07", "07", "{CF958307-F415-4434-A869-352416FB5594}"
 	ProjectSection(SolutionItems) = preProject
-		_Learning\Materials\07\Readme.md = _Learning\Materials\07\Readme.md
+		_Learning\Materials\07\README.md = _Learning\Materials\07\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "08", "08", "{53832539-B9D7-4F62-90B5-727D8929B984}"
 	ProjectSection(SolutionItems) = preProject
-		_Learning\Materials\08\Readme.md = _Learning\Materials\08\Readme.md
+		_Learning\Materials\08\README.md = _Learning\Materials\08\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "09", "09", "{CDF92DD0-2001-4BE0-812E-D0CB169BCADB}"
 	ProjectSection(SolutionItems) = preProject
-		_Learning\Materials\09\readme.md = _Learning\Materials\09\readme.md
+		_Learning\Materials\09\README.md = _Learning\Materials\09\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 • TODO", "00 • TODO", "{27204F9B-89BF-48C5-9E44-1B6247046EEE}"
 	ProjectSection(SolutionItems) = preProject
-		_Learning\Materials\00 • TODO\Readme.md = _Learning\Materials\00 • TODO\Readme.md
+		_Learning\Materials\00 • TODO\README.md = _Learning\Materials\00 • TODO\README.md
 	EndProjectSection
 EndProject
 Global
