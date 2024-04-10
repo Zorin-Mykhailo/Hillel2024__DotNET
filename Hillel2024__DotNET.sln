@@ -15,6 +15,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW02 • MultithreadingAndTPL", "HW02 • MultithreadingAndTPL", "{1EB073E8-678D-4D21-9E5A-3F5C23A096C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW04 • REST API", "HW04 • REST API", "{B737A107-5B44-44A6-B750-9E49A4E55856}"
+	ProjectSection(SolutionItems) = preProject
+		HW04\readme.md = HW04\readme.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW05 • OnionAndMediatR", "HW05 • OnionAndMediatR", "{437C6FE3-F3F9-47F3-9612-2A7DFF9D1D38}"
 	ProjectSection(SolutionItems) = preProject
