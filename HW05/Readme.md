@@ -1,15 +1,15 @@
-# [ДЗ 4 (05.01) MediatR & Onion ](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/660164eb7cfe4745a03b5faa)
+п»ї# [Р”Р— 4 (05.01) MediatR & Onion ](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/660164eb7cfe4745a03b5faa)
 
-Переробити Movie Manager API с використанням MediatR та Onion архiтектури
-
----
-
-# Примітки по виконанню ДЗ
-
-Відсутні
+РџРµСЂРµСЂРѕР±РёС‚Рё Movie Manager API СЃ РІРёРєРѕСЂРёСЃС‚Р°РЅРЅСЏРј MediatR С‚Р° Onion Р°СЂС…iС‚РµРєС‚СѓСЂРё
 
 ---
 
-# Запитання
+# РџСЂРёРјС–С‚РєРё РїРѕ РІРёРєРѕРЅР°РЅРЅСЋ Р”Р—
 
-Відсутні
+Р’С–РґСЃСѓС‚РЅС–
+
+---
+
+# Р—Р°РїРёС‚Р°РЅРЅСЏ
+
+Р’С–РґСЃСѓС‚РЅС–
