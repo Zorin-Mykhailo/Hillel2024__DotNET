@@ -32,7 +32,7 @@ https://awesome-architecture.com/domain-driven-design/domain-driven-design/
 
 https://falberthen.github.io/posts/ecommerceddd-pt1/
 
-Приклади по паттернам: 
+Приклади по паттернам:  
 https://refactoring.guru/ru/design-patterns/csharp
 
 Правила написання коду:
