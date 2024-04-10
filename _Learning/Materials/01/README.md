@@ -1,6 +1,6 @@
 [`🏠 Всі заняття`](../../README.md)  [`⏩ Вперед`](../02/README.md)
 
-# 📗 Lesson 01 • Вступ в платформу .NET
+# `📗 Lesson 01` Вступ в платформу .NET
 
 ## [Lesson video (02:20:08)](https://youtu.be/yiWcPy6YFbQ)
 
@@ -26,7 +26,7 @@
 - [ ] [Git Tutorial 2](https://www.tutorialspoint.com/git/index.htm)
 - [ ] [A step-by-step guide to Git](https://opensource.com/article/18/1/step-step-guide-git)
 
-## [📕 Homework 01 (Lesson 01) • Вступ в платформу .NET](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/65e9d1b3940cf5c66423f4a0)
+## [`📕 Homework 01 (Lesson 01)` Вступ в платформу .NET](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/65e9d1b3940cf5c66423f4a0)
 
 **[01.01]**
 Написати програму, яка обчислює факторіал введеного числа.

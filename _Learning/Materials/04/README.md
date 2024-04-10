@@ -1,6 +1,6 @@
 [`⏪ Назад`](../03/README.md)  [`🏠 Всі заняття`](../../README.md)  [`⏩ Вперед`](../05/README.md)
 
-# 📗 Lesson 04 • REST API. Postman. N-tier архітектура. CQS and CQRS.
+# `📗 Lesson 04` REST API. Postman. N-tier архітектура. CQS and CQRS.
 
 ## [Lesson video (02:08:13)](https://youtu.be/a2gj5C-mFcc)
 

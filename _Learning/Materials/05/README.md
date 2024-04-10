@@ -1,6 +1,6 @@
 [`⏪ Назад`](../04/README.md)  [`🏠 Всі заняття`](../../README.md)  [`⏩ Вперед`](../06/README.md)
 
-# Lesson 05 • Onion. MediatR.
+# `📗 Lesson 05` Onion. MediatR.
 
 ## [Lesson video (02:12:51)](https://youtu.be/oIb72-Fq6mY)
 [`00:08:50` Вступ](https://youtu.be/oIb72-Fq6mY?t=530)  
@@ -21,15 +21,15 @@ EF. Order with list of Products
 [`01:57:15` Postman](https://youtu.be/oIb72-Fq6mY?t=7035)  
 
 ## [Lesson materials](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/lessons/65a65fe44c3a2d3372eef96f)
-Onion. 
-MediatR.
+- Onion. 
+- MediatR.
 
-- [Общие архитектуры веб-приложений](https://learn.microsoft.com/ru-ru/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
-- [Проектирование веб-API RESTFUL](https://learn.microsoft.com/ru-ru/azure/architecture/best-practices/api-design)
-- [CQRS and MediatR in ASP.NET Core](https://code-maze.com/cqrs-mediatr-in-aspnet-core/)
-- [CQRS And MediatR Pattern Implementation Using .NET Core 6 Web API](https://www.c-sharpcorner.com/article/cqrs-and-mediatr-pattern-implementation-using-net-core-6-web-api/)
-- [MediatR — Beyond the basics](https://medium.com/@cristian_lopes/mediatr-beyond-the-basics-8ab90841a732)
-- [Реализация прикладного уровня для микрослужб с помощью веб-API](https://learn.microsoft.com/ru-ru/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/microservice-application-layer-implementation-web-api)
+- [ ] [Общие архитектуры веб-приложений](https://learn.microsoft.com/ru-ru/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
+- [ ] [Проектирование веб-API RESTFUL](https://learn.microsoft.com/ru-ru/azure/architecture/best-practices/api-design)
+- [ ] [CQRS and MediatR in ASP.NET Core](https://code-maze.com/cqrs-mediatr-in-aspnet-core/)
+- [ ] [CQRS And MediatR Pattern Implementation Using .NET Core 6 Web API](https://www.c-sharpcorner.com/article/cqrs-and-mediatr-pattern-implementation-using-net-core-6-web-api/)
+- [ ] [MediatR — Beyond the basics](https://medium.com/@cristian_lopes/mediatr-beyond-the-basics-8ab90841a732)
+- [ ] [Реализация прикладного уровня для микрослужб с помощью веб-API](https://learn.microsoft.com/ru-ru/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/microservice-application-layer-implementation-web-api)
 
 
 ---
