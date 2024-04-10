@@ -1,12 +1,12 @@
-﻿# [📗 Lesson 01 • Вступ в платформу .NET](./Materials/01/readme.md)
-# [📗 Lesson 02](./Materials/02/readme.md)
-# [📗 Lesson 03](./Materials/03/readme.md)
-# [📗 Lesson 04](./Materials/04/readme.md)
-# [📗 Lesson 05](./Materials/05/readme.md)
-# [📗 Lesson 06](./Materials/06/readme.md)
-# [📗 Lesson 07](./Materials/07/readme.md)
-# [📗 Lesson 08](./Materials/08/readme.md)
-# [📗 Lesson 09](./Materials/09/readme.md)
+﻿# [📗 Lesson 01 • Вступ в платформу .NET](./Materials/01/README.md)
+# [📗 Lesson 02](./Materials/02/README.md)
+# [📗 Lesson 03](./Materials/03/README.md)
+# [📗 Lesson 04](./Materials/04/README.md)
+# [📗 Lesson 05](./Materials/05/README.md)
+# [📗 Lesson 06](./Materials/06/README.md)
+# [📗 Lesson 07](./Materials/07/README.md)
+# [📗 Lesson 08](./Materials/08/README.md)
+# [📗 Lesson 09](./Materials/09/README.md)
 
 ---
 

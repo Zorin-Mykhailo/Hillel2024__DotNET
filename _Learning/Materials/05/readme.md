@@ -34,3 +34,4 @@ MediatR.
 - [CQRS And MediatR Pattern Implementation Using .NET Core 6 Web API](https://www.c-sharpcorner.com/article/cqrs-and-mediatr-pattern-implementation-using-net-core-6-web-api/)
 - [MediatR — Beyond the basics](https://medium.com/@cristian_lopes/mediatr-beyond-the-basics-8ab90841a732)
 - [Реализация прикладного уровня для микрослужб с помощью веб-API](https://learn.microsoft.com/ru-ru/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/microservice-application-layer-implementation-web-api)
+- 
