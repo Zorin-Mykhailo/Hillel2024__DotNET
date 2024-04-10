@@ -19,3 +19,18 @@
 - [Angular tutorials](https://angular.io/tutorial)  
 - [Complete Angular Tutorial For Beginners](https://www.tektutorialshub.com/angular-tutorial/)  
 - [Angular Tutorial for Beginners](https://ng-girls.gitbook.io/todo-list-tutorial/v/stackblitz/)  
+
+---
+
+# 📘 Extra materials
+
+*Додаткові матеріали відсутні*
+
+# 📘 TODO
+*Завдання для самостійного опрацювання відстутні*
+
+# 📘 Questions
+*Запитання відсутні*
+
+# 📘 NOTES
+*Нотатки відсутні*

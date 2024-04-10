@@ -26,16 +26,6 @@
 - [ ] [Git Tutorial 2](https://www.tutorialspoint.com/git/index.htm)
 - [ ] [A step-by-step guide to Git](https://opensource.com/article/18/1/step-step-guide-git)
 
-## Extra materials
-
---
-
-## TODO
---
-
-## Questions
---
-
 ## [📕 Homework 01 (Lesson 01) • Вступ в платформу .NET](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/65e9d1b3940cf5c66423f4a0)
 
 **[01.01]**
@@ -93,4 +83,17 @@
 
 4) клас `Main_Class`, що реалізує користувацький інтерфейс додатка і демонструє роботу з класом Academy_Group.
 
--
+---
+
+# 📘 Extra materials
+
+*Додаткові матеріали відсутні*
+
+# 📘 TODO
+*Завдання для самостійного опрацювання відстутні*
+
+# 📘 Questions
+*Запитання відсутні*
+
+# 📘 NOTES
+*Нотатки відсутні*

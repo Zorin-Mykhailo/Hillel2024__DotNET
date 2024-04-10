@@ -1,12 +1,16 @@
 [`⏪ Назад`](../03/README.md)  [`🏠 Всі заняття`](../../README.md)  [`⏩ Вперед`](../05/README.md)
 
-# 📗 Lesson 04
+# 📗 Lesson 04 • REST API. Postman. N-tier архітектура. CQS and CQRS.
 
-# Web API
+## [Lesson video (02:08:13)](https://youtu.be/a2gj5C-mFcc)
 
-## REST API
+--
 
-Приклад створення Web API з використанням EF Core
+## [Lesson materials](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/lessons/65a65fe44c3a2d3372eef96e)
+
+- Web API
+- REST API
+- Приклад створення Web API з використанням EF Core
 
 - [ ] [What is a REST API?](https://www.ibm.com/topics/rest-apis#:~:text=the%20next%20step-,What%20is%20a%20REST%20API%3F,representational%20state%20transfer%20architectural%20style)
 - [ ] [Что такое API RESTful?](https://aws.amazon.com/ru/what-is/restful-api/)
@@ -22,26 +26,8 @@
 - [ ] [Які є конвенції в REST API та для чого їх дотримуватись](https://dou.ua/forums/topic/34550/)
 - [ ] [CQRS Introduction | CQRS (wordpress.com)](https://cqrs.wordpress.com/documents/cqrs-introduction/)
 - [ ] [Command query separation - Difference between CQRS and CQS - Stack Overflow](https://stackoverflow.com/questions/34255490/difference-between-cqrs-and-cqs)
----
-### Інше
 
-- [ ] [GIT як додати пусту папку](https://phoenixnap.com/kb/git-add-empty-directory)
-- [ ] [Ковариантность и контравариантность обобщенных интерфейсов](https://metanit.com/sharp/tutorial/3.27.php)
-- [ ] [SQL Megre](https://ru.wikipedia.org/wiki/Merge_(SQL))
-- [ ] [Уроки по SQL](https://www.sqlservertutorial.net/)
-
----
-
-# Rest API principes
-- Stateless communications
-- Use of standard methods and uniform interface - client and server are separated by a well-defined interface
-- Clear and consistent naming conventions
-- Cacheability and layered system
-- HATEOAS (**H**ypermedia **A**s **T**he **E**ngine **O**f **A**pplication **S**tate)
-- Support code-on-demand
-
----
-# [ДЗ 3 (04.01) Web API. REST API](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/65f2ff97dcabf5dbd18dcb0f)
+## [📕 Homework 03 (Lesson 04) • Web API. REST API](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/65f2ff97dcabf5dbd18dcb0f)
 
 Створити REST API для інтернет магазина за допомогою Web API.
 Зберігати все в MS SQL базу даних за допомогою code-first підходу, використовуючи Entity Framework Core.
@@ -63,39 +49,25 @@
 
 ---
 
-Category
-- Id
-- Name
-- Description
-- [Products]
+# 📘 Extra materials
 
-MapCategoryProduct
-- IdCategory
-- IdProduct
+- [ ] [GIT як додати пусту папку](https://phoenixnap.com/kb/git-add-empty-directory)
+- [ ] [Ковариантность и контравариантность обобщенных интерфейсов](https://metanit.com/sharp/tutorial/3.27.php)
+- [ ] [SQL Megre](https://ru.wikipedia.org/wiki/Merge_(SQL))
+- [ ] [Уроки по SQL](https://www.sqlservertutorial.net/)
 
-Product
-- Id
-- Name
-- Description
-- CurrentPricePerUnit
-- [Categories]
-- [ProductInOrder]
+# 📘 TODO
+*Завдання для самостійного опрацювання відстутні*
 
-ProductInOrder
-- IdProduct
-- IdOrder
-- ProductAmount
-- PricePerUnit
-- TotalSum
+# 📘 Questions
+*Запитання відсутні*
 
-Order
-- Id
-- IdCustomer
-- [ProductInOrder]
-- TotalSum
+# 📘 NOTES
 
-Customer
-- Id
-- Name
-- Description
-- [Orders]
+**Rest API principes:** 
+- Stateless communications
+- Use of standard methods and uniform interface - client and server are separated by a well-defined interface
+- Clear and consistent naming conventions
+- Cacheability and layered system
+- HATEOAS (**H**ypermedia **A**s **T**he **E**ngine **O**f **A**pplication **S**tate)
+- Support code-on-demand
