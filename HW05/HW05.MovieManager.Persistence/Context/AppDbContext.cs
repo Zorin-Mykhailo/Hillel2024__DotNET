@@ -3,7 +3,7 @@ using HW05.MovieManager.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace HW05.MovieManager.Persistence.Context;
-public class AppDbContext : DbContext, IApplicationDbContext
+public class AppDbContext : DbContext, IAppDbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -14,7 +14,7 @@ public class AppDbContext : DbContext, IApplicationDbContext
         new DbInitializer(modelBuilder).Seed();
     }
     
-    Task IApplicationDbContext.SaveChangesAsync(CancellationToken cancellationToken) => throw new NotImplementedException();
+    Task IAppDbContext.SaveChangesAsync(CancellationToken cancellationToken) => throw new NotImplementedException();
 
     public DbSet<Movie> Movies { get; set; }
     

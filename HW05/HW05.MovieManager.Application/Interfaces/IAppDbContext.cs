@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 
 namespace HW05.MovieManager.Application.Interfaces;
-public interface IApplicationDbContext
+public interface IAppDbContext
 {
     DbSet<Movie> Movies { get; set; }
 
