@@ -27,7 +27,7 @@
 - [ ] [CQRS Introduction | CQRS (wordpress.com)](https://cqrs.wordpress.com/documents/cqrs-introduction/)
 - [ ] [Command query separation - Difference between CQRS and CQS - Stack Overflow](https://stackoverflow.com/questions/34255490/difference-between-cqrs-and-cqs)
 
-## [📕 Homework 03 (Lesson 04) • Web API. REST API](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/65f2ff97dcabf5dbd18dcb0f)
+## [`📕 Homework 03 (Lesson 04)` Web API. REST API](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/65f2ff97dcabf5dbd18dcb0f)
 
 Створити REST API для інтернет магазина за допомогою Web API.
 Зберігати все в MS SQL базу даних за допомогою code-first підходу, використовуючи Entity Framework Core.

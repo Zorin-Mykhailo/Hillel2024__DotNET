@@ -4,14 +4,14 @@
 
 ## [Lesson video (02:15:43)](https://youtu.be/l_qpc5wbZVY)
 
-## [Lesson materials](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/lessons/65a65fe44c3a2d3372eef973)
+## [Lesson materials](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/lessons/65a65fe44c3a2d3372eef973)  
 
 - Створення проекту FullStack.  
 - Back end: ASP.NET Core Web API  
 - Front end: Angular  
 - Аутентифікація та авторизація.  
 - Способи авторизації та безпека.  
-- JSON Web Token (JWT) bearer token. 
+- JSON Web Token (JWT) bearer token.  
 
 - [ ] [Welcome to IdentityServer4 (latest)](https://identityserver4.readthedocs.io/en/latest/)  
 - [ ] [Как создать безопасную авторизацию пользователей с помощью UUID](https://dou.ua/forums/topic/34491/)  
@@ -23,6 +23,9 @@
 - [ ] [Complete Angular Tutorial For Beginners](https://www.tektutorialshub.com/angular-tutorial/)  
 - [ ] [Angular Tutorial for Beginners](https://ng-girls.gitbook.io/todo-list-tutorial/v/stackblitz/)  
 
+## [`📕 Homework 05 (Lesson 09)` Unit Tests](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/6615874ac88f4e67db5bdd1b)
+- Покрити юніт тестами будь-який проект (API) із раніше створених.
+- Постаратися досягти покриття юніт тестами більш ніж на 80%.
 ---
 
 # 📘 Extra materials
