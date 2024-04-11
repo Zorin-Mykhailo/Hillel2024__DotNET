@@ -108,7 +108,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "09", "09", "{CDF92DD0-2001-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TODO", "TODO", "{27204F9B-89BF-48C5-9E44-1B6247046EEE}"
 	ProjectSection(SolutionItems) = preProject
-		_Learning\Materials\00 • TODO\README.md = _Learning\Materials\00 • TODO\README.md
+		_Learning\TODO\README.md = _Learning\TODO\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10", "10", "{77AEDE3A-006D-416E-8E9C-A9075423572F}"
