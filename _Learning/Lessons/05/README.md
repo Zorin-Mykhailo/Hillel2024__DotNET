@@ -31,7 +31,12 @@ EF. Order with list of Products
 - [ ] [MediatR — Beyond the basics](https://medium.com/@cristian_lopes/mediatr-beyond-the-basics-8ab90841a732)
 - [ ] [Реализация прикладного уровня для микрослужб с помощью веб-API](https://learn.microsoft.com/ru-ru/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/microservice-application-layer-implementation-web-api)
 
-## [`📕 Homework 04 (Lesson 05)` MediatR & Onion](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/660164eb7cfe4745a03b5faa)
+## [`📕 Homework 04 (Lesson 05)` MediatR & Onion](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/660164eb7cfe4745a03b5faa)  
+
+| ДЗ від | Здати до |
+|---|---|
+| 2024.03.24 | 2024.04.14 00:00 | 24084
+
 Переробити Movie Manager API с використанням MediatR та Onion архiтектури
 ---
 
