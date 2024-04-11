@@ -33,7 +33,7 @@
 - [ ] [KISS, YAGNI, DRY – three principles that every developer should know about](https://www.boldare.com/blog/kiss-yagni-dry-principles/)
 - [ ] [The Principles of Clean Code: DRY, KISS, and YAGNI](https://www.linkedin.com/pulse/principles-clean-code-dry-kiss-yagni-rajnish-kumar/)
 
-## 📕 Homework (Lesson 06)
+## 📕 Homework
 *ДЗ відсутнє*
 
 ---

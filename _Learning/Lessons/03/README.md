@@ -19,7 +19,7 @@
 - **Parallel LINQ**.  
 - Метод **AsOrdered**  
 
-## 📕 Homework (Lesson 03)
+## 📕 Homework
 *ДЗ відсутнє*
 
 ---
