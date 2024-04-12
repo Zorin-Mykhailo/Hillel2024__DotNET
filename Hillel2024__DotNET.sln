@@ -228,6 +228,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "32", "32", "{FB2629A1-2DB9-
 		_Learning\Lessons\32\README.md = _Learning\Lessons\32\README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NOTES", "NOTES", "{40EB4393-8A66-42F1-90D2-1F9B6074D3FC}"
+	ProjectSection(SolutionItems) = preProject
+		_Learning\NOTES\REDME.MD = _Learning\NOTES\REDME.MD
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFramework", "EntityFramework", "{9C306D87-F62A-4B67-B8F2-EA9A24BA102B}"
+	ProjectSection(SolutionItems) = preProject
+		_Learning\NOTES\EntityFramework\REDME.MD = _Learning\NOTES\EntityFramework\REDME.MD
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -346,6 +356,8 @@ Global
 		{27AEAACA-30D8-43C9-B87A-9457C5C1209D} = {0F2DC57C-C7B7-4D2C-B3FA-518917E9D284}
 		{A636DDDA-10C0-4049-90D3-E355AD9682CE} = {0F2DC57C-C7B7-4D2C-B3FA-518917E9D284}
 		{FB2629A1-2DB9-473F-B536-E50A6B56F6EF} = {0F2DC57C-C7B7-4D2C-B3FA-518917E9D284}
+		{40EB4393-8A66-42F1-90D2-1F9B6074D3FC} = {6EC63871-086F-4A3E-A920-96525AF1E073}
+		{9C306D87-F62A-4B67-B8F2-EA9A24BA102B} = {40EB4393-8A66-42F1-90D2-1F9B6074D3FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {57CEC84A-4A6F-4CE3-9786-DA0F0F9265F8}
