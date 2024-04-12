@@ -2,4 +2,6 @@
 
 # 📝 NOTES
 
+---
+
 - [Entity Framework](./EntityFramework/README.md)
