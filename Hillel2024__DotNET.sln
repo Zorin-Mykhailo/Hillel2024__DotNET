@@ -230,12 +230,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "32", "32", "{FB2629A1-2DB9-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NOTES", "NOTES", "{40EB4393-8A66-42F1-90D2-1F9B6074D3FC}"
 	ProjectSection(SolutionItems) = preProject
-		_Learning\NOTES\REDME.MD = _Learning\NOTES\REDME.MD
+		_Learning\NOTES\README.md = _Learning\NOTES\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFramework", "EntityFramework", "{9C306D87-F62A-4B67-B8F2-EA9A24BA102B}"
 	ProjectSection(SolutionItems) = preProject
-		_Learning\NOTES\EntityFramework\REDME.MD = _Learning\NOTES\EntityFramework\REDME.MD
+		_Learning\NOTES\EntityFramework\README.md = _Learning\NOTES\EntityFramework\README.md
 	EndProjectSection
 EndProject
 Global
