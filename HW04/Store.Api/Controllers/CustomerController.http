@@ -1,0 +1,185 @@
+﻿###
+# ███ Upsert customer ██████████████████████████████████████████████████
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 1,
+    "name": "Олійник Іван Петрович",
+    "description": ""
+}
+
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 2,
+    "name": "Левченко Марія Григорівна",
+    "description": ""
+}
+
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 3,
+    "name": "Поліщук Микола Вікторович",
+    "description": ""
+}
+
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 4,
+    "name": "Омельяненко Григорій Пилипович",
+    "description": ""
+}
+
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 5,
+    "name": "Стеценко Вікторія Федорівна",
+    "description": ""
+}
+
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 6,
+    "name": "Налийборщ Омельян Францевич",
+    "description": ""
+}
+
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 7,
+    "name": "Неїжхліб Олена Юхимівна",
+    "description": ""
+}
+
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 8,
+    "name": "Майборода Віталій Семенович",
+    "description": ""
+}
+
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 9,
+    "name": "Черезтинногозадерищенко Ульяна Юстимівна",
+    "description": ""
+}
+
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 10,
+    "name": "Дубовий Віктор Олегович",
+    "description": ""
+}
+
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 11,
+    "name": "Підгорний Вадим Сергійович",
+    "description": ""
+}
+
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 12,
+    "name": "Озерний Сергій Іванович",
+    "description": ""
+}
+
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 13,
+    "name": "Нечипоренко Ульяна Омельянівна",
+    "description": ""
+}
+
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 14,
+    "name": "Задорожній Олег Олександрович",
+    "description": ""
+}
+
+###
+
+POST {{Store_HostAddress}}/Customer
+content-type: application/json
+
+{
+    "id": 15,
+    "name": "Миколаєнко Олександра Вікторівна",
+    "description": ""
+}
+
+###
+# ███ Get customers ██████████████████████████████████████████████████
+###
+
+GET {{Store_HostAddress}}/Customer
+content-type: application/json
+
+###
+
+GET {{Store_HostAddress}}/Customer/1
+content-type: application/json
+
+###
+# ███ Delete customer ██████████████████████████████████████████████████
+###
+
+DELETE {{Store_HostAddress}}/Customer/1
+content-type: application/json#
