@@ -6,10 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HW05.MovieManager.Application.CommandsAndQueries.Sessions;
 
-public class SessionQueryGetById : IRequest<SessionDTO?>
+public record SessionQueryGetById(int Id) : IRequest<SessionDTO?>
 {
-    public int Id { get; set; }
-
     public class Handler(IAppDbContext appDbContext) : IRequestHandler<SessionQueryGetById, SessionDTO?>
     {
         public async Task<SessionDTO?> Handle(SessionQueryGetById query, CancellationToken cancellationToken = default)

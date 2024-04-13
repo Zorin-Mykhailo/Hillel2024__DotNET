@@ -21,7 +21,7 @@ internal class Program
         });
         builder.Services.AddApiVersioning(options =>
         {
-            options.ApiVersionReader = new HeaderApiVersionReader("api-version");
+            //options.ApiVersionReader = new HeaderApiVersionReader("api-version");
             options.DefaultApiVersion = new ApiVersion(1, 0);
             options.AssumeDefaultVersionWhenUnspecified = true;
             options.ReportApiVersions = true;

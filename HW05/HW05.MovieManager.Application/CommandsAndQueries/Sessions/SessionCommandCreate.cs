@@ -4,7 +4,7 @@ using MediatR;
 
 namespace HW05.MovieManager.Application.CommandsAndQueries.Sessions;
 
-public class SessionCommandCreate : IRequest<int>
+public record SessionCommandCreate : IRequest<int>
 {
     public int MovieId { get; set; }
 

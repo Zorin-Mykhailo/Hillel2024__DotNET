@@ -2,7 +2,7 @@
 
 # Entity Framework
 
-[PMC/PowerShell Commands for Migrations](https://www.entityframeworktutorial.net/efcore/pmc-commands-for-ef-core-migration.aspx)
+[PMC/PowerShell команди для міграції](https://www.entityframeworktutorial.net/efcore/pmc-commands-for-ef-core-migration.aspx):
 
 |PMC Command |Usage |
 |---|---|

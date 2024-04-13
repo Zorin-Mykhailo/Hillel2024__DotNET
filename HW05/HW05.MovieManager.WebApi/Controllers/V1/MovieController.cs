@@ -1,6 +1,6 @@
 ﻿using Asp.Versioning;
 using HW05.MovieManager.Application.CommandsAndQueries.Movies;
-using MediatR;
+using HW05.MovieManager.Domain.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HW05.MovieManager.WebApi.Controllers.V1;
@@ -11,16 +11,7 @@ public class MovieController : BaseApiController
     [HttpPost]
     public async Task<IActionResult> Create(MovieCommandCreate command)
     {
-        return NotFound("Not implemented");
-        throw new NotImplementedException();
-    }
-
-
-
-    [HttpPut("[action]")]
-    public async Task<IActionResult> Update(int id, MovieCommandUpdateById command)
-    {
-        throw new NotImplementedException();
+        return Ok(await Mediator.Send(command));
     }
 
 
@@ -28,7 +19,17 @@ public class MovieController : BaseApiController
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        throw new NotImplementedException();
+        bool success = await Mediator.Send(new MovieCommandDeleteById(id));
+        return success ? Ok(id) : NotFound(id);
+    }
+
+
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, MovieCommandUpdateById command)
+    {
+        bool success = await Mediator.Send(new MovieCommandUpdateById(id, command));
+        return success ? Ok(id) : NotFound(id);
     }
 
 
@@ -36,7 +37,8 @@ public class MovieController : BaseApiController
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        throw new NotImplementedException();
+        ICollection<MovieDTO> items = await Mediator.Send(new MovieQueryGetAll());
+        return items.Any() ? Ok(items) : NoContent();
     }
 
 
@@ -44,6 +46,7 @@ public class MovieController : BaseApiController
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {
-        throw new NotImplementedException();
+        MovieDTO? singleItem = await Mediator.Send(new MovieQueryGetById(id));
+        return singleItem != null ? Ok(singleItem) : NotFound(id);
     }
 }

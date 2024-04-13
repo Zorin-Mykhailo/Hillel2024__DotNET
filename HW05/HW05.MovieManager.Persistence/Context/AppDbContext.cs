@@ -1,6 +1,7 @@
 ﻿using HW05.MovieManager.Application.Interfaces;
 using HW05.MovieManager.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Threading;
 
 namespace HW05.MovieManager.Persistence.Context;
 public class AppDbContext : DbContext, IAppDbContext
@@ -14,7 +15,8 @@ public class AppDbContext : DbContext, IAppDbContext
         new DbInitializer(modelBuilder).Seed();
     }
     
-    Task IAppDbContext.SaveChangesAsync(CancellationToken cancellationToken) => throw new NotImplementedException();
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken)
+        =>  await base.SaveChangesAsync(cancellationToken);
 
     public DbSet<Movie> Movies { get; set; }
     

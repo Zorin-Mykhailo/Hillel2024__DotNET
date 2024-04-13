@@ -4,7 +4,7 @@ using MediatR;
 
 namespace HW05.MovieManager.Application.CommandsAndQueries.Movies;
 
-public class MovieCommandCreate : IRequest<int>
+public record MovieCommandCreate : IRequest<int>
 {
     public string Title { get; set; } = string.Empty;
 

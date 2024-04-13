@@ -5,15 +5,31 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HW05.MovieManager.Application.CommandsAndQueries.Movies;
 
-public class MovieCommandUpdateById : IRequest<bool>
+public record MovieCommandUpdate : IRequest<bool>
 {
-    public int Id { get; set; }
-
     public string Title { get; set; } = string.Empty;
 
     public string Description { get; set; } = string.Empty;
 
-    public DateTime ReleaseDate { get; set; }
+    public DateTime ReleaseDate { get; set; }    
+}
+
+
+
+
+public record MovieCommandUpdateById : MovieCommandUpdate
+{
+    public int Id { get; set; }
+
+    public MovieCommandUpdateById(int id, MovieCommandUpdate updateCommand)
+    {
+        
+        Id = id;
+        Title = updateCommand.Title;
+        Description = updateCommand.Description;
+        ReleaseDate = updateCommand.ReleaseDate;
+    }
+
 
     public class Handler(IAppDbContext appDbContext) : IRequestHandler<MovieCommandUpdateById, bool>
     {
@@ -25,9 +41,9 @@ public class MovieCommandUpdateById : IRequest<bool>
             movie.Title = command.Title;
             movie.Description = command.Description;
             movie.ReleaseDate = command.ReleaseDate;
-            
+
             await appDbContext.SaveChangesAsync(cancellationToken);
-            
+
             return true;
         }
     }

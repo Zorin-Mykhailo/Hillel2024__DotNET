@@ -2,9 +2,8 @@
 # ███ Movie create ██████████████████████████████████████████████████
 ###
 
-POST {{AppHostAddress}}/Movie
+POST {{AppHostAddress}}/api/v{{ApiVersion}}/Movie
 content-type: application/json
-api-version: 1.0
 
 {
     "title": "Дюна: Частина друга",
@@ -12,4 +11,15 @@ api-version: 1.0
     "releaseDate": "2024-04-12T07:36:23.196Z"
 }
 
+###
+# ███ Movie update ██████████████████████████████████████████████████
+###
 
+PUT {{AppHostAddress}}/api/v{{ApiVersion}}/Movie/1
+content-type: application/json
+
+{
+    "title": "Приборкувачка драконів",
+    "description": "У стародавньому Китаї дракони колись були друзями людей, але жадібність занапастила їхній союз, і на цих чарівних істот почалося полювання. Плинув час і одного разу, у віддаленій фортеці дівчина Пін заводить малоймовірну дружбу зі справжнім драконом.",
+    "releaseDate": "2024-04-11"
+}

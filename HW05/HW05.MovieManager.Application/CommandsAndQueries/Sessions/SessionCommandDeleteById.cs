@@ -5,10 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HW05.MovieManager.Application.CommandsAndQueries.Sessions;
 
-public class SessionCommandDeleteById : IRequest<bool>
+public record SessionCommandDeleteById(int Id) : IRequest<bool>
 {
-    public int Id { get; set; }
-
     public class Handler(IAppDbContext appDbContext) : IRequestHandler<SessionCommandDeleteById, bool>
     {
         public async Task<bool> Handle(SessionCommandDeleteById command, CancellationToken cancellationToken = default)

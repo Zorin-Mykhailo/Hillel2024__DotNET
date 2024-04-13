@@ -5,10 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HW05.MovieManager.Application.CommandsAndQueries.Movies;
 
-public class MovieCommandDeleteById : IRequest<bool>
+public record MovieCommandDeleteById(int Id) : IRequest<bool>
 {
-    public int Id { get; set; }
-
     public class Handler(IAppDbContext appDbContext) : IRequestHandler<MovieCommandDeleteById, bool>
     {
         public async Task<bool> Handle(MovieCommandDeleteById command, CancellationToken cancellationToken = default)

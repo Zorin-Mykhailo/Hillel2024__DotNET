@@ -1,6 +1,6 @@
 ﻿using Asp.Versioning;
 using HW05.MovieManager.Application.CommandsAndQueries.Sessions;
-using MediatR;
+using HW05.MovieManager.Domain.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HW05.MovieManager.WebApi.Controllers.V1;
@@ -12,15 +12,7 @@ public class SessionController : BaseApiController
     [HttpPost]
     public async Task<IActionResult> Create(SessionCommandCreate command)
     {
-        throw new NotImplementedException();
-    }
-
-
-
-    [HttpPut("[action]")]
-    public async Task<IActionResult> Update(int id, SessionCommandUpdateById command)
-    {
-        throw new NotImplementedException();
+        return Ok(await Mediator.Send(command));
     }
 
 
@@ -28,7 +20,18 @@ public class SessionController : BaseApiController
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        throw new NotImplementedException();
+        bool success = await Mediator.Send(new SessionCommandDeleteById(id));
+        return success ? Ok(id) : NotFound(id);
+    }
+
+
+
+
+    [HttpPut("[action]")]
+    public async Task<IActionResult> Update(int id, SessionCommandUpdate command)
+    {
+        bool success = await Mediator.Send(new SessionCommandUpdateById(id, command));
+        return success ? Ok(id) : NotFound(id);
     }
 
 
@@ -36,7 +39,8 @@ public class SessionController : BaseApiController
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        throw new NotImplementedException();
+        ICollection<SessionDTO> items = await Mediator.Send(new SessionQueryGetAll());
+        return items.Any() ? Ok(items) : NoContent();
     }
 
 
@@ -44,6 +48,7 @@ public class SessionController : BaseApiController
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {
-        throw new NotImplementedException();
+        SessionDTO? singleItem = await Mediator.Send(new SessionQueryGetById(id));
+        return singleItem != null ? Ok(singleItem) : NotFound(id);
     }
 }

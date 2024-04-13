@@ -6,10 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HW05.MovieManager.Application.CommandsAndQueries.Movies;
 
-public class MovieQueryGetById : IRequest<MovieDTO?>
+public record MovieQueryGetById(int Id) : IRequest<MovieDTO?>
 {
-    public int Id { get; set; }
-
     public class Handler(IAppDbContext appDbContext) : IRequestHandler<MovieQueryGetById, MovieDTO?>
     {
         public async Task<MovieDTO?> Handle(MovieQueryGetById query, CancellationToken cancellationToken = default)

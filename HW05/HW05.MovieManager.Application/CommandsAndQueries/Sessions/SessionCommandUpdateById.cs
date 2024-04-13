@@ -1,19 +1,37 @@
-﻿using HW05.MovieManager.Application.Interfaces;
+﻿using HW05.MovieManager.Application.CommandsAndQueries.Movies;
+using HW05.MovieManager.Application.Interfaces;
 using HW05.MovieManager.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace HW05.MovieManager.Application.CommandsAndQueries.Sessions;
 
-public class SessionCommandUpdateById : IRequest<bool>
-{
-    public int Id { get; set; }
 
+public record SessionCommandUpdate : IRequest<bool>
+{
     public int MovieId { get; set; }
 
     public string RoomName { get; set; } = string.Empty;
 
     public DateTime StartAt { get; set; }
+}
+
+
+
+
+public record SessionCommandUpdateById : SessionCommandUpdate
+{
+    public int Id { get; set; }
+
+    public SessionCommandUpdateById(int id, SessionCommandUpdate updateCommand)
+    {
+
+        Id = id;
+        MovieId = updateCommand.MovieId;
+        RoomName = updateCommand.RoomName;
+        StartAt = updateCommand.StartAt;
+    }
+
 
     public class Handler(IAppDbContext appDbContext) : IRequestHandler<SessionCommandUpdateById, bool>
     {
