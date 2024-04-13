@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HW05.MovieManager.Application.CommandsAndQueries.Sessions;
 
-public record SessionCommandDeleteById(int Id) : IRequest<bool>
+public record SessionCommandDeleteSingle(int Id) : IRequest<bool>
 {
-    public class Handler(IAppDbContext appDbContext) : IRequestHandler<SessionCommandDeleteById, bool>
+    public class Handler(IAppDbContext appDbContext) : IRequestHandler<SessionCommandDeleteSingle, bool>
     {
-        public async Task<bool> Handle(SessionCommandDeleteById command, CancellationToken cancellationToken = default)
+        public async Task<bool> Handle(SessionCommandDeleteSingle command, CancellationToken cancellationToken = default)
         {
             Session? session = await appDbContext.Sessions.Where(e => e.Id == command.Id).FirstOrDefaultAsync(cancellationToken);
             if(session == null) return false;

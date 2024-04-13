@@ -17,11 +17,11 @@ public record MovieCommandUpdate : IRequest<bool>
 
 
 
-public record MovieCommandUpdateById : MovieCommandUpdate
+public record MovieCommandUpdateSingle : MovieCommandUpdate
 {
     public int Id { get; set; }
 
-    public MovieCommandUpdateById(int id, MovieCommandUpdate updateCommand)
+    public MovieCommandUpdateSingle(int id, MovieCommandUpdate updateCommand)
     {
         
         Id = id;
@@ -31,9 +31,9 @@ public record MovieCommandUpdateById : MovieCommandUpdate
     }
 
 
-    public class Handler(IAppDbContext appDbContext) : IRequestHandler<MovieCommandUpdateById, bool>
+    public class Handler(IAppDbContext appDbContext) : IRequestHandler<MovieCommandUpdateSingle, bool>
     {
-        public async Task<bool> Handle(MovieCommandUpdateById command, CancellationToken cancellationToken = default)
+        public async Task<bool> Handle(MovieCommandUpdateSingle command, CancellationToken cancellationToken = default)
         {
             Movie? movie = await appDbContext.Movies.Where(e => e.Id == command.Id).FirstOrDefaultAsync(cancellationToken);
             if(movie == null) return false;

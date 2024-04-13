@@ -12,7 +12,10 @@ public record SessionQueryGetById(int Id) : IRequest<SessionDTO?>
     {
         public async Task<SessionDTO?> Handle(SessionQueryGetById query, CancellationToken cancellationToken = default)
         {
-            Session? session = await appDbContext.Sessions.Where(e => e.Id == query.Id).FirstOrDefaultAsync(cancellationToken);
+            Session? session = await appDbContext.Sessions
+                .Include(e => e.Movie)
+                .Where(e => e.Id == query.Id)
+                .FirstOrDefaultAsync(cancellationToken);
             return SessionDTO.FromEntity(session);
         }
     }

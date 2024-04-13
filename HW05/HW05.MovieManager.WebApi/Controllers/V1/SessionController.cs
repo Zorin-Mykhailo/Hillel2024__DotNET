@@ -20,17 +20,17 @@ public class SessionController : BaseApiController
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        bool success = await Mediator.Send(new SessionCommandDeleteById(id));
+        bool success = await Mediator.Send(new SessionCommandDeleteSingle(id));
         return success ? Ok(id) : NotFound(id);
     }
 
 
 
 
-    [HttpPut("[action]")]
+    [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, SessionCommandUpdate command)
     {
-        bool success = await Mediator.Send(new SessionCommandUpdateById(id, command));
+        bool success = await Mediator.Send(new SessionCommandUpdateSingle(id, command));
         return success ? Ok(id) : NotFound(id);
     }
 

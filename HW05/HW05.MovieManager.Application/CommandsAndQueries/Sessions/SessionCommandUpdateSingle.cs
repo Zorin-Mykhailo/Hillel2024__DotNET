@@ -19,11 +19,11 @@ public record SessionCommandUpdate : IRequest<bool>
 
 
 
-public record SessionCommandUpdateById : SessionCommandUpdate
+public record SessionCommandUpdateSingle : SessionCommandUpdate
 {
     public int Id { get; set; }
 
-    public SessionCommandUpdateById(int id, SessionCommandUpdate updateCommand)
+    public SessionCommandUpdateSingle(int id, SessionCommandUpdate updateCommand)
     {
 
         Id = id;
@@ -33,9 +33,9 @@ public record SessionCommandUpdateById : SessionCommandUpdate
     }
 
 
-    public class Handler(IAppDbContext appDbContext) : IRequestHandler<SessionCommandUpdateById, bool>
+    public class Handler(IAppDbContext appDbContext) : IRequestHandler<SessionCommandUpdateSingle, bool>
     {
-        public async Task<bool> Handle(SessionCommandUpdateById command, CancellationToken cancellationToken = default)
+        public async Task<bool> Handle(SessionCommandUpdateSingle command, CancellationToken cancellationToken = default)
         {
             Session? session = await appDbContext.Sessions.Where(e => e.Id == command.Id).FirstOrDefaultAsync(cancellationToken);
             if(session == null) return false;

@@ -19,16 +19,16 @@ public class MovieController : BaseApiController
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        bool success = await Mediator.Send(new MovieCommandDeleteById(id));
+        bool success = await Mediator.Send(new MovieCommandDeleteSingle(id));
         return success ? Ok(id) : NotFound(id);
     }
 
 
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(int id, MovieCommandUpdateById command)
+    public async Task<IActionResult> Update(int id, MovieCommandUpdate command)
     {
-        bool success = await Mediator.Send(new MovieCommandUpdateById(id, command));
+        bool success = await Mediator.Send(new MovieCommandUpdateSingle(id, command));
         return success ? Ok(id) : NotFound(id);
     }
 
