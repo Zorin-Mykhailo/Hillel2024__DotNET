@@ -2,11 +2,11 @@
 
 # `📗 Lesson 10` Microservices vs Monolith. Введення у Docker.
 
-## [Lesson video (00:00:00)]()
+## [Lesson video (00:00:00)](https://youtu.be/wA_tnC_4k6o)
 
 --
 
-## [Lesson materials]()
+## [Lesson materials](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/lessons/65a65fe44c3a2d3372eef974)
 
 - Microservices vs Monolith.
 - Введення у Docker.
