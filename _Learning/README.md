@@ -9,7 +9,7 @@
 [`📗 Lesson 07 (2024.04.02)` Unit, End To End, Integration tests. Part 1.](./Materials/07/README.md)  
 [`📗 Lesson 08 (2024.04.05)` Unit, End To End, Integration tests. Part 2.](./Materials/08/README.md)  
 [`📗 Lesson 09 (2024.04.09)` Аутентифікація та авторизація.](./Lessons/09/README.md)  
-[`📗 Lesson 10` ](./Lessons/10/README.md)  
+[`📗 Lesson 10 (2024.04.12)` Microservices vs Monolith. Введення у Docker.](./Lessons/10/README.md)  
 [`📗 Lesson 11` ](./Lessons/11/README.md)  
 [`📗 Lesson 12` ](./Lessons/12/README.md)  
 [`📗 Lesson 13` ](./Lessons/13/README.md)  
