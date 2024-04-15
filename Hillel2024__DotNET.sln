@@ -117,6 +117,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10", "10", "{77AEDE3A-006D-
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lessons", "Lessons", "{0F2DC57C-C7B7-4D2C-B3FA-518917E9D284}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "11", "11", "{B2682A73-19A4-4B20-92FC-D1DC20D03D59}"
 	ProjectSection(SolutionItems) = preProject
@@ -236,6 +239,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFramework", "EntityFramework", "{9C306D87-F62A-4B67-B8F2-EA9A24BA102B}"
 	ProjectSection(SolutionItems) = preProject
 		_Learning\NOTES\EntityFramework\README.md = _Learning\NOTES\EntityFramework\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "THEORY", "THEORY", "{A9E52B9C-B50A-4134-801D-3AE08A0876BA}"
+	ProjectSection(SolutionItems) = preProject
+		_Learning\THEORY\README.md = _Learning\THEORY\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppTesting", "AppTesting", "{80E8400F-E711-4A2D-89AE-9ED9549CB02B}"
+	ProjectSection(SolutionItems) = preProject
+		_Learning\THEORY\AppTesting\README.md = _Learning\THEORY\AppTesting\README.md
 	EndProjectSection
 EndProject
 Global
@@ -358,6 +371,8 @@ Global
 		{FB2629A1-2DB9-473F-B536-E50A6B56F6EF} = {0F2DC57C-C7B7-4D2C-B3FA-518917E9D284}
 		{40EB4393-8A66-42F1-90D2-1F9B6074D3FC} = {6EC63871-086F-4A3E-A920-96525AF1E073}
 		{9C306D87-F62A-4B67-B8F2-EA9A24BA102B} = {40EB4393-8A66-42F1-90D2-1F9B6074D3FC}
+		{A9E52B9C-B50A-4134-801D-3AE08A0876BA} = {6EC63871-086F-4A3E-A920-96525AF1E073}
+		{80E8400F-E711-4A2D-89AE-9ED9549CB02B} = {A9E52B9C-B50A-4134-801D-3AE08A0876BA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {57CEC84A-4A6F-4CE3-9786-DA0F0F9265F8}

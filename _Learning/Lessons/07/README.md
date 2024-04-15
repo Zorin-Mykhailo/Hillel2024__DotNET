@@ -4,7 +4,15 @@
 
 ## [Lesson video (02:12:07)](https://youtu.be/_dpKZtV_-oQ)
 
---
+[`00:08:42` Вступ](https://youtu.be/_dpKZtV_-oQ?t=522)  
+[`00:09:18` Питання](https://youtu.be/_dpKZtV_-oQ?t=558)  
+[`00:09:30` ❓ Патерн репозиторій](https://youtu.be/_dpKZtV_-oQ?t=570)  
+[`00:12:51` ▶️ Початок заняття](https://youtu.be/_dpKZtV_-oQ?t=771)  
+[`00:14:08` Міні приклад роботи з EF](https://youtu.be/_dpKZtV_-oQ?t=848)  
+[`01:16:35` ⏸ Перерва](https://youtu.be/_dpKZtV_-oQ?t=4595)  
+[`01:27:34` ▶️ Продовження заняття. Міграції](https://youtu.be/_dpKZtV_-oQ?t=5254)  
+[`01:56:37` Unit тести](https://youtu.be/_dpKZtV_-oQ?t=6997)  
+[`00:00:00` ]()  
 
 ## [Lesson materials](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/lessons/65a65fe44c3a2d3372eef971)
 

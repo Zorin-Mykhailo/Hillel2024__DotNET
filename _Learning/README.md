@@ -1,4 +1,4 @@
-﻿[`📝 NOTES`](./NOTES/README.md)  [`📕 TODO`](./TODO/README.md)  
+﻿[`📘 THEORY`](./THEORY/README.md) [`📝 NOTES`](./NOTES/README.md)  [`📕 TODO`](./TODO/README.md)  
 
 [`📗 Lesson 01 (2024.03.12)` Вступ в платформу .NET](./Lessons/01/README.md)  
 [`📗 Lesson 02 (2024.03.15)` Багатопоточність. Паралельне програмування та бібліотека TPL.](./Lessons/02/README.md)  
