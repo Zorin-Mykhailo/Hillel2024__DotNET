@@ -4,7 +4,26 @@
 
 ## [Lesson video (02:14:57)](https://youtu.be/YumH33U2sZs)
 
---
+[`00:06:39` Вступ](https://youtu.be/YumH33U2sZs?t=399)  
+[`00:08:01` Що таке юніт тести](https://youtu.be/YumH33U2sZs?t=481)  
+[`00:11:24` Фреймворки для тестування](https://youtu.be/YumH33U2sZs?t=684)  
+[`00:13:19` Tests Setup/Teardown](https://youtu.be/YumH33U2sZs?t=799)  
+[`00:00:00` Mocks, Stubs, Fakes](https://youtu.be/YumH33U2sZs?t=919)  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
 
 ## [Lesson materials](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/lessons/65a65fe44c3a2d3372eef972)
 
