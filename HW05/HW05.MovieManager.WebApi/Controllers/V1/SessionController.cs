@@ -6,12 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 namespace HW05.MovieManager.WebApi.Controllers.V1;
 
 
-[ApiVersion("1.0")]
+[ApiVersion(1.0)]
 public class SessionController : BaseApiController
 {
     [HttpPost]
     public async Task<IActionResult> Create(SessionCommandCreate command)
     {
+        int createdEntityId = await Mediator.Send(command);
+        var routeValues = new { id = createdEntityId, version = new ApiVersion(1, 0).ToString()};
+        return CreatedAtAction(nameof(GetById), routeValues, createdEntityId);
+
         return Ok(await Mediator.Send(command));
     }
 

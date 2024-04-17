@@ -5,13 +5,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HW05.MovieManager.WebApi.Controllers.V1;
 
-[ApiVersion("1.0")]
+[ApiVersion(1.0)]
 public class MovieController : BaseApiController
 {
     [HttpPost]
     public async Task<IActionResult> Create(MovieCommandCreate command)
     {
-        return Ok(await Mediator.Send(command));
+        int createdEntityId = await Mediator.Send(command);
+        var routeValues = new { id = createdEntityId, version = new ApiVersion(1, 0).ToString()};
+        return CreatedAtAction(nameof(GetById), routeValues, createdEntityId);
     }
 
 
