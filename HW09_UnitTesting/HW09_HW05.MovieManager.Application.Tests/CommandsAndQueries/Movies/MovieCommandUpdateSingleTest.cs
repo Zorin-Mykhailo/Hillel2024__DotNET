@@ -1,7 +1,4 @@
-﻿using AutoFixture;
-using HW05.MovieManager.Application.CommandsAndQueries.Movies;
-using HW05.MovieManager.Persistence.Context;
-using HW05.MovieManager.Domain.Entities;
+﻿using HW05.MovieManager.Application.CommandsAndQueries.Movies;
 
 namespace HW09_HW05.MovieManager.Application.Tests.CommandsAndQueries.Movies;
 
@@ -16,6 +13,7 @@ public class MovieCommandUpdateSingleTest
         _dbContext = new(options);
     }
 
+    private static MovieCommandUpdateSingle.Handler CreateSUT(AppDbContext context) => new(context);
 
     [Fact]
     public void MovieCommandUpdateSingle_Handle()
@@ -48,7 +46,5 @@ public class MovieCommandUpdateSingleTest
             Assert.True(updateExistingItemResult, "Existing movie item was not updated");
             Assert.False(updateNotExistingItemResult, "Result of updating not existing item is not false");
         });
-    }
-
-    private static MovieCommandUpdateSingle.Handler CreateSUT(AppDbContext context) => new(context);
+    }    
 }

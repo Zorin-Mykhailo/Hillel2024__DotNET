@@ -21,7 +21,7 @@ public class AppDbContextDecorator<T>(DbContextOptions<T> options) where T : DbC
     public void AddAndSaveRange<TEntity>(IEnumerable<TEntity> entitiesToSave) where TEntity : class
         => Using(CreateDbContextInstance(), context =>
         {
-            context.Add(entitiesToSave);
+            context.AddRange(entitiesToSave);
             context.SaveChanges();
         });
 

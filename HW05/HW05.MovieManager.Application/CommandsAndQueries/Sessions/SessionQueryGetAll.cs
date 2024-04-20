@@ -13,6 +13,7 @@ public record SessionQueryGetAll : IRequest<ICollection<SessionDTO>>
         {
             ICollection<SessionDTO> sessions = await appDbContext.Sessions
                 //.Include(e => e.Movie)
+                .OrderByDescending(e => e.Id)
                 .Select(e => SessionDTO.FromEntity(e)!)
                 .ToListAsync(cancellationToken);
             return sessions;

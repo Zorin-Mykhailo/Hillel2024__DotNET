@@ -24,10 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CommandsAndQueries\Sessions\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\HW05\HW05.MovieManager.Application\HW05.MovieManager.Application.csproj" />
     <ProjectReference Include="..\..\HW05\HW05.MovieManager.Domain\HW05.MovieManager.Domain.csproj" />
     <ProjectReference Include="..\..\HW05\HW05.MovieManager.Persistence\HW05.MovieManager.Persistence.csproj" />

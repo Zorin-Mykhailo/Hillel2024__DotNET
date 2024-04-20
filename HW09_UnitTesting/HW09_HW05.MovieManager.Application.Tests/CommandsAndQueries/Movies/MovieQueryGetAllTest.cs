@@ -1,8 +1,4 @@
-﻿using AutoFixture;
-using HW05.MovieManager.Application.CommandsAndQueries.Movies;
-using HW05.MovieManager.Domain.DTOs;
-using HW05.MovieManager.Domain.Entities;
-using HW05.MovieManager.Persistence.Context;
+﻿using HW05.MovieManager.Application.CommandsAndQueries.Movies;
 
 namespace HW09_HW05.MovieManager.Application.Tests.CommandsAndQueries.Movies;
 
@@ -16,6 +12,8 @@ public class MovieQueryGetAllTest
         var options = Utilites.CreateInMemoryDbOptions<AppDbContext>();
         _dbContext = new(options);
     }
+
+    private static MovieQueryGetAll.Handler CreateSUT(AppDbContext context) => new(context);
 
     [Fact]
     public void MovieQueryGetAll_Handle()
@@ -42,7 +40,7 @@ public class MovieQueryGetAllTest
 
             // Assert
             Assert.NotEmpty(getAllResults);
-            Assert.Equal(3, getAllResults.Count);
+            Assert.Equal(movies.Count, getAllResults.Count);
 
             Movie expectedMovie = movies.First();
             MovieDTO actualMovie = getAllResults.Last();
@@ -55,6 +53,4 @@ public class MovieQueryGetAllTest
             });
         });
     }
-
-    private static MovieQueryGetAll.Handler CreateSUT(AppDbContext context) => new(context);
 }

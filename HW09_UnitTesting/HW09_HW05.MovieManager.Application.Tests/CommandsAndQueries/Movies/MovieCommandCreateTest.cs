@@ -1,7 +1,4 @@
-using AutoFixture;
 using HW05.MovieManager.Application.CommandsAndQueries.Movies;
-using HW05.MovieManager.Persistence.Context;
-
 
 namespace HW09_HW05.MovieManager.Application.Tests.CommandsAndQueries.Movies;
 
@@ -16,12 +13,13 @@ public class MovieCommandCreateTest
         _dbContext = new (options);
     }
 
-    
+    private static MovieCommandCreate.Handler CreateSUT(AppDbContext context) => new(context);
+
     [Fact]
     public void MovieCommandCreate_Handle()
     {
-        Fixture fixtureMovieCommandCreate = new ();
-        MovieCommandCreate movieCommandCreate = fixtureMovieCommandCreate.Build<MovieCommandCreate>()
+        Fixture fixture = new ();
+        MovieCommandCreate movieCommandCreate = fixture.Build<MovieCommandCreate>()
             .With(e => e.Title, "New movie")
             .Create();
 
@@ -37,8 +35,4 @@ public class MovieCommandCreateTest
             Assert.True(createResult > 0, "Created object id is not positive number");
         });
     }
-
-
-
-    private static MovieCommandCreate.Handler CreateSUT(AppDbContext context) => new(context);
 }

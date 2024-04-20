@@ -1,7 +1,4 @@
-﻿using AutoFixture;
-using HW05.MovieManager.Application.CommandsAndQueries.Movies;
-using HW05.MovieManager.Persistence.Context;
-using HW05.MovieManager.Domain.Entities;
+﻿using HW05.MovieManager.Application.CommandsAndQueries.Movies;
 
 namespace HW09_HW05.MovieManager.Application.Tests.CommandsAndQueries.Movies;
 public class MovieCommandDeleteTest
@@ -14,6 +11,8 @@ public class MovieCommandDeleteTest
         var options = Utilites.CreateInMemoryDbOptions<AppDbContext>();
         _dbContext = new (options);
     }
+
+    private static MovieCommandDeleteSingle.Handler CreateSUT(AppDbContext context) => new(context);
 
     [Fact]
     public void MovieCommandDelete_Handle()
@@ -44,6 +43,4 @@ public class MovieCommandDeleteTest
             Assert.False(secondDeleteResult, "Deletion of not existing movie item should return false");
         });
     }
-
-    private static MovieCommandDeleteSingle.Handler CreateSUT(AppDbContext context) => new(context);
 }
