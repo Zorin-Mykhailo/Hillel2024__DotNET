@@ -1,5 +1,6 @@
 using HW05.MovieManager.Application.CommandsAndQueries.Movies;
-using HW05.MovieManager.WebApi.Controllers.V1; 
+using HW05.MovieManager.WebApi.Controllers.V1;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HW09_HW05.MovieManager.WebApi.Tests;
 
@@ -13,7 +14,7 @@ public class MovieControllerTest
     }
 
     [Fact]
-    public void Create_WhenCalled_ReturnsCreatedResponse()
+    public async void Create_WhenCalled_ReturnsCreatedResponse()
     {
         // Arrange
         MovieCommandCreate createCommand = new()
@@ -24,8 +25,9 @@ public class MovieControllerTest
         };
 
         // Act
-        var createdResponse = _movieController.Create(createCommand);
+        var controllerResponse = await _movieController.Create(createCommand);
 
         // Assert
+        _ = Assert.IsType<Task<CreatedAtActionResult>>(controllerResponse as CreatedAtActionResult);
     }
 }
