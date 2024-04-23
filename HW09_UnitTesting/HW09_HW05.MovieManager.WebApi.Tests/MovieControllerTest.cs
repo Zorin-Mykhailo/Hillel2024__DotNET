@@ -1,20 +1,26 @@
 using HW05.MovieManager.Application.CommandsAndQueries.Movies;
 using HW05.MovieManager.WebApi.Controllers.V1;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Moq;
 
 namespace HW09_HW05.MovieManager.WebApi.Tests;
 
 public class MovieControllerTest
 {
-    private readonly MovieController _movieController;
+    private CancellationTokenSource CTS { get; set; } = new();
+    
+    private Mock<IMediator> MockMediator { get; set; } = new();
+    
+    private MovieController MovieController { get; set; }
 
     public MovieControllerTest()
-    {
-        _movieController = new MovieController();
+    {   
+        MovieController = new MovieController(MockMediator.Object);
     }
 
     [Fact]
-    public async void Create_WhenCalled_ReturnsCreatedResponse()
+    public async Task Create_WhenCalled_ReturnsCreatedResponse()
     {
         // Arrange
         MovieCommandCreate createCommand = new()
@@ -24,10 +30,15 @@ public class MovieControllerTest
             ReleaseDate = DateTime.Now,
         };
 
-        // Act
-        var controllerResponse = await _movieController.Create(createCommand);
+        int createdEntityId = 1;
+        MockMediator.Setup(m => m.Send(It.IsAny<MovieCommandCreate>(), It.IsAny<CancellationToken>())).ReturnsAsync(createdEntityId);
 
-        // Assert
-        _ = Assert.IsType<Task<CreatedAtActionResult>>(controllerResponse as CreatedAtActionResult);
+        // Act
+        CreatedAtActionResult? actualResult = await MovieController.Create(createCommand) as CreatedAtActionResult;
+
+        
+        Assert.NotNull(actualResult);
+        Assert.Equal(nameof(HW05.MovieManager.WebApi.Controllers.V1.MovieController.GetById), actualResult.ActionName);
+        Assert.Equal(createdEntityId, actualResult.RouteValues["id"]);
     }
 }
