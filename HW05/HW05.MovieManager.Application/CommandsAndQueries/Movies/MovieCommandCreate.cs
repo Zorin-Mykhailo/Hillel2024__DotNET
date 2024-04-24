@@ -23,7 +23,7 @@ public record MovieCommandCreate : IRequest<int>
                 ReleaseDate = command.ReleaseDate,
             };
 
-            appDbContext.Movies.Add(movie);
+            await appDbContext.Movies.AddAsync(movie, cancellationToken);
             await appDbContext.SaveChangesAsync(cancellationToken);
 
             return movie.Id;
