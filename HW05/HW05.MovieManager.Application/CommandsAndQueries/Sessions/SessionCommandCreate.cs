@@ -23,7 +23,7 @@ public record SessionCommandCreate : IRequest<int>
                 StartAt = command.StartAt,
             };
 
-            appDbContext.Sessions.Add(session);
+            await appDbContext.Sessions.AddAsync(session, cancellationToken);
             await appDbContext.SaveChangesAsync(cancellationToken);
 
             return session.Id;

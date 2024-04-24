@@ -1,26 +1,35 @@
 ﻿using Asp.Versioning;
 using HW05.MovieManager.Application.CommandsAndQueries.Sessions;
 using HW05.MovieManager.Domain.DTOs;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace HW05.MovieManager.WebApi.Controllers.V1;
 
 
-[ApiVersion("1.0")]
-public class SessionController : BaseApiController
+[ApiVersion(1.0)]
+[ApiController]
+[Route("api/v{version:apiVersion}/[controller]")]
+public class SessionController(IMediator Mediator) : ControllerBase
 {
     [HttpPost]
-    public async Task<IActionResult> Create(SessionCommandCreate command)
+    [ProducesResponseType(typeof(int), (int)HttpStatusCode.Created)]
+    public async Task<IActionResult> Create(SessionCommandCreate command, CancellationToken cancellationToken = default)
     {
-        return Ok(await Mediator.Send(command));
+        int createdEntityId = await Mediator.Send(command, cancellationToken);
+        var routeValues = new { id = createdEntityId, version = new ApiVersion(1, 0).ToString()};
+        return CreatedAtAction(nameof(GetById), routeValues, createdEntityId);
     }
 
 
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(int id)
+    [ProducesResponseType(typeof(int), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(void), (int)HttpStatusCode.NotFound)]
+    public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken = default)
     {
-        bool success = await Mediator.Send(new SessionCommandDeleteSingle(id));
+        bool success = await Mediator.Send(new SessionCommandDeleteSingle(id), cancellationToken);
         return success ? Ok(id) : NotFound(id);
     }
 
@@ -28,27 +37,33 @@ public class SessionController : BaseApiController
 
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(int id, SessionCommandUpdate command)
+    [ProducesResponseType(typeof(int), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(void), (int)HttpStatusCode.NotFound)]
+    public async Task<IActionResult> Update(int id, SessionCommandUpdate command, CancellationToken cancellationToken = default)
     {
-        bool success = await Mediator.Send(new SessionCommandUpdateSingle(id, command));
+        bool success = await Mediator.Send(new SessionCommandUpdateSingle(id, command), cancellationToken);
         return success ? Ok(id) : NotFound(id);
     }
 
 
 
     [HttpGet]
-    public async Task<IActionResult> GetAll()
+    [ProducesResponseType(typeof(ICollection<SessionDTO>), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(void), (int)HttpStatusCode.NoContent)]
+    public async Task<IActionResult> GetAll(CancellationToken cancellationToken = default)
     {
-        ICollection<SessionDTO> items = await Mediator.Send(new SessionQueryGetAll());
+        ICollection<SessionDTO> items = await Mediator.Send(new SessionQueryGetAll(), cancellationToken);
         return items.Any() ? Ok(items) : NoContent();
     }
 
 
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetById(int id)
+    [ProducesResponseType(typeof(SessionDTO), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(void), (int)HttpStatusCode.NotFound)]
+    public async Task<IActionResult> GetById(int id, CancellationToken cancellationToken = default)
     {
-        SessionDTO? singleItem = await Mediator.Send(new SessionQueryGetById(id));
+        SessionDTO? singleItem = await Mediator.Send(new SessionQueryGetById(id), cancellationToken);
         return singleItem != null ? Ok(singleItem) : NotFound(id);
     }
 }

@@ -1,7 +1,10 @@
 using Asp.Versioning;
 using HW05.MovieManager.Application;
+using HW05.MovieManager.Application.CommandsAndQueries.Movies;
 using HW05.MovieManager.Persistence;
+using HW05.MovieManager.WebApi;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 internal class Program
 {
@@ -26,6 +29,7 @@ internal class Program
             options.AssumeDefaultVersionWhenUnspecified = true;
             options.ReportApiVersions = true;
         });
+        
         builder.Services.AddApplication();
         builder.Services.AddPersistence(builder.Configuration);
         builder.Services.AddControllers();

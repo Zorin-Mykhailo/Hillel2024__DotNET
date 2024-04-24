@@ -11,7 +11,10 @@ public record MovieQueryGetAll : IRequest<ICollection<MovieDTO>>
     {
         public async Task<ICollection<MovieDTO>> Handle(MovieQueryGetAll query, CancellationToken cancellationToken = default)
         {
-            ICollection<MovieDTO> movies = await appDbContext.Movies.Select(e => MovieDTO.FromEntity(e)!).ToListAsync(cancellationToken);
+            ICollection<MovieDTO> movies = await appDbContext.Movies
+                .OrderByDescending(e => e.Id)
+                .Select(e => MovieDTO.FromEntity(e)!)
+                .ToListAsync(cancellationToken);
             return movies;
         }
     }
