@@ -8,6 +8,8 @@ using System.Net;
 namespace HW05.MovieManager.WebApi.Controllers.V1;
 
 [ApiVersion(1.0)]
+[ApiController]
+[Route("api/v{version:apiVersion}/[controller]")]
 public class MovieController(IMediator Mediator) : ControllerBase
 {
     [HttpPost]
@@ -44,7 +46,7 @@ public class MovieController(IMediator Mediator) : ControllerBase
 
 
     [HttpGet]
-    [ProducesResponseType(typeof(int), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(ICollection<MovieDTO>), (int)HttpStatusCode.OK)]
     [ProducesResponseType(typeof(void), (int)HttpStatusCode.NoContent)]
     public async Task<IActionResult> GetAll(CancellationToken cancellationToken = default)
     {
@@ -55,8 +57,8 @@ public class MovieController(IMediator Mediator) : ControllerBase
 
 
     [HttpGet("{id}")]
-    [ProducesResponseType(typeof(int), (int)HttpStatusCode.OK)]
-    [ProducesResponseType(typeof(int), (int)HttpStatusCode.NotFound)]
+    [ProducesResponseType(typeof(MovieDTO), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(void), (int)HttpStatusCode.NotFound)]
     public async Task<IActionResult> GetById(int id, CancellationToken cancellationToken = default)
     {
         MovieDTO? singleItem = await Mediator.Send(new MovieQueryGetById(id), cancellationToken);

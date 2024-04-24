@@ -16,7 +16,7 @@ public class SessionQueryGetAllTest
     private static SessionQueryGetAll.Handler CreateSUT(AppDbContext context) => new(context);
 
     [Fact]
-    public void SessionQueryGetAll_Handle()
+    public async Task SessionQueryGetAll_Handle()
     {
         int relatedMovieId = 1;
 
@@ -34,6 +34,7 @@ public class SessionQueryGetAllTest
         _dbContext.AddAndSaveRange(sessions);
 
         SessionQueryGetAll sessionQueryGetAll = fixture.Build<SessionQueryGetAll>().Create();
+
 
         _dbContext.Assert(async context =>
         {

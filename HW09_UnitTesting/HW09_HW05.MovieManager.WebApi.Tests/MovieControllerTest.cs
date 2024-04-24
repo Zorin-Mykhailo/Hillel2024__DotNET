@@ -2,7 +2,6 @@ using HW05.MovieManager.Application.CommandsAndQueries.Movies;
 using HW05.MovieManager.Domain.DTOs;
 using HW05.MovieManager.WebApi.Controllers.V1;
 using MediatR;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 
@@ -39,22 +38,22 @@ public class MovieControllerTest
         Assert.Equal(createdEntityId, routeValueId);
     }
 
-    
-    
+
+
     [Fact]
     public async Task Delete_ExistingEntity_ReturnsOkAndEntityId()
     {
         // Arrange
-        int deletableMovieId = 1;
+        int deletableEntityId = 1;
 
-        MovieCommandDeleteSingle deleteCommand = new (deletableMovieId);
+        MovieCommandDeleteSingle deleteCommand = new (deletableEntityId);
 
         Mock<IMediator> MockMediator = new();
         MockMediator.Setup(m => m.Send(It.IsAny<MovieCommandDeleteSingle>(), It.IsAny<CancellationToken>())).ReturnsAsync(true);
         MovieController sut = new (MockMediator.Object);
 
         // Act
-        OkObjectResult? actualResult = await sut.Delete(deletableMovieId, CTS.Token) as OkObjectResult;
+        OkObjectResult? actualResult = await sut.Delete(deletableEntityId, CTS.Token) as OkObjectResult;
 
         // Assert
         Assert.NotNull(actualResult);
@@ -73,7 +72,7 @@ public class MovieControllerTest
         Mock<IMediator> MockMediator = new();
         MockMediator.Setup(m => m.Send(It.IsAny<MovieCommandDeleteSingle>(), It.IsAny<CancellationToken>())).ReturnsAsync(false);
         MovieController sut = new (MockMediator.Object);
-        
+
         // Act
         NotFoundObjectResult? actualResult = await sut.Delete(deletableMovieId, CTS.Token) as NotFoundObjectResult;
 
@@ -99,7 +98,7 @@ public class MovieControllerTest
         Mock<IMediator> MockMediator = new();
         MockMediator.Setup(m => m.Send(It.IsAny<MovieCommandUpdateSingle>(), It.IsAny<CancellationToken>())).ReturnsAsync(true);
         MovieController sut = new (MockMediator.Object);
-        
+
         // Act
         OkObjectResult? actualResult = await sut.Update(updatableMovieId, updateCommand, CTS.Token) as OkObjectResult;
 
