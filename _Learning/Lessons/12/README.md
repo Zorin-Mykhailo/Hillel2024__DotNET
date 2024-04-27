@@ -2,7 +2,7 @@
 
 # `📗 Lesson 12` Azure pipelines. CI/CD.
 
-## [Lesson video (00:00:00)]()
+## [Lesson video (02:07:49)](https://youtu.be/2wJJLW0bt9o)
 
 --
 

@@ -1,8 +1,8 @@
 [`⏪ Назад`](../10/README.md)  [`🏠 HOME`](../../README.md)  [`⏩ Вперед`](../12/README.md)  
 
-# `📗 Lesson 11`
+# `📗 Lesson 11` Введення у Azure
 
-## [Lesson video (00:00:00)]()
+## [Lesson video (02:05:04)](https://youtu.be/y_BgkUq401s)
 
 --
 
