@@ -1,4 +1,6 @@
-﻿# [ДЗ 3 (заняття 04) Web API. REST API](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/65f2ff97dcabf5dbd18dcb0f)
+﻿[`⏪ Назад`](../02/README.md)  [`📕 HOMEWORKS`](../README.md)  [`⏩ Вперед`](../04/README.md)
+
+# [ДЗ 3 (заняття 04) Web API. REST API](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/65f2ff97dcabf5dbd18dcb0f)
 
 Створити REST API для інтернет магазина за допомогою Web API.
 Зберігати все в MS SQL базу даних за допомогою code-first підходу, використовуючи Entity Framework Core.
