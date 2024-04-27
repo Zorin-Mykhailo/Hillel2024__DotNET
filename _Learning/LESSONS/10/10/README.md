@@ -18,7 +18,7 @@
 [`01:00:04` TokenApiBase](https://youtu.be/wA_tnC_4k6o?t=3604)  
 [`01:05:10` Як все працює в цілому](https://youtu.be/wA_tnC_4k6o?t=3910)  
 [`01:15:50` ⏸ Початок перерви](https://youtu.be/wA_tnC_4k6o?t=4550)  
-[`01:25:19` ▶️ Продовження уроку. Angular UI>](https://youtu.be/wA_tnC_4k6o?t=5119)  
+[`01:25:19` ▶️ Продовження уроку. Angular UI](https://youtu.be/wA_tnC_4k6o?t=5119)  
 [`01:37:58` Мікросервісна архітектура та моноліт](https://youtu.be/wA_tnC_4k6o?t=5878)  
 [`01:39:58` Монолітна архітектура](https://youtu.be/wA_tnC_4k6o?t=5998)  
 [`01:40:09` Переваги монолітної архітектури](https://youtu.be/wA_tnC_4k6o?t=6009)  

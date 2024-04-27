@@ -1,4 +1,4 @@
-﻿[`📕 HOMEWORKS`](../README.md)  [`⏩ Вперед`](../02/README.md)
+﻿[`📕 HOMEWORKS`](../../README.md)  [`⏩ Вперед`](../02/README.md)
 
 # [`📕 Homework 01 (Lesson 01)` Вступ в платформу .NET](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/65e9d1b3940cf5c66423f4a0)  
 
