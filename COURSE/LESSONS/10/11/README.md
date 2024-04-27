@@ -8,8 +8,8 @@
 
 [`00:02:57` Вступ](https://youtu.be/y_BgkUq401s?t=177)  
 [`00:07:30` Docker](https://youtu.be/y_BgkUq401s?t=450)  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
+[`00:21:54` Kubernetes](https://youtu.be/y_BgkUq401s?t=1314)  
+[`00:35:17` Практика](https://youtu.be/y_BgkUq401s?t=2117)  
 [`00:00:00` ]()  
 [`00:00:00` ]()  
 [`00:00:00` ]()  

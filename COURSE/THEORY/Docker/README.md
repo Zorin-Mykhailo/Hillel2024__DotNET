@@ -41,8 +41,10 @@ dotnet publish -c Release
 
 ---
 
-создадим Dockerfile (без расширения) возле CSPROJ файла
+Створимо `Dockerfile` (без розширення) поруч із `*.*csproj` файлом
+та зкопіюємо в нього наступний вміст
 
+```dockerfile
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /App
 
@@ -58,6 +60,10 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /App
 COPY --from=build-env /App/out .
 ENTRYPOINT ["dotnet", "DotNet.Docker.dll"]
+```
+
+Образ середовища виконання ASP.NET Core використовується цілеспрямовано, хоча може використовуватись образ `mcr.microsoft.com/dotnet/runtime:8.0`.
+
 
 Образ среды выполнения ASP.NET Core используется намеренно, хотя может использоваться образ mcr.microsoft.com/dotnet/runtime:8.0.
 
@@ -65,9 +71,10 @@ ENTRYPOINT ["dotnet", "DotNet.Docker.dll"]
 Выберите имя образа в зависимости от того, используете ли вы Nano Server или Windows Server Core и какую версию этой ОС. 
 Полный список всех поддерживаемых тегов можно найти тут: https://hub.docker.com/_/microsoft-dotnet
 
+Команда WORKDIR изменяет текущий каталог в контейнере на App.
+
 Команда COPY предписывает Docker скопировать указанную папку на вашем компьютере в папку в контейнере. В этом примере папка публикации копируется в папку с именем App/out в контейнере.
 
-Команда WORKDIR изменяет текущий каталог в контейнере на App.
 
 Следующая команда ENTRYPOINT используется, чтобы настроить с помощью Docker контейнер для запуска в качестве исполняемого файла. При запуске контейнера выполняется команда ENTRYPOINT. После выполнения команды контейнер автоматически остановится.
 
@@ -75,7 +82,11 @@ ENTRYPOINT ["dotnet", "DotNet.Docker.dll"]
 
 ENV DOTNET_EnableDiagnostics=0
 
-5. docker build -t counter-image -f Dockerfile . -> создадим докер образ по существующему докер файлу
+5. Створюємо докер-образ по існуючому докер файлу
+
+```dockerfile
+docker build -t counter-image -f Dockerfile
+```
 
 Docker обработает все строки файла Dockerfile. В . команде docker build задается контекст сборки образа. Переключение -f — это путь к Dockerfile. Эта команда создает образ и локальный репозиторий с именем counter-image, который указывает на такой образ. После завершения работы этой команды выполните команду docker images, чтобы просмотреть список установленных образов.
 
