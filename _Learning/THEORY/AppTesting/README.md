@@ -1,4 +1,6 @@
-﻿[`📘 THEORY`](../README.md)
+﻿[`🏠 HOME`](../../README.md)  
+
+[`📘 THEORY`](../README.md)  
 
 # Тестування програмного забезпечення
 

@@ -261,6 +261,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW09_HW05.MovieManager.Application.Tests", "HW09_UnitTesting\HW09_HW05.MovieManager.Application.Tests\HW09_HW05.MovieManager.Application.Tests.csproj", "{CD0263E5-1BE0-4F51-8E6C-3DC22B5CF17E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Multithreading", "Multithreading", "{A621FFCA-2A6E-4569-955C-97A6912AAA9F}"
+	ProjectSection(SolutionItems) = preProject
+		_Learning\THEORY\Multithreading\README.md = _Learning\THEORY\Multithreading\README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HOMEWORKS", "HOMEWORKS", "{D0F69C5A-18D4-4DCB-9ACE-E2E27B2BBBED}"
 	ProjectSection(SolutionItems) = preProject
