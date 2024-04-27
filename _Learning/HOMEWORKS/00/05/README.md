@@ -1,4 +1,4 @@
-﻿[`🏠 HOME`](../README.md)  
+﻿[`🏠 HOME`](../../../README.md)  
 
 [`⏪ Назад`](../04/README.md)  [`📕 HOMEWORKS`](../../README.md)  [`⏩ Вперед`](../06/README.md)
 
