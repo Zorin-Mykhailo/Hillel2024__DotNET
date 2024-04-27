@@ -1,3 +1,3 @@
 ﻿[`🏠 HOME`](../README.md)  
 
-# 📗 LESSONS
+# 📕 HOMEWORKS
