@@ -1,4 +1,7 @@
-﻿[`📝 NOTES`](../README.md)
+﻿[`🏠 HOME`](../../README.md)  
+
+
+[`📝 NOTES`](../README.md)
 
 # Entity Framework
 
