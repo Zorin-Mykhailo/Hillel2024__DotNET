@@ -2,7 +2,7 @@
 
 # 📗 LESSONS
 
-[`📗 Lesson 01 (2024.03.12)` Вступ в платформу .NET](./LESSONS/01/README.md)  
+[`📗 Lesson 01 (2024.03.12)` Вступ в платформу .NET](./01/README.md)  
 [`📗 Lesson 02 (2024.03.15)` Багатопоточність. Паралельне програмування та бібліотека TPL.](./LESSONS/02/README.md)  
 [`📗 Lesson 03 (2024.03.19)` Aсинхронне програмування.](./LESSONS/03/README.md)  
 [`📗 Lesson 04 (2024.03.22)` REST API. Postman. N-tier архітектура. CQS and CQRS.](./LESSONS/04/README.md)  
