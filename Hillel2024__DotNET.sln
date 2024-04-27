@@ -263,6 +263,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Multithreading", "Multithreading", "{A621FFCA-2A6E-4569-955C-97A6912AAA9F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HOMEWORKS", "HOMEWORKS", "{D0F69C5A-18D4-4DCB-9ACE-E2E27B2BBBED}"
+	ProjectSection(SolutionItems) = preProject
+		_Learning\HOMEWORKS\README.md = _Learning\HOMEWORKS\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
