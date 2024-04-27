@@ -1,7 +1,7 @@
 ﻿# 🏠 HOME
 
 [📕 HOMEWORKS](./THEORY/README.md)  
-[📗 LESSONS](./Lessons/README.md)  
+[📗 LESSONS](./LESSONS/README.md)  
 
 [📘 THEORY](./THEORY/README.md)  
 [📝 NOTES](./NOTES/README.md)  
