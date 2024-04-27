@@ -1,6 +1,6 @@
 [`🏠 HOME`](../../../README.md)  
 
-[`⏪ Назад`](../23/README.md)  [`📗 LESSONS`](../README.md)  [`⏩ Вперед`](../25/README.md)  
+[`⏪ Назад`](../23/README.md)  [`📗 LESSONS`](../../README.md)  [`⏩ Вперед`](../25/README.md)  
 
 # `📗 Lesson 24`
 

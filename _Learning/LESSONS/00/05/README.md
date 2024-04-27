@@ -1,6 +1,6 @@
 [`🏠 HOME`](../../../README.md)   
 
-[`⏪ Назад`](../04/README.md)  [`📗 LESSONS`](../README.md)  [`⏩ Вперед`](../06/README.md)
+[`⏪ Назад`](../04/README.md)  [`📗 LESSONS`](../../README.md)  [`⏩ Вперед`](../06/README.md)
 
 # `📗 Lesson 05 (2024.03.26)` Onion. MediatR.
 

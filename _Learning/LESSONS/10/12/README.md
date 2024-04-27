@@ -1,6 +1,6 @@
 [`🏠 HOME`](../../../README.md)  
 
-[`⏪ Назад`](../11/README.md)  [`📗 LESSONS`](../README.md)  [`⏩ Вперед`](../13/README.md)  
+[`⏪ Назад`](../11/README.md)  [`📗 LESSONS`](../../README.md)  [`⏩ Вперед`](../13/README.md)  
 
 # `📗 Lesson 12 (2024.04.19)` Azure pipelines. CI/CD.
 
