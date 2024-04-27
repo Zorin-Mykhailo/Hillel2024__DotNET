@@ -1,6 +1,6 @@
 [`⏪ Назад`](../09/README.md)  [`🏠 HOME`](../../README.md)  [`⏩ Вперед`](../11/README.md)  
 
-# `📗 Lesson 10` Microservices vs Monolith. Введення у Docker.
+# `📗 Lesson 10 (2024.04.12)` Microservices vs Monolith. Введення у Docker.
 
 ## [Lesson video (02:06:41)](https://youtu.be/wA_tnC_4k6o)
 

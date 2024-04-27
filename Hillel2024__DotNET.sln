@@ -62,49 +62,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01", "01", "{EE6C3ECB-8C90-436D-81B2-D29CC0CC72AF}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\01\README.md = _Learning\Lessons\01\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02", "02", "{8F9E6F44-6335-413A-8C2C-39054CCD5064}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\02\README.md = _Learning\Lessons\02\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03", "03", "{13612CB0-CC53-4B28-AA42-578CCF5AC64E}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\03\README.md = _Learning\Lessons\03\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04", "04", "{045DF7D7-9087-488D-A05B-8BE7EB905E54}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\04\README.md = _Learning\Lessons\04\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05", "05", "{A3A49B7D-E15C-468F-B384-DE091A9DFB87}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\05\README.md = _Learning\Lessons\05\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06", "06", "{C0E99C08-D5FC-4E40-A3BC-0332E48F3875}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\06\README.md = _Learning\Lessons\06\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07", "07", "{CF958307-F415-4434-A869-352416FB5594}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\07\README.md = _Learning\Lessons\07\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "08", "08", "{53832539-B9D7-4F62-90B5-727D8929B984}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\08\README.md = _Learning\Lessons\08\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "09", "09", "{CDF92DD0-2001-4BE0-812E-D0CB169BCADB}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\09\README.md = _Learning\Lessons\09\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TODO", "TODO", "{27204F9B-89BF-48C5-9E44-1B6247046EEE}"
 	ProjectSection(SolutionItems) = preProject
@@ -112,124 +85,55 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TODO", "TODO", "{27204F9B-8
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10", "10", "{77AEDE3A-006D-416E-8E9C-A9075423572F}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\10\README.md = _Learning\Lessons\10\README.md
-	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lessons", "Lessons", "{0F2DC57C-C7B7-4D2C-B3FA-518917E9D284}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LESSONS", "LESSONS", "{0F2DC57C-C7B7-4D2C-B3FA-518917E9D284}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "11", "11", "{B2682A73-19A4-4B20-92FC-D1DC20D03D59}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\11\README.md = _Learning\Lessons\11\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "12", "12", "{DB448811-875C-437E-BA8D-AFF207FDAC92}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\12\README.md = _Learning\Lessons\12\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "13", "13", "{CA4A3624-107F-4743-8522-4F134DAC0BBA}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\13\README.md = _Learning\Lessons\13\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "14", "14", "{2DD7E847-B5C0-417A-8A0C-B518FBCA8E06}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\14\README.md = _Learning\Lessons\14\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "15", "15", "{F4EF4747-05A2-407F-BC47-0A2B938C5715}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\15\README.md = _Learning\Lessons\15\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "16", "16", "{BD536540-E7C5-4E82-B7DF-8D520275D678}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\16\README.md = _Learning\Lessons\16\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "17", "17", "{44761A23-8535-4720-BC6D-5A25E6FCE054}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\17\README.md = _Learning\Lessons\17\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "18", "18", "{BC68E163-FC99-48C5-8032-AEF97D7E4CC6}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\18\README.md = _Learning\Lessons\18\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "19", "19", "{5DB64130-EEDD-477A-A5E2-F96503E15D2E}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\19\README.md = _Learning\Lessons\19\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "20", "20", "{946CC30E-765C-40A7-BB1F-D75AD04162BB}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\20\README.md = _Learning\Lessons\20\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "21", "21", "{93761FDC-0077-482A-92AD-2312C9DC57D5}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\21\README.md = _Learning\Lessons\21\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "22", "22", "{8D246FBD-3DB1-4606-A931-4C0524D318CE}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\22\README.md = _Learning\Lessons\22\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "23", "23", "{22CB034F-AC5A-4AF7-AE37-6F2B21CD12FD}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\23\README.md = _Learning\Lessons\23\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "24", "24", "{90E3D129-F611-4C8D-8304-581BB9104E8E}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\24\README.md = _Learning\Lessons\24\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "25", "25", "{80230058-A9AA-4117-B623-7D2DB5B65686}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\25\README.md = _Learning\Lessons\25\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "26", "26", "{BE5487DC-0F25-46BC-80C5-6EB1CA1713F6}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\26\README.md = _Learning\Lessons\26\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "27", "27", "{FE5ACFEC-B864-4FE4-959F-58A0B700E44B}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\27\README.md = _Learning\Lessons\27\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "28", "28", "{B9F198C7-496D-454C-9916-20274310E381}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\28\README.md = _Learning\Lessons\28\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "29", "29", "{52FE7676-7F31-4E30-94F1-0096784FD771}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\29\README.md = _Learning\Lessons\29\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "30", "30", "{27AEAACA-30D8-43C9-B87A-9457C5C1209D}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\30\README.md = _Learning\Lessons\30\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "31", "31", "{A636DDDA-10C0-4049-90D3-E355AD9682CE}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\31\README.md = _Learning\Lessons\31\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "32", "32", "{FB2629A1-2DB9-473F-B536-E50A6B56F6EF}"
-	ProjectSection(SolutionItems) = preProject
-		_Learning\Lessons\32\README.md = _Learning\Lessons\32\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NOTES", "NOTES", "{40EB4393-8A66-42F1-90D2-1F9B6074D3FC}"
 	ProjectSection(SolutionItems) = preProject
@@ -261,6 +165,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW09_HW05.MovieManager.Application.Tests", "HW09_UnitTesting\HW09_HW05.MovieManager.Application.Tests\HW09_HW05.MovieManager.Application.Tests.csproj", "{CD0263E5-1BE0-4F51-8E6C-3DC22B5CF17E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Multithreading", "Multithreading", "{A621FFCA-2A6E-4569-955C-97A6912AAA9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HOMEWORKS", "HOMEWORKS", "{D0F69C5A-18D4-4DCB-9ACE-E2E27B2BBBED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -395,6 +301,7 @@ Global
 		{86F64F0D-35B5-4C3D-81A4-A217A9AA7A74} = {4D18971F-AE45-48FD-85A6-35FF309A7FAA}
 		{CD0263E5-1BE0-4F51-8E6C-3DC22B5CF17E} = {4D18971F-AE45-48FD-85A6-35FF309A7FAA}
 		{A621FFCA-2A6E-4569-955C-97A6912AAA9F} = {A9E52B9C-B50A-4134-801D-3AE08A0876BA}
+		{D0F69C5A-18D4-4DCB-9ACE-E2E27B2BBBED} = {6EC63871-086F-4A3E-A920-96525AF1E073}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {57CEC84A-4A6F-4CE3-9786-DA0F0F9265F8}

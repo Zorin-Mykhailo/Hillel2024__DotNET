@@ -1,6 +1,6 @@
 [`⏪ Назад`](../12/README.md)  [`🏠 HOME`](../../README.md)  [`⏩ Вперед`](../14/README.md)  
 
-# `📗 Lesson 13` Azure auth та створення i публiкацiя nuget пакета.
+# `📗 Lesson 13 (2024.04.23)` Azure auth та створення i публiкацiя nuget пакета.
 
 ## [Lesson video (02:04:00)](https://youtu.be/_0GdFNwawqc)
 
