@@ -4,20 +4,27 @@
 
 # Docker
 
-## Небольшой консольный туториал по докеру:
+## Невеликий консольний туторіал по Docker:
 
 1. Створення нового проекту
-```ps
+```powershell
 dotnet new console -o App -n DotNet.Docker
 ```
-1. dotnet new console -o App -n DotNet.Docker -> создание нового проекта
-2. cd App -> перейти в папку с проектом
-3. dotnet run -> запустить проект
 
-Все параметры после -- не передаются команде dotnet run, а передаются в приложение.
+2. Перейти в папку з проектом
+```powershell
+cd App
+```
 
-добавим код в Program.cs:
+3. Запустити проект
+```powershell
+dotnet run
+```
 
+Всі параметри після - не перередаються команді **dotnet run**, а передаються в додаток.  
+Додамо код в **Program.cs**:
+
+```cs
 var counter = 0;
 var max = args.Length is not 0 ? Convert.ToInt32(args[0]) : -1;
 while (max is -1 || counter < max)
@@ -25,8 +32,14 @@ while (max is -1 || counter < max)
     Console.WriteLine($"Counter: {++counter}");
     await Task.Delay(TimeSpan.FromMilliseconds(1_000));
 }
+```
 
-4. dotnet publish -c Release -> публикация приложения в релиз варианте
+4. Публікація додатку в релізному варіанті
+```powershell
+dotnet publish -c Release
+```
+
+---
 
 создадим Dockerfile (без расширения) возле CSPROJ файла
 
