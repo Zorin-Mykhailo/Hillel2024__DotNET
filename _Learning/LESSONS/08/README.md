@@ -1,4 +1,4 @@
-﻿[`⏪ Назад`](../07/README.md)  [`🏠 HOME`](../../README.md)  [`⏩ Вперед`](../09/README.md)
+﻿[`⏪ Назад`](../07/README.md)  [`📗 LESSONS`](../README.md)  [`⏩ Вперед`](../09/README.md)
 
 # `📗 Lesson 08 (2024.04.05)` Unit, End To End, Integration tests Part 2.
 

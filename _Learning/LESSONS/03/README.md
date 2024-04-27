@@ -1,6 +1,6 @@
 ﻿[`🏠 HOME`](../../README.md)  
 
-[`⏪ Назад`](../02/README.md)  [`🏠 HOME`](../../README.md)  [`⏩ Вперед`](../04/README.md)
+[`⏪ Назад`](../02/README.md)  [`📗 LESSONS`](../README.md)  [`⏩ Вперед`](../04/README.md)
 
 # `📗 Lesson 03 (2024.03.19)` Aсинхронне програмування.
 
