@@ -64,85 +64,149 @@ ENTRYPOINT ["dotnet", "DotNet.Docker.dll"]
 
 Образ середовища виконання ASP.NET Core використовується цілеспрямовано, хоча може використовуватись образ `mcr.microsoft.com/dotnet/runtime:8.0`.
 
+При використанні образів контейнерів під керуванням Windows необхідно вказати тег образу, крім простого 8.0, наприклад, mcr.microsoft.com/dotnet/aspnet:8.0-nanoserver-1809 замісь mcr.microsoft.com/dotnet/aspnet:8.0.
+Виберіть ім'я образу в залежності від того чи використовуєти ви Nano Server, або ж Windows Server Core та яку версію цієї ОС. 
+Повний список всіх тегів що підтримуються можна знайти [тут](https://hub.docker.com/_/microsoft-dotnet)
 
-Образ среды выполнения ASP.NET Core используется намеренно, хотя может использоваться образ mcr.microsoft.com/dotnet/runtime:8.0.
+Команда `WORKDIR` змінює поточний каталог в контейнері на `App`.
+Команда `COPY` предпиує Docker зкопіювати вказану папку на вашому коп'ютері в контейнер. В цьому прикладі папка публікації копіюється в папку з іменем `App/out` в контейнері.
+Наступна команда `ENTRYPOINT` використовується щоб налаштувати за допомогою Docker контейнер для запуску в якості виконуваного файла. При запуску контейнера виконується команда ENTRYPOINT. Після виконання контейнер автоматично зупиниться.
 
-При использовании образов контейнеров под управлением Windows необходимо указать тег изображения, кроме простого 8.0, например, mcr.microsoft.com/dotnet/aspnet:8.0-nanoserver-1809 вместо mcr.microsoft.com/dotnet/aspnet:8.0. 
-Выберите имя образа в зависимости от того, используете ли вы Nano Server или Windows Server Core и какую версию этой ОС. 
-Полный список всех поддерживаемых тегов можно найти тут: https://hub.docker.com/_/microsoft-dotnet
+До .NET 8 контейнери, налаштовані для запуску тільки для читання, можуть завершуватись з помилкою `Failed to create CoreCLR, HRESULT: 0x8007000E`. Щоб усунути цю проблему, вкажіть, безпосередньо перед кроком `ENTRYPOINT`, змінну середовища `DOTNET_EnableDiagnostics` як `0`:
 
-Команда WORKDIR изменяет текущий каталог в контейнере на App.
-
-Команда COPY предписывает Docker скопировать указанную папку на вашем компьютере в папку в контейнере. В этом примере папка публикации копируется в папку с именем App/out в контейнере.
-
-
-Следующая команда ENTRYPOINT используется, чтобы настроить с помощью Docker контейнер для запуска в качестве исполняемого файла. При запуске контейнера выполняется команда ENTRYPOINT. После выполнения команды контейнер автоматически остановится.
-
-До .NET 8 контейнеры, настроенные для запуска только для чтения, могут завершиться ошибкой Failed to create CoreCLR, HRESULT: 0x8007000E. Чтобы устранить эту проблему, укажите DOTNET_EnableDiagnostics переменную среды как 0 (непосредственно перед ENTRYPOINT шагом):
-
+```dockerfile
 ENV DOTNET_EnableDiagnostics=0
+```
 
 5. Створюємо докер-образ по існуючому докер файлу
 
-```dockerfile
-docker build -t counter-image -f Dockerfile
+```powershell
+docker build -t counter-image -f Dockerfile .
 ```
 
-Docker обработает все строки файла Dockerfile. В . команде docker build задается контекст сборки образа. Переключение -f — это путь к Dockerfile. Эта команда создает образ и локальный репозиторий с именем counter-image, который указывает на такой образ. После завершения работы этой команды выполните команду docker images, чтобы просмотреть список установленных образов.
+Docker опрацює всі стрічки файлу Dockerfile. В `.` команді docker build задається контекст збірки образу. Перемикання `-f` - це шлях до Dockerfile. Ця команда створює образ та локальний репозиторій з іменем `counter-image`, що вказує на такий образ. Після завершення роботи цієї команді виконайте команду `docker images`, щоб продивитись список встановлених образів.
 
-6. docker images -> проверить какие докер образы существуют
+6. Перевірити які докер-образи існують
 
-Репозиторий counter-image — это имя образа. Тег latest — это тег, используемый для идентификации изображения. Идентификатор 2f15637dc1f6 изображения. Время 10 minutes ago создания образа. Размер 217MB изображения. Заключительные шаги Dockerfile — создать контейнер из образа и запустить приложение, скопировать опубликованное приложение в контейнер и определить точку входа.
+```powershell
+docker images
+```
 
-7. docker create --name core-counter counter-image -> создание докер контейнера по докер образу (остановленного, нужно будет его запустить)
-8. docker ps -a -> проверить какие докер контейнеры существуют
-9. docker start core-counter -> запуск докер контейнера
-10. docker stop core-counter -> остановить докер контейнер
-11. подключимся снова к конейнеру чтоб проверить продолжает ли он работать
+Ви побачите дані наступного роду:
+Репозиторій `counter-image` - це ім'я образу. Тег `latest` - тег, що використовується для ідентифікації образу. Идентифікатор накшталт `2f15637dc1f6` - ідентифікатор образу, та інші.
 
-    - docker start core-counter
-    - docker attach --sig-proxy=false core-counter
-    - ....
-    - docker attach --sig-proxy=false core-counter
+Заключні кроки Dockerfile - створити контейнер із образу та запустити додаток, скопіювати опублікований додаток в контейнер та визначити точку входу.
 
---sig-proxy=false гарантирует, что ctrl+C не остановит процесс в контейнере.
+7. Створення докер-контейнера по докер-образу (зупиненого, його необхідно буде запустити)
 
-12. docker stop core-counter -> остановить контейнер
-13. docker ps -a -> проверить какие докер контейнеры существуют
-14. docker rm core-counter -> удалить докер контейнер
-15. docker ps -a -> снова проверить какие докер контейнеры существуют
-16. docker run -it --rm counter-image -> запустить контейнер и после завершения сразу его удалить (docker run -it --rm)
-17. docker run -it --rm counter-image 3 -> запустить контейнер и передать ему некоторое значение
+```powershell
+docker create --name core-counter counter-image
+```
 
-При этом docker run -itкоманда CTRL+Cостанавливает процесс, выполняемый в контейнере, который, в свою очередь, останавливаетконтейнер. Так как в команде указан параметр --rm, контейнер автоматически удалится после остановки процесса.
+8. Перевірити які докер-контейнери існують
 
-18. docker ps -a -> проверим какие есть докер контейнеры
-19. docker stop core-counter -> остановим докер контейнер по имени
-20. docker rm core-counter -> удалим докер контейнер
+```powershell
+docker ps -a
+```
 
-Затем удалите все ненужные образы на компьютере. Удалите образ, созданный с помощью файла Dockerfile, а затем удалите образ .NET, на основе которого был создан файл Dockerfile. Вы можете использовать значение IMAGE ID или строку в формате РЕПОЗИТОРИЙ:МЕТКА.
+9. Запуск докер-контейнера
 
-    - docker rmi counter-image:latest
-    - docker rmi mcr.microsoft.com/dotnet/aspnet:8.0
+```powershell
+docker start core-counter
+```
 
-21. docker images -> проверить список докер образов
+10. Зупинити докер-контейнер
 
+```powershell
+docker stop core-counter
+```
 
-                        Изменения для Movie Manager:
+11. Знову під'єднаємось до докер-контейнера щоб перевірити чи продовжує він працювати
 
-1. Добавить Docker: правой кнопкой по MovieManager.API > Add > Docker Support.
+```powershell
+docker start core-counter
+docker attach --sig-proxy=false core-counter
+...
+docker attach --sig-proxy=false core-counter
+```
+
+`--sig-proxy=false` гарантирует, что ctrl+C не остановит процесс в контейнере.
+
+12. Зупинити контейнер
+```powershell
+docker stop core-counter
+```
+
+13. Перевірити які докер-контейнери існують
+```powershell
+docker ps -a
+```
+
+14. Видалити докер контейнер
+```powershell
+docker rm core-counter
+```
+
+15. Знову перевірити які докер-контейнери існують
+```powershell
+docker ps -a
+```
+
+16. Запустити контейнер та одразу видалити його по завершенню роботи (`docker run -it --rm`)
+```powershell
+docker run -it --rm counter-image
+```
+
+17. Запустити контейнер та передати йому деяке значення
+```powershell
+ docker run -it --rm counter-image 3
+```
+
+При виконанні команди `docker run -it --rm` наступна команда `CTRL+C` зупинить процес, що виконується в контейнері, зупинить сам контейней, а далі цей контейнер видалить (так як в команді вказано параметр `--rm`)
+
+18. Перевіримо існуючі докер-контейнери
+```powershell
+docker ps -a
+```
+
+19. Зупинимо контейнер по його імені
+```powershell
+docker stop core-counter
+```
+
+20. Видалимо докер-контейнер
+```powershell
+docker rm core-counter
+```
+
+Потім видалимо всі непотрібні образи на комп'ютері. Видаліть обрааз, що був створения з файлу `Dockerfile`, а потім видаліть образ .NET, на основі якого було створено файл `Dockerfile`. Ви можете використовувати значення `IMAGE ID` або стрічку в форматі `РЕПОЗИТОРІЙ:МІТКА`
+
+```powershell
+docker rmi counter-image:latest
+docker rmi mcr.microsoft.com/dotnet/aspnet:8.0
+```
+
+21. Перевірити список докер-образів
+```powershell
+docker images
+``` 
+
+## Підтримка Docker у Visual Studio. Зміни для `Movie Manager` 
+
+1. Додати Docker: ПКМ по `MovieManager.API` > `Add` > `Docker Support`
     - Target OS: Linux
-    - Container build type: Dockerfile
+    - Container build type: Dockerfile 
 
-2. Поменять Connection Strings к базе, так как Linux не умеет работать с LocalDb.
+2. Змінити Connection Strings до БД, так як Linux не вміє працювати з LocalDb.
 
-"MovieManager": "Data Source=<replace_with_your_ip>;Initial Catalog=MovieManager;User ID=<your_sql_user>;Password=<your_sql_password>;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False"
+```xml
+"MovieManager": "Data Source=<replace_with_your_ip>; Initial Catalog=MovieManager; User ID=<your_sql_user>; Password=<your_sql_password>; Connect Timeout=30; Encrypt=True; Trust Server Certificate=True; Application Intent=ReadWrite; Multi Subnet Failover=False"
+``` 
 
-    - Получить IP: 
-        1. cmd
-        2. ipconfig
-        3. например секция "Ethernet adapter vEthernet (WSL (Hyper-V firewall))"
-        4. скопировать  IPv4 Address
+- Отримати IP: 
+    - cmd
+    - ipconfig
+    - например секция "Ethernet adapter vEthernet (WSL (Hyper-V firewall))"
+    - скопировать  IPv4 Address
 
-    - Создать SQL пользователя с админ правами для авторизации
-    https://www.ibm.com/docs/en/capmp/8.1.4?topic=monitoring-creating-user-granting-permissions
+- [Створити SQL-користувача з адмінськими правати для авторизації](https://www.ibm.com/docs/en/capmp/8.1.4?topic=monitoring-creating-user-granting-permissions)
