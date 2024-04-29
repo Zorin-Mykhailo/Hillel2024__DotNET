@@ -4,6 +4,28 @@
 
 # Docker
 
+## Консольні команди Docker
+
+
+
+### Образи
+
+[⤴️](https://docs.docker.com/reference/cli/docker/image/ls/) `docker images` — Показати образи що є в моїй системі  
+[⤴️](https://docs.docker.com/reference/cli/docker/image/pull/) `docker pull ubuntu` — Завантажити з репозиторію образ зі вказаною назвою (Ubuntu)  
+
+### Контейнери
+
+[⤴️](https://docs.docker.com/reference/cli/docker/container/ls/) `docker ps` — Показати всі запущені контейнери  
+[⤴️](https://docs.docker.com/reference/cli/docker/container/ls/) `docker ps -a` — Показати всі контейнери  
+[⤴️](https://docs.docker.com/reference/cli/docker/container/start/) `docker start my_container` — Запустити контейнер  
+[⤴️](https://docs.docker.com/reference/cli/docker/container/stop/) `docker stop my_container` — Зупинити контейнер
+
+### Термінал
+
+`docker exec -it 909ebe08f31fbbe90c442cd8308a28fc86318e4b7dfcfd9c6eddb38a94346893 /bin/sh` — 
+
+---
+
 ## Посилання
 
 - [ ] [Visual Studio Container Tools for Docker](https://learn.microsoft.com/en-us/visualstudio/containers/overview?view=vs-2022)
@@ -12,12 +34,7 @@
 - [ ] [YouTube RU](https://www.youtube.com/watch?v=dNS61T4MmlM&t=3s)
 - [ ] [Best for beginners](https://www.youtube.com/watch?v=EbEZgdTOHzE&list=PLD5U-C5KK50XMCBkY0U-NLzglcRHzOwAg)
 
-## Команди Docker
-
-### Образи
-
-`docker images` — показати образи що є в моїй системі  
-`docker pull ubuntu` — завантажити з репозиторію образ зі вказаною назвою (Ubuntu)  
+---
 
 ## Невеликий консольний туторіал по Docker:
 
