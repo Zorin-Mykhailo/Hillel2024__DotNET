@@ -17,6 +17,7 @@
 
 [⤴️](https://docs.docker.com/reference/cli/docker/container/ls/) `docker ps` — Показати всі запущені контейнери  
 [⤴️](https://docs.docker.com/reference/cli/docker/container/ls/) `docker ps -a` — Показати всі контейнери  
+[⤴️](https://docs.docker.com/reference/cli/docker/container/create/) `docker create --name my_container image_name` — Створити контейнер із вказаного образу не запускаючи його  
 [⤴️](https://docs.docker.com/reference/cli/docker/container/start/) `docker start my_container` — Запустити контейнер  
 [⤴️](https://docs.docker.com/reference/cli/docker/container/stop/) `docker stop my_container` — Зупинити контейнер
 
