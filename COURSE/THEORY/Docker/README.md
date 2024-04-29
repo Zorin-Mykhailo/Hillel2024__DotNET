@@ -4,6 +4,21 @@
 
 # Docker
 
+## Посилання
+
+- [ ] [Visual Studio Container Tools for Docker](https://learn.microsoft.com/en-us/visualstudio/containers/overview?view=vs-2022)
+- [ ] [Docker commands](https://docs.docker.com/reference/cli/docker/)
+- [ ] [Homepage](https://docs.docker.com/get-docker/)
+- [ ] [YouTube RU](https://www.youtube.com/watch?v=dNS61T4MmlM&t=3s)
+- [ ] [Best for beginners](https://www.youtube.com/watch?v=EbEZgdTOHzE&list=PLD5U-C5KK50XMCBkY0U-NLzglcRHzOwAg)
+
+## Команди Docker
+
+### Образи
+
+`docker images` — показати образи що є в моїй системі  
+`docker pull ubuntu` — завантажити з репозиторію образ зі вказаною назвою (Ubuntu)  
+
 ## Невеликий консольний туторіал по Docker:
 
 1. Створення нового проекту
