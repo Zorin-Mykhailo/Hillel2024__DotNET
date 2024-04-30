@@ -4,9 +4,31 @@
 
 # `📗 Lesson 14 (2024.04.26)` Взаємодія мікросервісів.
 
-## [Lesson video (00:00:00)]()
+## [Lesson video (02:03:34)](https://youtu.be/aK00DA-rkKU)
 
---
+[`00:01:38` Вступ](https://youtu.be/aK00DA-rkKU?t=98)  
+[`00:06:25` Огляд ДЗ](https://youtu.be/aK00DA-rkKU?t=385)  
+[`00:10:58` CoreReferenceData](https://youtu.be/aK00DA-rkKU?t=658)  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
+[`00:00:00` ]()  
 
 ## [Lesson materials](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/lessons/65a65fe44c3a2d3372eef978)
 
@@ -20,9 +42,11 @@
 - [ ] [HttpClient Class](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient?view=net-8.0)  
 
 **Паттерни:**
+
 - [ ] [Aggregator, Chain и Branch паттерны для микросервисов](https://bool.dev/blog/detail/aggregator-chain-i-branch-patterny-dlya-mikroservisov)  
 
 **Microservices transactions:**
+
 - [ ] [Difference between SAGA Pattern and 2 Phase Commit in Microservices?](https://medium.com/javarevisited/difference-between-saga-pattern-and-2-phase-commit-in-microservices-e1d814e12a5a)  
 - [ ] [2PC vs Sagas (distributed transactions)](https://stackoverflow.com/questions/48906817/2pc-vs-sagas-distributed-transactions)  
 - [ ] [SAGA vs 2PC: An Exhaustive Exploration of Distributed Transaction Protocols](https://blog.stackademic.com/saga-vs-2pc-an-exhaustive-exploration-of-distributed-transaction-protocols-995e4d780d27)  

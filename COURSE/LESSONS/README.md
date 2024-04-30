@@ -16,7 +16,7 @@
 [`📗 Lesson 12 (2024.04.19)` Azure pipelines. CI/CD.](./10/12/README.md)  
 [`📗 Lesson 13 (2024.04.23)` Azure auth та створення i публiкацiя nuget пакета.](./10/13/README.md)  
 [`📗 Lesson 14 (2024.04.26)` Взаємодія мікросервісів.](./10/14/README.md)  
-[`📗 Lesson 15` ](./10/15/README.md)  
+[`📗 Lesson 15 (2024.04.30)` TeamCity. Jira and Confluence.](./10/15/README.md)  
 [`📗 Lesson 16` ](./10/16/README.md)  
 [`📗 Lesson 17` ](./10/17/README.md)  
 [`📗 Lesson 18` ](./10/18/README.md)  
