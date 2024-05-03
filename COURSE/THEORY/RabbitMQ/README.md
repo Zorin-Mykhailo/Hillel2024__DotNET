@@ -38,27 +38,27 @@
 
 ## Основні переваги використання RabbitMQ:
 
-- Мультиплатформенний зв’язок із серіалізацією/десеріалізацією повідомлень на поширених мовах, таких як JSON;
-- Асинхронні операції, не залишаючи служби заблокованими в очікуванні відповіді;
-- З відкритим вихідним кодом, велика спільнота щодня працює над покращенням його функцій;
-- Багатомовність із широким діапазоном прийнятних мов;
-- Мультипротокольний, з різними типами протоколів, що використовуються для обміну повідомленнями.
+- Мультиплатформенний зв’язок із серіалізацією/десеріалізацією повідомлень на поширених мовах, таких як JSON;  
+- Асинхронні операції, не залишаючи служби заблокованими в очікуванні відповіді;  
+- З відкритим вихідним кодом, велика спільнота щодня працює над покращенням його функцій;  
+- Багатомовність із широким діапазоном прийнятних мов;  
+- Мультипротокольний, з різними типами протоколів, що використовуються для обміну повідомленнями.  
 
 Завантажити:
 
-RabbitMQ Server and Erland(required for RabbitMQ)
-https://www.rabbitmq.com/download.html
-RabbitMQ client for .Net
-https://www.rabbitmq.com/dotnet.html 
-https://www.nuget.org/packages/RabbitMQ.Client/ 
+RabbitMQ Server and Erland(required for RabbitMQ)  
+https://www.rabbitmq.com/download.html  
+RabbitMQ client for .Net  
+https://www.rabbitmq.com/dotnet.html   
+https://www.nuget.org/packages/RabbitMQ.Client/   
 
 Дефолтна RabbitMQ конфiгурацiя:
 
-***Endpoint address***: http://localhost:15672/
-***Login***: guest
-***Password***: guest 
-***Windows Service Name***: RabbitMQ
-Windows menu item to start the service: RabbitMQ Service - start
+***Endpoint address***: http://localhost:15672/  
+***Login***: guest  
+***Password***: guest   
+***Windows Service Name***: RabbitMQ  
+Windows menu item to start the service: RabbitMQ Service - start  
 
 Старт:  
 
