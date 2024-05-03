@@ -1,0 +1,47 @@
+###
+
+GET {{Service_HostAddress}}/overview
+content-type: application/json
+Authorization: Basic {{BaseAuthorization}}
+
+###
+
+GET {{Service_HostAddress}}/cluster-name
+content-type: application/json
+Authorization: Basic {{BaseAuthorization}}
+
+###
+
+GET {{Service_HostAddress}}/nodes
+content-type: application/json
+Authorization: Basic {{BaseAuthorization}}
+
+###
+
+GET {{Service_HostAddress}}/extensions
+content-type: application/json
+Authorization: Basic {{BaseAuthorization}}
+
+###
+
+GET {{Service_HostAddress}}/connections
+content-type: application/json
+Authorization: Basic {{BaseAuthorization}}
+
+###
+
+GET {{Service_HostAddress}}/vhosts
+content-type: application/json
+Authorization: Basic {{BaseAuthorization}}
+
+###
+
+GET {{Service_HostAddress}}/channels
+content-type: application/json
+Authorization: Basic {{BaseAuthorization}}
+
+###
+
+GET {{Service_HostAddress}}/consumers
+content-type: application/json
+Authorization: Basic {{BaseAuthorization}}
