@@ -32,7 +32,7 @@
 - [ ] [SQL Server Administration](https://www.sqlservertutorial.net/sql-server-administration/)  
 
 
-## [`📕 Homework 00 (Lesson 00)` Назва]()  
+## `📕 Homework  
 *ДЗ відсутнє*
 --
 
