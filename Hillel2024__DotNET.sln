@@ -325,6 +325,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservi
 		COURSE\THEORY\Microservices\README.md = COURSE\THEORY\Microservices\README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RabbitMQ", "RabbitMQ", "{6501A29D-8DEA-4F33-8DA8-85DFFAB106E7}"
+	ProjectSection(SolutionItems) = preProject
+		COURSE\THEORY\RabbitMQ\README.md = COURSE\THEORY\RabbitMQ\README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -473,6 +478,7 @@ Global
 		{586FA2A8-435C-4560-9D7C-917C6435B07F} = {D0F69C5A-18D4-4DCB-9ACE-E2E27B2BBBED}
 		{D5E1CEE9-BD9C-4E0E-A866-FD56CFD10BDC} = {A9E52B9C-B50A-4134-801D-3AE08A0876BA}
 		{5EBDE75C-ECB6-4E57-A2FA-026321E0B185} = {A9E52B9C-B50A-4134-801D-3AE08A0876BA}
+		{6501A29D-8DEA-4F33-8DA8-85DFFAB106E7} = {A9E52B9C-B50A-4134-801D-3AE08A0876BA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {57CEC84A-4A6F-4CE3-9786-DA0F0F9265F8}

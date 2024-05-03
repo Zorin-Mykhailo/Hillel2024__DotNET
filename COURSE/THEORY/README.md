@@ -6,3 +6,4 @@
 - [Докер](./Docker/README.md)
 - [Мікросервіси](./Microservices/README.md)
 - [Тестування програмного забезпечення](./AppTesting/README.md)
+- [RabbitMQ](./RabbitMQ/README.md)
