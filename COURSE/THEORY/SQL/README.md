@@ -6,33 +6,15 @@
 
 ## Lesson 01
 
---SQL Server є однією з найпопулярніших систем управління базами даних (СУБД) у світі. 
---Ця СУБД підходить для різних проектів: від невеликих додатків до великих високонавантажених проектів.
+SQL Server є однією з найпопулярніших систем управління базами даних (СУБД) у світі. Ця СУБД підходить для різних проектів: від невеликих додатків до великих високонавантажених проектів. SQL Server було створено компанією Microsoft. Перша версія вийшла 1987 року. SQL Server довгий час був виключно системою керування базами даних для Windows, проте починаючи з версії 16 ця система доступна і на Linux.
+SQL Server характеризується такими особливостями як:
+- **Продуктивність**. SQL Server працює дуже швидко.
+- **Надійність та безпека**. SQL Server надає шифрування даних.
+- **Простота**. З цієї СУБД щодо легко працювати та вести адміністрування.
 
---SQL Server було створено компанією Microsoft. Перша версія вийшла 1987 року. 
+Центральним аспектом у MS SQL Server, як і будь-який СУБД, є база даних. База даних представляє сховище даних, організованих певним способом. Нерідко фізично база даних представляє файл на жорсткому диску, хоча така відповідність необов'язково. Для зберігання та адміністрування баз даних застосовуються системи управління базами даних (database management system) або СУБД (DBMS). І саме MS SQL Server є однією з таких СУБД.
 
---SQL Server довгий час був виключно системою керування базами даних для Windows, 
---проте починаючи з версії 16 ця система доступна і на Linux.
-
---SQL Server характеризується такими особливостями як:
-
---Продуктивність. SQL Server працює дуже швидко.
-
---Надійність та безпека. SQL Server надає шифрування даних.
-
---Простота. З цієї СУБД щодо легко працювати та вести адміністрування.
-
---Центральним аспектом у MS SQL Server, як і будь-який СУБД, є база даних. 
---База даних представляє сховище даних, організованих певним способом. 
---Нерідко фізично база даних представляє файл на жорсткому диску, хоча така відповідність необов'язково. 
---Для зберігання та адміністрування баз даних застосовуються системи управління базами даних (database management system) або СУБД (DBMS). 
---І саме MS SQL Server є однією з таких СУБД.
-
---Для організації баз даних MS SQL Server використовує реляційну модель. Ця модель баз даних була розроблена ще в 1970 Едгаром Коддом. 
---А на сьогодні вона фактично є стандартом для організації баз даних.
-
---Реляційна модель передбачає зберігання даних у вигляді таблиць, кожна з яких складається з рядків та стовпців. 
---Кожен рядок зберігає окремий об'єкт, а стовпці розміщуються атрибути цього об'єкта.
+Для організації баз даних MS SQL Server використовує реляційну модель. Ця модель баз даних була розроблена ще в 1970 Едгаром Коддом. А на сьогодні вона фактично є стандартом для організації баз даних. Реляційна модель передбачає зберігання даних у вигляді таблиць, кожна з яких складається з рядків та стовпців. Кожен рядок зберігає окремий об'єкт, а стовпці розміщуються атрибути цього об'єкта. 
 
 --Для ідентифікації кожного рядка у межах таблиці застосовується первинний ключ (primary key).
 --Як первинний ключ може виступати один або кілька стовпців. Використовуючи первинний ключ, ми можемо посилатися на певний рядок у таблиці. 
@@ -2648,7 +2630,7 @@ FROM Orders
 -- TRY_CONVERT
 
 -- У разі використання функцій CAST та CONVERT SQL Server викидає виняток, якщо дані не можуть призвести до певного типу. Наприклад:
-	
+    
 SELECT CONVERT(int, 'sql')
 
 -- Щоб уникнути генерації виключення, можна використовувати функцію TRY_CONVERT . 
@@ -2886,7 +2868,7 @@ DECLARE @lastDate DATE
 SELECT @lastDate = MAX(CreatedAt) FROM Orders
  
 IF DATEDIFF(day, @lastDate, GETDATE()) > 10
-	PRINT 'There have been no orders in the last ten days'
+    PRINT 'There have been no orders in the last ten days'
 
 ------
 DECLARE @lastDate DATE
@@ -2894,7 +2876,7 @@ DECLARE @lastDate DATE
 SELECT @lastDate = MAX(CreatedAt) FROM Orders
  
 IF DATEDIFF(day, @lastDate, GETDATE()) > 10
-	PRINT 'There have been no orders in the last ten days'
+    PRINT 'There have been no orders in the last ten days'
 ELSE
     PRINT 'There have been orders in the last ten days'
 
@@ -3381,12 +3363,12 @@ PRINT @result
 -- https://learn.microsoft.com/ru-ru/sql/relational-databases/user-defined-functions/user-defined-functions?view=sql-server-ver16
 
 CREATE FUNCTION east_or_west (
-	@long DECIMAL(9,6)
+    @long DECIMAL(9,6)
 )
 RETURNS CHAR(4) AS
 BEGIN
-	DECLARE @return_value CHAR(4);
-	SET @return_value = 'same';
+    DECLARE @return_value CHAR(4);
+    SET @return_value = 'same';
     IF (@long > 0.00) SET @return_value = 'east';
     IF (@long < 0.00) SET @return_value = 'west';
  
@@ -3463,7 +3445,7 @@ CREATE TABLE Products
     Manufacturer NVARCHAR(20) NOT NULL,
     ProductCount INT DEFAULT 0,
     Price MONEY NOT NULL,
-	IsDeleted bit default 0
+    IsDeleted bit default 0
 );
 CREATE TABLE History 
 (
@@ -3607,7 +3589,7 @@ SELECT * FROM Products;
 CREATE TABLE dbo.parts(
     part_id   INT NOT NULL, 
     part_name VARCHAR(100),
-	part_code VARCHAR(100),
+    part_code VARCHAR(100),
 );
 
 INSERT INTO 
@@ -3721,7 +3703,7 @@ EXEC sp_rename
 SELECT 
     part_id, 
     part_name,
-	part_code
+    part_code
 FROM 
     dbo.parts
 WHERE 
@@ -3783,7 +3765,7 @@ ON dbo.parts(part_code);
 
 SELECT
     part_name,
-	part_code
+    part_code
 FROM 
     dbo.parts
 WHERE 
@@ -3801,7 +3783,7 @@ INCLUDE(part_name)
 ---------
 SELECT 
     part_name,
-	part_code
+    part_code
 FROM 
     dbo.parts
 WHERE 
@@ -4669,7 +4651,7 @@ AND dp.authentication_type_desc = 'INSTANCE';
 
 CREATE LOGIN ocean
 WITH PASSWORD = 'bNHXUYT321#',
-	 SID = 0xC48461C284AE024EB42149BFDBCD18A8;
+     SID = 0xC48461C284AE024EB42149BFDBCD18A8;
 
 --
 --Now, the user joe can log in to the database server.
@@ -4730,9 +4712,9 @@ USE BikeStores;
 
 
 CREATE TABLE report.daily_sales (
-	Id INT IDENTITY PRIMARY KEY,
-	Day DATE NOT NULL,
-	Amount DECIMAL(10,2) NOT NULL DEFAULT 0
+    Id INT IDENTITY PRIMARY KEY,
+    Day DATE NOT NULL,
+    Amount DECIMAL(10,2) NOT NULL DEFAULT 0
 )
 
 -- Fifth, switch the connection to the system administrator (sa) account and drop the user tony:
