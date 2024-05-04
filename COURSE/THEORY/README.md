@@ -8,3 +8,4 @@
 - [Тестування програмного забезпечення](./AppTesting/README.md)
 - [Entity Framework](./EntityFramework/README.md)
 - [RabbitMQ](./RabbitMQ/README.md)
+- [SQL](./SLQ/README.md)
