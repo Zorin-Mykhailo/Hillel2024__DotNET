@@ -526,6 +526,7 @@ DROP FK_Orders_To_Customers;
 
 -------------------------
 ## Основи T-SQL. DML
+### Додавання нових рядків. Команда `INSERT`
 
 Для додавання даних застосовується команда `INSERT` , яка має такий формальний синтаксис:
 ```sql
@@ -849,68 +850,89 @@ WHERE ProductName LIKE 'iPhone [6-8]'
 ```
 > Відповідає таким значенням як `iPhone 6`, `iPhone 7` або `iPhone8`
 
+```sql
+WHERE ProductName LIKE 'iPhone [^7]%'
+```
+> Відповідає таким значенням як `iPhone 6`, `iPhone 6S` або `iPhone8`. Але не відповідає значенням `iPhone 7` та `iPhone 7S`
 
---WHERE ProductName LIKE 'iPhone [^7]%'
+```sql
+WHERE ProductName LIKE 'iPhone [^1-6]%'
+```
+> Відповідає таким значенням як `iPhone 7`, `iPhone 7S` і `iPhone 8`. Але не відповідає значенням `iPhone 5`, `iPhone 6` та `iPhone 6S`
 
---Відповідає таким значенням як iPhone 6, iPhone 6S або iPhone8. Але не відповідає значенням "iPhone 7" та "iPhone 7S"
-
---WHERE ProductName LIKE 'iPhone [^1-6]%'
-
---Відповідає таким значенням як iPhone 7, iPhone 7S і iPhone 8. Але не відповідає значенням "iPhone 5", "iPhone 6" та "iPhone 6S"
-
-----
+```sql
 SELECT * FROM Products
 WHERE ProductName LIKE 'iPhone [6-8]%'
+```
 
---
+```sql
 SELECT * FROM Products
 WHERE ProductName LIKE '%one%'
+```
 
----------------------------
--- Для зміни вже наявних рядків у таблиці застосовується команда UPDATE . Вона має такий формальний синтаксис:
+### Зміна існуючих рядків таблиці. Команда `UPDATE`
 
---UPDATE имя_таблицы
---SET столбец1 = значение1, столбец2 = значение2, ... столбецN = значениеN
---[FROM выборка AS псевдоним_выборки]
---[WHERE условие_обновления]
+Для зміни вже наявних рядків у таблиці застосовується команда `UPDATE`. Вона має такий формальний синтаксис:
 
---
+```sql
+UPDATE имя_таблицы
+SET столбец1 = значение1, столбец2 = значение2, ... столбецN = значениеN
+[FROM выборка AS псевдоним_выборки]
+[WHERE условие_обновления]
+```
+
+Приклади використання:
+
+```sql
 UPDATE Products
 SET Price = Price + 5000
+```
 
---
+```sql
 UPDATE Products
 SET Manufacturer = 'Samsung Inc.'
 WHERE Manufacturer = 'Samsung'
+```
 
---
+```sql
 UPDATE Products
 SET Manufacturer = 'Apple Inc.'
 FROM
 (SELECT TOP 2 FROM Products WHERE Manufacturer='Apple') AS Selected
 WHERE Products.Id = Selected.Id
+```
 
-----------------------
--- Для видалення застосовується команда DELETE:
--- DELETE [FROM] имя_таблицы
--- WHERE условие_удаления
+### Видалення існуючих рядків таблиці. Команда `DELETE`
 
---
+Для видалення застосовується команда `DELETE` з таким формальним синтаксисом:
+```sql
+DELETE [FROM] имя_таблицы
+WHERE условие_удаления
+```
+
+Приклади використання:
+```sql
 DELETE Products
 WHERE Id=9
+```
 
---
+```sql
 DELETE Products
 WHERE Manufacturer='Xiaomi' AND Price < 15000
+```
 
---
+```sql
 DELETE Products FROM
 (SELECT TOP 2 * FROM Products
 WHERE Manufacturer='Apple') AS Selected
 WHERE Products.Id = Selected.Id
+```
 
--- Якщо необхідно видалити всі рядки незалежно від умови, то умову можна не вказувати:
+Якщо необхідно видалити всі рядки незалежно від умови, то умову можна не вказувати:
+```sql
 DELETE Products
+```
+
 ---------------------------------------  
 
 ## Lesson 02
