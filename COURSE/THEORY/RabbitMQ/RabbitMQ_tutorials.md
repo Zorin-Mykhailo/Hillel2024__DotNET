@@ -69,10 +69,10 @@ flowchart LR;
     C((C))
 
     style P fill:#0094FF, stroke:#FFFFFF,stroke-width:2px
-    style C fill:#00FF21, stroke:#FFFFFF,stroke-width:2px
     style Q fill:#FFD800, stroke:#FFFFFF,stroke-width:2px
+    style C fill:#00FF21, stroke:#FFFFFF,stroke-width:2px
 
-    P-->Q-->C    
+    P-->Q-->C
 ```
 
 > **The .NET client library**
@@ -109,3 +109,101 @@ mv Receive/Program.cs Receive/Receive.cs
 Це створить дві нові теки з назвами `Send` та `Receive`.
 
 Потім ми додаємо залежність від клієнта.
+
+```powershell
+cd Send
+dotnet add package RabbitMQ.Client
+cd ../Receive
+dotnet add package RabbitMQ.Client
+```
+
+Тепер, коли у нас налаштований проект .NET, ми можемо написати деякий код.
+
+# Надсилання
+
+```mermaid
+flowchart LR;
+    P((P))
+    Q[[Queue_name]]
+
+    style P fill:#0094FF, stroke:#FFFFFF,stroke-width:2px
+    style Q fill:#FFD800, stroke:#FFFFFF,stroke-width:2px
+
+    P-->Q
+```
+
+Ми називаємо наш відправник повідомлень (виробник) `Send.cs`, а отримувач повідомлень (споживач) `Receive.cs`. Відправник буде підключатися до RabbitMQ, відправляти одне повідомлення, а потім завершувати роботу.
+
+У файлі `Send.cs` нам потрібно використовувати деякі простори імен:
+
+```cs
+using System.Text;
+using RabbitMQ.Client;
+```
+
+Потім ми можемо створити з'єднання з сервером:
+
+```cs
+var factory = new ConnectionFactory { HostName = "localhost" };
+using var connection = factory.CreateConnection();
+using var channel = connection.CreateModel();
+...
+```
+
+З'єднання абстрагує з'єднання сокетів та відповідає за переговори щодо версії протоколу, аутентифікацію тощо за нас. Тут ми підключаємось до вузла RabbitMQ на локальному комп'ютері - тобто localhost. Якщо ми хочемо підключитись до вузла на іншому комп'ютері, просто вкажемо його ім'я хоста або IP-адресу тут.
+
+Далі ми створюємо канал, де знаходиться більшість API для виконання завдань.
+
+Щоб відправити повідомлення, нам потрібно оголосити чергу, до якої ми хочемо відправити повідомлення; після цього ми можемо опублікувати повідомлення у чергу:
+
+```cs
+using System.Text;
+using RabbitMQ.Client;
+
+var factory = new ConnectionFactory { HostName = "localhost" };
+using var connection = factory.CreateConnection();
+using var channel = connection.CreateModel();
+
+channel.QueueDeclare(queue: "hello",
+                     durable: false,
+                     exclusive: false,
+                     autoDelete: false,
+                     arguments: null);
+
+const string message = "Hello World!";
+var body = Encoding.UTF8.GetBytes(message);
+
+channel.BasicPublish(exchange: string.Empty,
+                     routingKey: "hello",
+                     basicProperties: null,
+                     body: body);
+Console.WriteLine($" [x] Sent {message}");
+
+Console.WriteLine(" Press [enter] to exit.");
+Console.ReadLine();
+```
+
+Оголошення черги є ідемпотентним - воно буде створено лише у випадку, якщо вона ще не існує. Вміст повідомлення - це масив байтів, тому ви можете кодувати там все, що завгодно.
+
+Коли код вище завершить своє виконання, канал і з'єднання будуть закриті. Це все стосується нашого відправника.
+
+[Ось весь клас Send.cs](https://github.com/rabbitmq/rabbitmq-tutorials/blob/main/dotnet/Send/Send.cs)
+
+> **Надсилання не працює!**
+>
+> Якщо це ваш перший раз використання RabbitMQ, і ви не бачите повідомлення "Sent", то ви, можливо, залишились з питанням, що може бути не так. Можливо, брокер був запущений без достатньої вільної місця на диску (за замовчуванням для цього потрібно щонайменше 50 МБ вільного місця) і, отже, відмовляється приймати повідомлення. Перевірте журнал брокера для підтвердження цього і, за необхідності, зменште ліміт. Документація з налаштування покаже вам, як встановити `disk_free_limit`.
+
+# Отримання
+
+Що ж до споживача, він слухає повідомлення від RabbitMQ. Таким чином, на відміну від виробника, який публікує одне повідомлення, ми будемо тримати споживача постійно працюючим, щоб він слухав повідомлення і виводив їх.
+
+```mermaid
+flowchart LR;
+    Q[[Queue_name]]
+    C((C))
+
+    style Q fill:#FFD800, stroke:#FFFFFF,stroke-width:2px
+    style C fill:#00FF21, stroke:#FFFFFF,stroke-width:2px
+
+    Q-->C
+```
