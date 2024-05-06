@@ -319,20 +319,17 @@ CREATE TABLE Customers
 ---
 ## Зовнішні ключі
 
---Зовнішні ключі використовуються для встановлення зв'язку між таблицями. 
---Зовнішній ключ встановлюється для стовпців із залежної, підлеглої таблиці, і вказує на один із стовпців із головної таблиці. 
---Хоча, як правило, зовнішній ключ вказує на первинний ключ із пов'язаної головної таблиці, 
---але це необов'язково має бути неодмінною умовою. Зовнішній ключ також може вказувати на інший стовпець, який має унікальне значення.
+Зовнішні ключі використовуються для встановлення зв'язку між таблицями. Зовнішній ключ встановлюється для стовпців із залежної, підлеглої таблиці, і вказує на один із стовпців із головної таблиці. Хоча, як правило, зовнішній ключ вказує на первинний ключ із пов'язаної головної таблиці, але це необов'язково має бути неодмінною умовою. Зовнішній ключ також може вказувати на інший стовпець, який має унікальне значення.
 
---[FOREIGN KEY] REFERENCES главная_таблица (столбец_главной_таблицы)
---    [ON DELETE {CASCADE|NO ACTION}]
---    [ON UPDATE {CASCADE|NO ACTION}]
+```sql
+[FOREIGN KEY] REFERENCES главная_таблица (столбец_главной_таблицы)
+    [ON DELETE {CASCADE|NO ACTION}]
+    [ON UPDATE {CASCADE|NO ACTION}]
+```
 
---Для створення обмеження зовнішнього ключа на рівні стовпця після ключового слова REFERENCES вказується ім'я пов'язаної таблиці 
---та у круглих дужках ім'я зв'язаного стовпця, на який вказуватиме зовнішній ключ. 
---Також зазвичай додаються ключові слова FOREIGN KEY , але їх необов'язково вказувати. 
---Після виразу REFERENCES йде вираз ON DELETE та ON UPDATE .
+Для створення обмеження зовнішнього ключа на рівні стовпця після ключового слова REFERENCES вказується ім'я пов'язаної таблиці та у круглих дужках ім'я зв'язаного стовпця, на який вказуватиме зовнішній ключ. Також зазвичай додаються ключові слова `FOREIGN KEY` , але їх необов'язково вказувати. Після виразу REFERENCES йде вираз `ON DELETE` та `ON UPDATE` .
 
+```sql
 CREATE TABLE Customers
 (
     Id INT PRIMARY KEY IDENTITY,
@@ -342,25 +339,31 @@ CREATE TABLE Customers
     Email VARCHAR(30) UNIQUE,
     Phone VARCHAR(20) UNIQUE
 );
+```
  
- -- v1
---CREATE TABLE Orders
---(
---    Id INT PRIMARY KEY IDENTITY,
---    CustomerId INT REFERENCES Customers (Id),
---    CreatedAt Date
---);
+Створення зовнішнього ключа v1
+```sql
+CREATE TABLE Orders
+(
+    Id INT PRIMARY KEY IDENTITY,
+    CustomerId INT REFERENCES Customers (Id),
+    CreatedAt Date
+);
+```
 
--- v2
---CREATE TABLE Orders
---(
---    Id INT PRIMARY KEY IDENTITY,
---    CustomerId INT,
---    CreatedAt Date,
---    FOREIGN KEY (CustomerId)  REFERENCES Customers (Id)
---);
+Створення зовнішнього ключа v2
+```sql
+CREATE TABLE Orders
+(
+    Id INT PRIMARY KEY IDENTITY,
+    CustomerId INT,
+    CreatedAt Date,
+    FOREIGN KEY (CustomerId)  REFERENCES Customers (Id)
+);
+```
 
--- v3 (лучший вариант)
+Створення зовнішнього ключа v3 (кращий варіант)
+```sql
 CREATE TABLE Orders
 (
     Id INT PRIMARY KEY IDENTITY,
@@ -368,13 +371,14 @@ CREATE TABLE Orders
     CreatedAt Date,
     CONSTRAINT FK_Orders_To_Customers FOREIGN KEY (CustomerId)  REFERENCES Customers (Id)
 );
+```
 
---За допомогою виразів ON DELETE та ON UPDATE можна встановити дії, 
---які виконуватимуться відповідно при видаленні та зміні зв'язаного рядка з головної таблиці. 
---І для визначення дії ми можемо використовувати такі опції:
+За допомогою виразів ON DELETE та ON UPDATE можна встановити дії, які виконуватимуться відповідно при видаленні та зміні зв'язаного рядка з головної таблиці. І для визначення дії ми можемо використовувати такі опції:
 
---CASCADE : автоматично видаляє або змінює рядки із залежної таблиці під час видалення або зміни пов'язаних рядків у головній таблиці.
+`CASCADE` : автоматично видаляє або змінює рядки із залежної таблиці під час видалення або зміни пов'язаних рядків у головній таблиці.
 
+```sql
+```
 CREATE TABLE Orders
 (
     Id INT PRIMARY KEY IDENTITY,
@@ -383,9 +387,9 @@ CREATE TABLE Orders
     FOREIGN KEY (CustomerId) REFERENCES Customers (Id) ON DELETE CASCADE
 )
 
---NO ACTION : запобігає будь-яким діям у залежній таблиці при видаленні або зміні зв'язаних рядків у головній таблиці. 
---Тобто фактично якихось дій відсутні.
+`NO ACTION` : запобігає будь-яким діям у залежній таблиці при видаленні або зміні зв'язаних рядків у головній таблиці. Тобто фактично якихось дій відсутні.
 
+```sql
 CREATE TABLE Orders
 (
     Id INT PRIMARY KEY IDENTITY,
@@ -393,9 +397,11 @@ CREATE TABLE Orders
     CreatedAt Date,
     FOREIGN KEY (CustomerId) REFERENCES Customers (Id) ON DELETE NO ACTION
 );
+```
 
---SET NULL : при видаленні зв'язаного рядка з головної таблиці встановлює значення NULL для стовпця зовнішнього ключа.
+`SET NULL` : при видаленні зв'язаного рядка з головної таблиці встановлює значення NULL для стовпця зовнішнього ключа.
 
+```sql
 CREATE TABLE Orders
 (
     Id INT PRIMARY KEY IDENTITY,
@@ -403,11 +409,11 @@ CREATE TABLE Orders
     CreatedAt Date,
     FOREIGN KEY (CustomerId) REFERENCES Customers (Id) ON DELETE SET NULL
 );
+```
 
---SET DEFAULT : при видаленні зв'язаного рядка з головної таблиці встановлює для стовпчика зовнішнього ключа значення за промовчанням, 
---яке задається за допомогою атрибута DEFAULT. Якщо для стовпця не встановлено значення за умовчанням, 
---то як нього застосовується значення NULL.
+`SET DEFAULT` : при видаленні зв'язаного рядка з головної таблиці встановлює для стовпчика зовнішнього ключа значення за промовчанням, яке задається за допомогою атрибута DEFAULT. Якщо для стовпця не встановлено значення за умовчанням, то як нього застосовується значення NULL.
 
+```sql
 CREATE TABLE Orders
 (
     Id INT PRIMARY KEY IDENTITY,
@@ -415,47 +421,60 @@ CREATE TABLE Orders
     CreatedAt Date,
     FOREIGN KEY (CustomerId) REFERENCES Customers (Id) ON DELETE SET DEFAULT
 )
+```
 
---------------
---Можливо, в якийсь момент ми захочемо змінити таблицю, що вже є. 
---Наприклад, додати або видалити стовпці, змінити тип стовпців, додати або видалити обмеження. 
---Тобто потрібно змінити визначення таблиці. Для зміни таблиць використовується вираз ALTER TABLE .
+## Змінення таблиць
 
---ALTER TABLE название_таблицы [WITH CHECK | WITH NOCHECK]
---{ ADD название_столбца тип_данных_столбца [атрибуты_столбца] | 
---  DROP COLUMN название_столбца |
---  ALTER COLUMN название_столбца тип_данных_столбца [NULL|NOT NULL] |
---  ADD [CONSTRAINT] определение_ограничения |
---  DROP [CONSTRAINT] имя_ограничения}
+Можливо, в якийсь момент ми захочемо змінити таблицю, що вже є. Наприклад, додати або видалити стовпці, змінити тип стовпців, додати або видалити обмеження. Тобто потрібно змінити визначення таблиці. Для зміни таблиць використовується вираз 'ALTER TABLE'.
 
--- Додавання нового стовпця
+```sql
+ALTER TABLE название_таблицы [WITH CHECK | WITH NOCHECK]
+{ 
+    ADD название_столбца тип_данных_столбца [атрибуты_столбца] | 
+    DROP COLUMN название_столбца |
+    ALTER COLUMN название_столбца тип_данных_столбца [NULL|NOT NULL] |
+    ADD [CONSTRAINT] определение_ограничения |
+    DROP [CONSTRAINT] имя_ограничения
+}
+```
+
+**Додавання нового стовпця**
+```sql
 ALTER TABLE Customers
 ADD Address NVARCHAR(50) NOT NULL DEFAULT 'No Info';
+```
 
--- Видалення стовпця
+**Видалення стовпця**
+```sql
 ALTER TABLE Customers
 DROP COLUMN Address;
+```
 
--- Зміна типу стовпця
+**Зміна типу стовпця**
+```sql
 ALTER TABLE Customers
 ALTER COLUMN FirstName NVARCHAR(200);
+```
 
--- Додавання обмеження CHECK
+**Додавання обмеження CHECK**
+```sql
 ALTER TABLE Customers
 ADD CHECK (Age > 21);
+```
 
---Якщо в таблиці є рядки, в яких у стовпці Age є значення, що не відповідають цьому обмеженню, то команда SQL завершиться з помилкою. 
---Щоб уникнути подібної перевірки на відповідність і додати обмеження, незважаючи на наявність невідповідних йому даних, 
---використовується вираз WITH NOCHECK
+Якщо в таблиці є рядки, в яких у стовпці Age є значення, що не відповідають цьому обмеженню, то команда SQL завершиться з помилкою. Щоб уникнути подібної перевірки на відповідність і додати обмеження, незважаючи на наявність невідповідних йому даних, використовується вираз `WITH NOCHECK`
 
+```sql
 ALTER TABLE Customers WITH NOCHECK
 ADD CHECK (Age > 21);
+```
 
--- За замовчуванням використовується значення WITH CHECK , яке перевіряє відповідність обмеженням.
+> За замовчуванням використовується значення `WITH CHECK`, яке перевіряє відповідність обмеженням.
 
--- Додавання зовнішнього ключа
+**Додавання зовнішнього ключа**
 
--- Нехай спочатку до бази даних буде додано дві таблиці, ніяк не пов'язані:
+Нехай спочатку до бази даних буде додано дві таблиці, ніяк не пов'язані:
+```sql
 CREATE TABLE Customers
 (
     Id INT PRIMARY KEY IDENTITY,
@@ -465,39 +484,55 @@ CREATE TABLE Customers
     Email VARCHAR(30) UNIQUE,
     Phone VARCHAR(20) UNIQUE
 );
+
+
+
 CREATE TABLE Orders
 (
     Id INT IDENTITY,
     CustomerId INT,
     CreatedAt Date
 );
+```
 
--- Додамо обмеження зовнішнього ключа до стовпця CustomerId таблиці Orders:
+Додамо обмеження зовнішнього ключа до стовпця CustomerId таблиці Orders:
+```sql
 ALTER TABLE Orders
 ADD FOREIGN KEY(CustomerId) REFERENCES Customers(Id);
+```
 
--- Додавання первинного ключа
+Додавання первинного ключа
+```sql
 ALTER TABLE Orders
 ADD PRIMARY KEY (Id);
+```
 
--- Додавання обмежень з іменами
+Додавання обмежень з іменами
+```sql
 ALTER TABLE Orders
 ADD CONSTRAINT PK_Orders_Id PRIMARY KEY (Id),
     CONSTRAINT FK_Orders_To_Customers FOREIGN KEY(CustomerId) REFERENCES Customers(Id);
- 
+
+
 ALTER TABLE Customers
 ADD CONSTRAINT CK_Age_Greater_Than_Zero CHECK (Age > 0);
-
--- Видалення обмежень
+```
+ 
+Видалення обмежень
+```sql
 ALTER TABLE Orders
 DROP FK_Orders_To_Customers;
+```
 
 -------------------------
--- Основи T-SQL. DML
+## Основи T-SQL. DML
 
--- Для додавання даних застосовується команда INSERT , яка має такий формальний синтаксис:
--- INSERT [INTO] имя_таблицы [(список_столбцов)] VALUES (значение1, значение2, ... значениеN)
+Для додавання даних застосовується команда `INSERT` , яка має такий формальний синтаксис:
+```sql
+INSERT [INTO] имя_таблицы [(список_столбцов)] VALUES (значение1, значение2, ... значениеN)
+```
 
+```sql
 CREATE TABLE Products
 (
     Id INT IDENTITY PRIMARY KEY,
@@ -506,7 +541,9 @@ CREATE TABLE Products
     ProductCount INT DEFAULT 0,
     Price MONEY NOT NULL
 )
+```
 
+```sql
 INSERT Products VALUES ('iPhone 7', 'Apple', 5, 52000)
 
 INSERT INTO Products 
@@ -517,17 +554,22 @@ VALUES
 
 INSERT INTO Products (ProductName, Manufacturer, ProductCount, Price)
 VALUES ('Mi6', 'Xiaomi', DEFAULT, 28000)
+```
 
--- Якщо всі стовпці мають атрибут DEFAULT, який визначає значення за замовчуванням, або допускають значення NULL, 
--- то для всіх стовпців можна вставити значення за замовчуванням
+Якщо всі стовпці мають атрибут DEFAULT, який визначає значення за замовчуванням, або допускають значення NULL, то для всіх стовпців можна вставити значення за замовчуванням
 
+```sql
 INSERT INTO Products
 DEFAULT VALUES
+```
 
--- Для отримання даних застосовується команда SELECT . У спрощеному вигляді вона має наступний синтаксис:
--- SELECT список_столбцов FROM имя_таблицы
+Для отримання даних застосовується команда `SELECT`. У спрощеному вигляді вона має наступний синтаксис:
+```sql
+SELECT список_столбцов FROM имя_таблицы
+```
 
--- Наприклад, нехай раніше була створена таблиця Products, і до неї додані деякі початкові дані
+Наприклад, нехай раніше була створена таблиця Products, і до неї додані деякі початкові дані
+```sql
 CREATE TABLE Products
 (
     Id INT IDENTITY PRIMARY KEY,
@@ -546,77 +588,96 @@ VALUES
 ('Galaxy S8 Plus', 'Samsung', 1, 56000),
 ('Mi6', 'Xiaomi', 5, 28000),
 ('OnePlus 5', 'OnePlus', 6, 38000)
+```
 
--- Отримаємо всі об'єкти з цієї таблиці:
+Отримаємо всі об'єкти з цієї таблиці:
 
+```sql
 SELECT * FROM Products
+```
 
--- Якщо нам треба отримати дані не по всіх, а по якихось конкретних стовпцях, 
--- то всі ці специфікації стовпців перераховуються через кому після SELECT
+Якщо нам треба отримати дані не по всіх, а по якихось конкретних стовпцях, то всі ці специфікації стовпців перераховуються через кому після SELECT
+```sql
 SELECT ProductName, Price FROM Products
+```
 
--- Специфікація стовпця необов'язково має представляти його назву. 
--- Це може бути будь-який вираз, наприклад, результат арифметичної операції.
+Специфікація стовпця необов'язково має представляти його назву. Це може бути будь-який вираз, наприклад, результат арифметичної операції.
+```sql
 SELECT ProductName + ' (' + Manufacturer + ')', Price, Price * ProductCount 
 FROM Products
+```
 
--- За допомогою оператора AS можна змінити назву вихідного стовпця або визначити його псевдонім:
+За допомогою оператора AS можна змінити назву вихідного стовпця або визначити його псевдонім:
+```sql
 SELECT
 ProductName + ' (' + Manufacturer + ')' AS ModelName, 
 Price,  
 Price * ProductCount AS TotalSum
 FROM Products
+```
 
--- Оператор DISTINCT дозволяє вибрати унікальні рядки. 
--- Наприклад, у нашому випадку в таблиці може бути по кілька товарів від тих самих виробників. Виберемо всіх виробників
+Оператор `DISTINCT` дозволяє вибрати унікальні рядки. Наприклад, у нашому випадку в таблиці може бути по кілька товарів від тих самих виробників. Виберемо всіх виробників
 
+```sql
 SELECT DISTINCT Manufacturer
 FROM Products
+```
 
--- Вираз SELECT INTO дозволяє вибрати з однієї таблиці деякі дані до іншої таблиці, при цьому друга таблиця створюється автоматично.
+Вираз `SELECT INTO` дозволяє вибрати з однієї таблиці деякі дані до іншої таблиці, при цьому друга таблиця створюється автоматично.
+```sql
 SELECT ProductName + ' (' + Manufacturer + ')' AS ModelName, Price
 INTO ProductSummary
 FROM Products
  
 SELECT * FROM ProductSummary
+```
 
--- Після виконання цієї команди у базі даних буде створено ще одну таблицю ProductSummary, яка матиме два стовпці ModelName і Price, 
--- а дані для цих стовпців будуть взяті з таблиці Products:
+Після виконання цієї команди у базі даних буде створено ще одну таблицю ProductSummary, яка матиме два стовпці ModelName і Price, а дані для цих стовпців будуть взяті з таблиці Products:
 
--- Оператор ORDER BY дозволяє відсортувати видобуті значення за певним стовпцем
+Оператор `ORDER BY` дозволяє відсортувати видобуті значення за певним стовпцем
+```sql
 SELECT *
 FROM Products
 ORDER BY ProductName
+```
 
--- Сортування також можна проводити за псевдонімом стовпця, який визначається за допомогою оператора AS
+Сортування також можна проводити за псевдонімом стовпця, який визначається за допомогою оператора `AS`
+```sql
 SELECT ProductName, ProductCount * Price AS TotalSum
 FROM Products
 ORDER BY TotalSum
+```
 
--- За умовчанням застосовується сортування за зростанням (ASC). За допомогою додаткового оператора DESC можна задати сортування за спаданням.
+За умовчанням застосовується сортування за зростанням (`ASC`). За допомогою додаткового оператора `DESC` можна задати сортування за спаданням.
+```sql
 SELECT ProductName
 FROM Products
 ORDER BY ProductName DESC
+```
 
---
+```sql
 SELECT ProductName
 FROM Products
 ORDER BY ProductName ASC
+```
 
---
+```sql
 SELECT ProductName, Price, Manufacturer
 FROM Products
 ORDER BY Manufacturer, ProductName
+```
 
--- 
+```sql
 SELECT ProductName, Price, Manufacturer
 FROM Products
 ORDER BY Manufacturer ASC, ProductName DESC
+```
 
---
+```sql
 SELECT ProductName, Price, ProductCount
 FROM Products
 ORDER BY ProductCount * Price
+```
 
 -----------------------------------------
 -- Оператор TOP дозволяє вибрати певну кількість рядків із таблиці
