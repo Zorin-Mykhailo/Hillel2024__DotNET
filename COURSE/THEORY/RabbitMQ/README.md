@@ -3,7 +3,7 @@
 [`📘 THEORY`](../README.md) 
 
 
-
+[Навчальний посібник з RabbitMQ](./RabbitMQ_tutorials.md)
 
 # RabbitMQ
 

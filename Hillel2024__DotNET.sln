@@ -329,6 +329,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RabbitMQ", "RabbitMQ", "{65
 	ProjectSection(SolutionItems) = preProject
 		COURSE\THEORY\RabbitMQ\http-client.env.json = COURSE\THEORY\RabbitMQ\http-client.env.json
 		COURSE\THEORY\RabbitMQ\RabbitMQ.http = COURSE\THEORY\RabbitMQ\RabbitMQ.http
+		COURSE\THEORY\RabbitMQ\RabbitMQ_tutorials.md = COURSE\THEORY\RabbitMQ\RabbitMQ_tutorials.md
 		COURSE\THEORY\RabbitMQ\README.md = COURSE\THEORY\RabbitMQ\README.md
 	EndProjectSection
 EndProject
