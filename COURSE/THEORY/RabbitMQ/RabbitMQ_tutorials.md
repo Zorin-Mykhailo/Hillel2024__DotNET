@@ -38,7 +38,7 @@ flowchart LR;
 flowchart LR;
     Q[[Queue_name]]
 
-    style Q fill:#FFD800, stroke:#FFFFFF,stroke-width:2px
+    style Q fill:#CC4E00, stroke:#FFFFFF,stroke-width:2px
 
     Q
 ```
@@ -68,9 +68,9 @@ flowchart LR;
     Q[[Queue_name]]
     C((C))
 
-    style P fill:#0094FF, stroke:#FFFFFF,stroke-width:2px
-    style Q fill:#FFD800, stroke:#FFFFFF,stroke-width:2px
-    style C fill:#00FF21, stroke:#FFFFFF,stroke-width:2px
+    style P fill:#007ACC, stroke:#FFFFFF,stroke-width:2px
+    style Q fill:#CC4E00, stroke:#FFFFFF,stroke-width:2px
+    style C fill:#009E0A, stroke:#FFFFFF,stroke-width:2px
 
     P-->Q-->C
 ```
@@ -127,7 +127,7 @@ flowchart LR;
     Q[[Queue_name]]
 
     style P fill:#0094FF, stroke:#FFFFFF,stroke-width:2px
-    style Q fill:#FFD800, stroke:#FFFFFF,stroke-width:2px
+    style Q fill:#CC4E00, stroke:#FFFFFF,stroke-width:2px
 
     P-->Q
 ```
@@ -272,14 +272,14 @@ Console.ReadLine();
 Відкрийте два термінальні вікна.
 
 Ви можете запускати клієнти у будь-якому порядку, оскільки обидва оголошують чергу. Ми спочатку запустимо споживача, щоб ви могли побачити, як він очікує та отримує повідомлення.
-```cs
+```powershell
 cd Receive
 dotnet run
 ```
 
 Далі запустіть продюсера.
 
-```cs
+```powershell
 cd Send
 dotnet run
 ```
@@ -297,3 +297,19 @@ dotnet run
 > **Попередні вимоги**  
 >
 > Цей навчальний посібник передбачає, що RabbitMQ встановлено і працює на `localhost` за стандартним портом (5672). У разі використання іншого хосту, порту або облікових даних, потрібно буде налаштувати параметри підключення.
+
+```mermaid
+flowchart LR;
+    P((P))
+    Q[[Queue_name]]
+    C1((C₁))
+    C2((C₂))
+
+    style P fill:#007ACC, stroke:#FFFFFF,stroke-width:2px
+    style Q fill:#CC4E00, stroke:#FFFFFF,stroke-width:2px
+    style C1 fill:#009E0A, stroke:#FFFFFF,stroke-width:2px
+    style C2 fill:#009E0A, stroke:#FFFFFF,stroke-width:2px
+
+    P-->Q-->C1
+    Q-->C2
+```
