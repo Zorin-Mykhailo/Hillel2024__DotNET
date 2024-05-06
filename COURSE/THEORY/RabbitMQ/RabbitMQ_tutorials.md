@@ -56,7 +56,7 @@ flowchart LR;
 
 Зверніть увагу, що виробник, споживач і посередник не обов'язково повинні знаходитися на одному хості; насправді, в більшості програм вони цього не роблять. А додаток може бути обома як продюсером так і споживачем.
 
-# "Hello World"
+## "Hello World"
 
 У цій частині посібника ми напишемо дві програми на C#: продюсера, який відправляє одне повідомлення, і споживача, який отримує повідомлення і виводить їх. Ми обійдемо деякі деталі у .NET-клієнтському API, зосереджуючись на цій дуже простій речі, щоб приступити до роботи. Це "Hello World" у світі повідомлень.
 
@@ -87,7 +87,7 @@ flowchart LR;
 > 
 > Цей навчальний посібник передбачає, що ви використовуєте PowerShell на Windows. На MacOS та Linux підходить практично будь-яка оболонка.
 
-# Налаштування
+## Налаштування
 
 Спочатку переконайтеся, що у вас є інструментальний набір .NET Core у вашому `PATH`.
 
@@ -119,7 +119,7 @@ dotnet add package RabbitMQ.Client
 
 Тепер, коли у нас налаштований проект .NET, ми можемо написати деякий код.
 
-# Надсилання
+## Надсилання
 
 ```mermaid
 flowchart LR;
@@ -134,7 +134,7 @@ flowchart LR;
 
 Ми називаємо наш відправник повідомлень (виробник) `Send.cs`, а отримувач повідомлень (споживач) `Receive.cs`. Відправник буде підключатися до RabbitMQ, відправляти одне повідомлення, а потім завершувати роботу.
 
-У файлі `Send.cs` нам потрібно використовувати деякі простори імен:
+У файлі `Send.cs`(https://github.com/rabbitmq/rabbitmq-tutorials/blob/main/dotnet/Send/Send.cs) нам потрібно використовувати деякі простори імен:
 
 ```cs
 using System.Text;
@@ -193,9 +193,9 @@ Console.ReadLine();
 >
 > Якщо це ваш перший раз використання RabbitMQ, і ви не бачите повідомлення "Sent", то ви, можливо, залишились з питанням, що може бути не так. Можливо, брокер був запущений без достатньої вільної місця на диску (за замовчуванням для цього потрібно щонайменше 50 МБ вільного місця) і, отже, відмовляється приймати повідомлення. Перевірте журнал брокера для підтвердження цього і, за необхідності, зменште ліміт. Документація з налаштування покаже вам, як встановити `disk_free_limit`.
 
-# Отримання
+## Отримання
 
-Що ж до споживача, він слухає повідомлення від RabbitMQ. Таким чином, на відміну від виробника, який публікує одне повідомлення, ми будемо тримати споживача постійно працюючим, щоб він слухав повідомлення і виводив їх.
+Що ж до споживача, він слухає повідомлення від RabbitMQ. Таким чином, на відміну від продюсера, який публікує одне повідомлення, ми будемо тримати споживача постійно працюючим, щоб він слухав повідомлення і виводив їх.
 
 ```mermaid
 flowchart LR;
@@ -207,3 +207,83 @@ flowchart LR;
 
     Q-->C
 ```
+
+Код (у файлі [Receive.cs](https://github.com/rabbitmq/rabbitmq-tutorials/blob/main/dotnet/Receive/Receive.cs)) має майже ті ж самі блоки коду `using`, що й у `Send`:
+```cs
+using System.Text;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+```
+
+Налаштування аналогічне відправнику; ми відкриваємо з'єднання і канал, та оголошуємо чергу, з якої ми будемо споживати. Зауважте, що це відповідає черзі, на яку відправляє повідомлення `Send`.
+
+```cs
+var factory = new ConnectionFactory { HostName = "localhost" };
+using var connection = factory.CreateConnection();
+using var channel = connection.CreateModel();
+
+channel.QueueDeclare(queue: "hello",
+                     durable: false,
+                     exclusive: false,
+                     autoDelete: false,
+                     arguments: null);
+...
+```
+
+Зверніть увагу, що ми також оголошуємо чергу тут. Оскільки ми можемо запустити споживача перед відправником, ми хочемо переконатися, що черга існує, перш ніж ми спробуємо споживати повідомлення з неї.
+
+Ми збираємося повідомити сервер, щоб він доставив нам повідомлення з черги. Оскільки він буде відправляти нам повідомлення асинхронно, ми надаємо зворотний виклик. Це те, що робить обробник подій `EventingBasicConsumer.Received`.
+
+```cs
+using System.Text;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+
+var factory = new ConnectionFactory { HostName = "localhost" };
+using var connection = factory.CreateConnection();
+using var channel = connection.CreateModel();
+
+channel.QueueDeclare(queue: "hello",
+                     durable: false,
+                     exclusive: false,
+                     autoDelete: false,
+                     arguments: null);
+
+Console.WriteLine(" [*] Waiting for messages.");
+
+var consumer = new EventingBasicConsumer(channel);
+consumer.Received += (model, ea) =>
+{
+    var body = ea.Body.ToArray();
+    var message = Encoding.UTF8.GetString(body);
+    Console.WriteLine($" [x] Received {message}");
+};
+channel.BasicConsume(queue: "hello",
+                     autoAck: true,
+                     consumer: consumer);
+
+Console.WriteLine(" Press [enter] to exit.");
+Console.ReadLine();
+```
+
+[Ось весь клас Receive.cs](https://github.com/rabbitmq/rabbitmq-tutorials/blob/main/dotnet/Receive/Receive.cs):
+
+## Об'єднаймо все разом.
+Відкрийте два термінальні вікна.
+
+Ви можете запускати клієнти у будь-якому порядку, оскільки обидва оголошують чергу. Ми спочатку запустимо споживача, щоб ви могли побачити, як він очікує та отримує повідомлення.
+```cs
+cd Receive
+dotnet run
+```
+
+Далі запустіть продюсера.
+
+```cs
+cd Send
+dotnet run
+```
+
+Споживач роздрукує повідомлення, яке він отримає від виробника через RabbitMQ. Споживач буде продовжувати працювати, очікуючи повідомлень, тому спробуйте перезапустити виробника кілька разів.
+
+Час перейти до другої частини і побудувати просту робочу чергу.
