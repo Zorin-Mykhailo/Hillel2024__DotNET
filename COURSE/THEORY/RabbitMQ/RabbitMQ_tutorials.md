@@ -453,3 +453,209 @@ channel.BasicConsume(queue: "hello",
                      autoAck: false,
                      consumer: consumer);
 ```
+
+З використанням цього коду ви можете переконатися, що навіть якщо ви завершите вузол робітника за допомогою `CTRL`+`C` під час обробки повідомлення, нічого не буде втрачено. Незабаром після завершення вузла робітника всі непідтверджені повідомлення будуть повторно доставлені.
+
+Підтвердження повинно бути відправлено на тому ж самому каналі, на якому було отримано доставку. Спроби підтвердження за допомогою іншого каналу призведуть до винятку протоколу на рівні каналу. Для отримання додаткової інформації див. [довідковий посібник з підтверджень](https://www.rabbitmq.com/docs/confirms).
+
+> **Втрачене підтвердження**
+>
+> Пропуск `BasicAck` - це поширена помилка. Це легка помилка, але наслідки серйозні. Повідомлення будуть повторно доставлені, коли ваш клієнт завершить роботу (це може виглядати як випадкове повторне доставлення), але RabbitMQ буде з'їдати все більше та більше пам'яті, оскільки він не зможе звільнити ніякі непідтверджені повідомлення.
+>
+> Щоб налагодити такий тип помилки, ви можете використовувати `rabbitmqctl` для виведення поля `messages_unacknowledged`:
+> `sudo rabbitmqctl list_queues name messages_ready messages_unacknowledged`
+>
+> На Windows вам не потрібно використовувати sudo:
+> `rabbitmqctl.bat list_queues name messages_ready messages_unacknowledged`
+
+## Стійкість повідомлень
+
+Ми вивчили, як забезпечити, що навіть якщо споживач вмирає, завдання не буде втрачено. Але наші завдання все ще будуть втрачені, якщо сервер RabbitMQ зупиниться.
+
+Коли RabbitMQ завершує роботу або аварійно завершується, він забуде черги і повідомлення, якщо ви не повідомите йому про це. Щоб забезпечити, що повідомлення не втрачаються, потрібно позначити як чергу, так і повідомлення як стійкі (durable).
+
+Спочатку ми повинні переконатися, що черга виживе під час перезапуску вузла RabbitMQ. Для цього ми повинні визначити її як стійку (***durable***):
+
+```cs
+channel.QueueDeclare(queue: "hello",
+                     durable: true,
+                     exclusive: false,
+                     autoDelete: false,
+                     arguments: null);
+```
+
+Хоча ця команда в цілому правильна, вона не працюватиме в нашій поточній налаштованій системі. Це тому, що ми вже визначили чергу під назвою `hello`, яка не є стійкою. RabbitMQ не дозволяє вам перевизначати існуючу чергу з іншими параметрами і повертатиме помилку будь-якій програмі, яка намагатиметься це зробити. Але є швидке обходу цієї проблеми - давайте визначимо чергу з іншою назвою, наприклад, `task_queue`:
+
+Зміни, внесені в `QueueDeclare`, повинні бути застосовані як до коду виробника, так і до споживача. Вам також потрібно змінити назву черги для `BasicConsume` та `BasicPublish`.
+
+На цьому етапі ми впевнені, що черга `task_queue` не буде втрачена навіть якщо RabbitMQ перезапуститься. Тепер нам потрібно позначити наші повідомлення як стійкі.
+
+Після існуючого ***GetBytes***, встановіть `IBasicProperties.Persistent` на `true`:
+
+```cs
+var body = Encoding.UTF8.GetBytes(message);
+
+var properties = channel.CreateBasicProperties();
+properties.Persistent = true;
+```
+
+> **Примітка щодо збереження повідомлень**
+> Позначення повідомлень як стійких не гарантує повністю, що повідомлення не буде втрачено. Хоча це каже RabbitMQ зберегти повідомлення на диск, все ще є коротке вікно часу, коли RabbitMQ прийняв повідомлення, але ще не зберіг його. Крім того, RabbitMQ не виконує `fsync(2)` для кожного повідомлення - воно може просто зберігатися в кеші і насправді не записуватися на диск. Гарантії стійкості не є міцними, але цього достатньо для нашої простої черги завдань. Якщо вам потрібна міцніша гарантія, ви можете використовувати [підтвердження від продюсера](https://www.rabbitmq.com/docs/confirms).
+
+## Справедлива розсилка
+
+Можливо, ви помітили, що розподіл все ще не працює точно так, як нам потрібно. Наприклад, в ситуації з двома робітниками, коли всі непарні повідомлення важкі, а парні - легкі, один робітник буде постійно зайнятий, а інший мало що буде робити. Ну, RabbitMQ нічого про це не знає і все ще буде розподіляти повідомлення рівномірно.
+
+Це трапляється через те, що RabbitMQ просто розсилає повідомлення, коли вони потрапляють в чергу. Він не дивиться на кількість непідтверджених повідомлень для споживача. Він просто сліпо розсилає кожне n-те повідомлення до n-го споживача.
+
+```mermaid
+flowchart LR;
+    P((P))
+    Q[[Queue_name]]
+    C1((C₁))
+    C2((C₂))
+
+    style P fill:#007ACC, stroke:#A0A0A0,stroke-width:2px
+    style Q fill:#CC4E00, stroke:#A0A0A0,stroke-width:2px
+    style C1 fill:#009E0A, stroke:#A0A0A0,stroke-width:2px
+    style C2 fill:#009E0A, stroke:#A0A0A0,stroke-width:2px
+
+    P-->Q-->|Prefetch=1|C1
+    Q-->|Prefetch=1|C2
+```
+
+Для зміни цього поведінки ми можемо використовувати метод `BasicQos` з параметром `prefetchCount` = `1`. Це повідомляє RabbitMQ не давати більше одного повідомлення робітнику одночасно. Іншими словами, не розсилайте нове повідомлення робітнику, поки він не обробить і не підтвердить попереднє. Замість цього воно буде розсилятися наступному робітнику, який ще не зайнятий.
+
+Після існуючого виклику ***QueueDeclare*** в ***Worker.cs*** додайте виклик `BasicQos`:
+
+```cs
+channel.QueueDeclare(queue: "task_queue",
+                     durable: true,
+                     exclusive: false,
+                     autoDelete: false,
+                     arguments: null);
+
+channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
+```
+
+> **Примітка щодо розміру черги**
+> Якщо всі робітники зайняті, ваша черга може заповнитися. Вам слід слідкувати за цим і, можливо, додати ще деяких робітників або використовувати іншу стратегію.
+
+## Поєднаємо все разом
+
+Відкрийте два термінали.
+
+Спочатку запустіть споживача (робітника), щоб топологія (переважно черга) була на місці. Ось його повний код:
+
+```cs
+using System.Text;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+
+var factory = new ConnectionFactory { HostName = "localhost" };
+using var connection = factory.CreateConnection();
+using var channel = connection.CreateModel();
+
+channel.QueueDeclare(queue: "task_queue",
+                     durable: true,
+                     exclusive: false,
+                     autoDelete: false,
+                     arguments: null);
+
+channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
+
+Console.WriteLine(" [*] Waiting for messages.");
+
+var consumer = new EventingBasicConsumer(channel);
+consumer.Received += (model, ea) =>
+{
+    byte[] body = ea.Body.ToArray();
+    var message = Encoding.UTF8.GetString(body);
+    Console.WriteLine($" [x] Received {message}");
+
+    int dots = message.Split('.').Length - 1;
+    Thread.Sleep(dots * 1000);
+
+    Console.WriteLine(" [x] Done");
+
+    // here channel could also be accessed as ((EventingBasicConsumer)sender).Model
+    channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
+};
+channel.BasicConsume(queue: "task_queue",
+                     autoAck: false,
+                     consumer: consumer);
+
+Console.WriteLine(" Press [enter] to exit.");
+Console.ReadLine();
+```
+
+Тепер запустіть видавця завдань (NewTask). Ось його кінцевий код:
+
+```cs
+using System.Text;
+using RabbitMQ.Client;
+
+var factory = new ConnectionFactory { HostName = "localhost" };
+using var connection = factory.CreateConnection();
+using var channel = connection.CreateModel();
+
+channel.QueueDeclare(queue: "task_queue",
+                     durable: true,
+                     exclusive: false,
+                     autoDelete: false,
+                     arguments: null);
+
+var message = GetMessage(args);
+var body = Encoding.UTF8.GetBytes(message);
+
+var properties = channel.CreateBasicProperties();
+properties.Persistent = true;
+
+channel.BasicPublish(exchange: string.Empty,
+                     routingKey: "task_queue",
+                     basicProperties: properties,
+                     body: body);
+Console.WriteLine($" [x] Sent {message}");
+
+Console.WriteLine(" Press [enter] to exit.");
+Console.ReadLine();
+
+static string GetMessage(string[] args)
+{
+    return ((args.Length > 0) ? string.Join(" ", args) : "Hello World!");
+}
+```
+
+[(Вихідний код NewTask.cs)](https://github.com/rabbitmq/rabbitmq-tutorials/blob/main/dotnet/NewTask/NewTask.cs)
+
+З використанням підтверджень повідомлень та `BasicQos` ви можете налаштувати чергу завдань. Опції стійкості дозволяють завданням виживати навіть якщо RabbitMQ перезапускається.
+
+Для отримання додаткової інформації про методи `IModel` та `IBasicProperties` ви можете переглянути [довідку по API .NET клієнта RabbitMQ](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.html) в Інтернеті.
+
+Тепер ми можемо перейти до третього практичного посібника та дізнатися, як доставити одне й те ж повідомлення кільком споживачам.
+
+# Навчальний посібник з RabbitMQ - Публікація/Підписка
+## Публікація/Підписка
+
+> [!NOTE]  
+> **Попередні вимоги**  
+>
+> Цей навчальний посібник передбачає, що RabbitMQ встановлено і працює на `localhost` за стандартним портом (5672). У разі використання іншого хосту, порту або облікових даних, потрібно буде налаштувати параметри підключення.
+
+```mermaid
+flowchart LR;
+    P((P))
+    X{{X}}
+    Q1[[Queue_name]]
+    Q2[[Queue_name]]
+    
+
+    style P fill:#007ACC, stroke:#A0A0A0,stroke-width:2px
+    style X fill:#FF006E, stroke:#A0A0A0,stroke-width:2px
+    style Q1 fill:#CC4E00, stroke:#A0A0A0,stroke-width:2px
+    style Q2 fill:#CC4E00, stroke:#A0A0A0,stroke-width:2px
+    
+
+    P-->X-->Q1
+    X-->Q2
+```
