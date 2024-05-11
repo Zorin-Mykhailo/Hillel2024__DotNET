@@ -12,22 +12,6 @@
 [`00:35:17` Практика](https://youtu.be/y_BgkUq401s?t=2117)  
 [`01:11:07` ⏸ Початок перерви](https://youtu.be/y_BgkUq401s?t=4267)  
 [`01:21:19` ▶️ Продовження уроку. Додавання Docker в Visual Studio](https://youtu.be/y_BgkUq401s?t=4879)  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
 
 ## [Lesson materials](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/lessons/65a65fe44c3a2d3372eef975)
 
@@ -46,22 +30,3 @@
 - [ ] [Microsoft Azure Tutorial](https://www.tutorialspoint.com/microsoft_azure/index.htm)
 - [ ] [Microsoft Azure: From Zero to Hero - The Complete Guide](https://www.udemy.com/course/microsoft-azure-from-zero-to-hero-the-complete-guide/)
 - [ ] [Azure tutorials for beginners](https://www.pragimtech.com/blog/azure/azure-tutorials-for-beginners/)
-
-## [`📕 Homework 00 (Lesson 00)` Назва]()  
-*ДЗ відсутнє*
---
-
----
-
-# 📘 Extra materials
-
-*Додаткові матеріали відсутні*
-
-# 📘 TODO
-*Завдання для самостійного опрацювання відстутні*
-
-# 📘 Questions
-*Запитання відсутні*
-
-# 📘 NOTES
-*Нотатки відсутні*

@@ -38,22 +38,3 @@
 	<Description>My nuget package description</Description>
 </PropertyGroup>
 ```
-
-## `📕 Homework`
-*ДЗ відсутнє*
---
-
----
-
-# 📘 Extra materials
-
-*Додаткові матеріали відсутні*
-
-# 📘 TODO
-*Завдання для самостійного опрацювання відстутні*
-
-# 📘 Questions
-*Запитання відсутні*
-
-# 📘 NOTES
-*Нотатки відсутні*

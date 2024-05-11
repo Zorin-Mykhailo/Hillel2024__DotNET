@@ -31,11 +31,6 @@
 - [ ] [SQL Server Indexes](https://www.sqlservertutorial.net/sql-server-indexes/)  
 - [ ] [SQL Server Administration](https://www.sqlservertutorial.net/sql-server-administration/)  
 
-
-## `📕 Homework  
-*ДЗ відсутнє*
---
-
 ---
 
 # 📘 Extra materials

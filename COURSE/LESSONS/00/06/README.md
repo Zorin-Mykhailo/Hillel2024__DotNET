@@ -33,22 +33,4 @@
 
 - [ ] [Difference Between Cohesion and Coupling](https://stackoverflow.com/questions/3085285/difference-between-cohesion-and-coupling)
 - [ ] [KISS, YAGNI, DRY – three principles that every developer should know about](https://www.boldare.com/blog/kiss-yagni-dry-principles/)
-- [ ] [The Principles of Clean Code: DRY, KISS, and YAGNI](https://www.linkedin.com/pulse/principles-clean-code-dry-kiss-yagni-rajnish-kumar/)
-
-## 📕 Homework
-*ДЗ відсутнє*
-
----
-
-# 📘 Extra materials
-
-*Додаткові матеріали відсутні*
-
-# 📘 TODO
-*Завдання для самостійного опрацювання відстутні*
-
-# 📘 Questions
-*Запитання відсутні*
-
-# 📘 NOTES
-*Нотатки відсутні*
+- [ ] [The Principles of Clean Code: DRY, KISS, and YAGNI](https://www.linkedin.com/pulse/principles-clean-code-dry-kiss-yagni-rajnish-kumar/)  
