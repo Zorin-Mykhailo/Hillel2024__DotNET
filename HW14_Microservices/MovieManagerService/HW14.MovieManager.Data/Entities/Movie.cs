@@ -12,6 +12,8 @@ public class Movie : BaseEntity
     public string Description { get; set; } = string.Empty;
 
     public DateTime ReleaseDate { get; set; }
+
+    //public ICollection<int>? ActorsIds { get; set; }
 }
 
 

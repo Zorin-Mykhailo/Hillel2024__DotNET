@@ -22,6 +22,7 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(HW1
 builder.Services.AddDbContext<HW14.MovieManager.Data.Context.AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AppDb"),
     b => b.MigrationsAssembly(typeof(HW14.MovieManager.Data.Context.AppDbContext).Assembly.FullName)));
+builder.Services.AddHttpClient();
 
 var app = builder.Build();
 

@@ -6,9 +6,10 @@ POST {{AppHostAddress}}/api/v{{ApiVersion}}/Actor
 content-type: application/json
 
 {
-    "title": "Дюна: Частина друга",
-    "description": "Фантастично - пригодницький бойовик «Дюна: Частина друга» є продовженням фільму, що вийшов на екрани в 2021 році. В основу сюжету покладено однойменний роман Френка Герберта.",
-    "releaseDate": "2024-04-12T07:36:23.196Z"
+    "firstName": "Роберт",
+    "lastName": "Дауні мол.",
+    "dateOfBirth": "1965-04-04",
+    "description": "Актор, продюсер, сценарист, композитор"
 
 }
 
@@ -18,7 +19,7 @@ content-type: application/json
 # ▬▬▬ Actor delete ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 ###
 
-DELETE {{AppHostAddress}}/api/v{{ApiVersion}}/Actor/5
+DELETE {{AppHostAddress}}/api/v{{ApiVersion}}/Actor/8
 content-type: application/json
 
 
@@ -27,13 +28,14 @@ content-type: application/json
 # ▬▬▬ Actor update ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 ###
 
-PUT {{AppHostAddress}}/api/v{{ApiVersion}}/Actor/1
+PUT {{AppHostAddress}}/api/v{{ApiVersion}}/Actor/8
 content-type: application/json
 
 {
-    "title": "Приборкувачка драконів",
-    "description": "У стародавньому Китаї дракони колись були друзями людей, але жадібність занапастила їхній союз, і на цих чарівних істот почалося полювання. Плинув час і одного разу, у віддаленій фортеці дівчина Пін заводить малоймовірну дружбу зі справжнім драконом.",
-    "releaseDate": "2024-04-11"
+    "firstName": "Роберт",
+    "lastName": "Дауні молодший",
+    "dateOfBirth": "1965-04-04",
+    "description": "Актор, продюсер, сценарист, композитор"
 }
 
 
@@ -51,5 +53,5 @@ content-type: application/json
 # ▬▬▬ Actor get single ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 ###
 
-GET {{AppHostAddress}}/api/v{{ApiVersion}}/Actor/5
+GET {{AppHostAddress}}/api/v{{ApiVersion}}/Actor/8
 content-type: application/json

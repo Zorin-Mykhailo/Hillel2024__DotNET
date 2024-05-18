@@ -17,7 +17,7 @@ builder.Services.AddApiVersioning(options =>
     options.AssumeDefaultVersionWhenUnspecified = true;
     options.ReportApiVersions = true;
 });
-//builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(HW14.MovieActors.Service. MovieManager.Service.CommandsAndQueries.Movies.MovieQueryGetAll).Assembly));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(HW14.MovieActors.Service.CommandsAndQueries.Actors.ActorQueryGetAll).Assembly));
 builder.Services.AddDbContext<HW14.MovieActors.Data.Context.AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AppDb"),
     b => b.MigrationsAssembly(typeof(HW14.MovieActors.Data.Context.AppDbContext).Assembly.FullName)));
