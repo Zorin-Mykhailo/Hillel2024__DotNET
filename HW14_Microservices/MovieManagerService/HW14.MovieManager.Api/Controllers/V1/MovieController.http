@@ -18,7 +18,7 @@ content-type: application/json
 # ███ Movie delete ██████████████████████████████████████████████████
 ###
 
-DELETE {{AppHostAddress}}/api/v{{ApiVersion}}/Movie/1005
+DELETE {{AppHostAddress}}/api/v{{ApiVersion}}/Movie/5
 content-type: application/json
 
 
@@ -51,5 +51,5 @@ content-type: application/json
 # ███ Movie get single ██████████████████████████████████████████████████
 ###
 
-GET {{AppHostAddress}}/api/v{{ApiVersion}}/Movie/11
+GET {{AppHostAddress}}/api/v{{ApiVersion}}/Movie/5
 content-type: application/json
