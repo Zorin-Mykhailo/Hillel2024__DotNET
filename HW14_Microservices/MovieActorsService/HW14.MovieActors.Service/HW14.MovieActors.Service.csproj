@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\HW14.MovieActors.Contract\HW14.MovieActors.Contract.csproj" />
     <ProjectReference Include="..\HW14.MovieActors.Data\HW14.MovieActors.Data.csproj" />
   </ItemGroup>

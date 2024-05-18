@@ -18,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\HW14.MovieActors.Contract\HW14.MovieActors.Contract.csproj" />
     <ProjectReference Include="..\HW14.MovieActors.Data\HW14.MovieActors.Data.csproj" />
     <ProjectReference Include="..\HW14.MovieActors.Service\HW14.MovieActors.Service.csproj" />
