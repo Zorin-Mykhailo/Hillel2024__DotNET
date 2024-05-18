@@ -23,6 +23,38 @@ public class MovieController(IMediator Mediator) : ControllerBase
 
 
 
+    [HttpDelete("{id}")]
+    [ProducesResponseType(typeof(int), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(int), (int)HttpStatusCode.NotFound)]
+    public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken = default)
+    {
+        bool success = await Mediator.Send(new MovieCommandDeleteSingle(id), cancellationToken);
+        return success ? Ok(id) : NotFound(id);
+    }
+
+
+
+    [HttpPut("{id}")]
+    [ProducesResponseType(typeof(int), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(int), (int)HttpStatusCode.NotFound)]
+    public async Task<IActionResult> Update(int id, MovieCommandUpdate command, CancellationToken cancellationToken = default)
+    {
+        bool success = await Mediator.Send(new MovieCommandUpdateSingle(id, command), cancellationToken);
+        return success ? Ok(id) : NotFound(id);
+    }
+
+
+
+    [HttpGet]
+    [ProducesResponseType(typeof(ICollection<MovieDTO>), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(void), (int)HttpStatusCode.NoContent)]
+    public async Task<IActionResult> GetAll(CancellationToken cancellationToken = default)
+    {
+        ICollection<MovieDTO> items = await Mediator.Send(new MovieQueryGetAll(), cancellationToken);
+        return items.Any() ? Ok(items) : NoContent();
+    }
+
+
 
     [HttpGet("{id}")]
     [ProducesResponseType(typeof(MovieDTO), (int)HttpStatusCode.OK)]
