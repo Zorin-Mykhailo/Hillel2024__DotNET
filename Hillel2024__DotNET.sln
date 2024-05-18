@@ -365,7 +365,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW14 • Microservices", "H
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MovieManager", "MovieManager", "{673A5445-7A09-4001-938E-34AB55458E3C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MovieManagerReferenceData", "MovieManagerReferenceData", "{E9A4F85A-940F-427B-A34A-F90597B70163}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MovieActors", "MovieActors", "{E9A4F85A-940F-427B-A34A-F90597B70163}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW14.MovieManager.Api", "HW14_Microservices\MovieManagerService\HW14.MovieManager.Api\HW14.MovieManager.Api.csproj", "{DBDBAEFD-7AC1-4519-877B-9BEB119AFAFD}"
 EndProject
@@ -374,6 +374,14 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW14.MovieManager.Data", "HW14_Microservices\MovieManagerService\HW14.MovieManager.Data\HW14.MovieManager.Data.csproj", "{2CDC9BEA-8A85-4C4B-B13F-DD55528978D1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW14.MovieManager.Service", "HW14_Microservices\MovieManagerService\HW14.MovieManager.Service\HW14.MovieManager.Service.csproj", "{F355A994-9382-4555-9B90-388B4289FBF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW14.MovieActors.Api", "HW14_Microservices\MovieActorsService\HW14.MovieActors.Api\HW14.MovieActors.Api.csproj", "{E5C25334-992D-4080-8C0B-E42699B55B39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW14.MovieActors.Contract", "HW14_Microservices\MovieActorsService\HW14.MovieActors.Contract\HW14.MovieActors.Contract.csproj", "{F9E4E4E8-AAC0-481A-BD9B-D1B89F464832}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW14.MovieActors.Service", "HW14_Microservices\MovieActorsService\HW14.MovieActors.Service\HW14.MovieActors.Service.csproj", "{E4F6A473-79E9-45DE-B708-6ECB6E1878E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW14.MovieActors.Data", "HW14_Microservices\MovieActorsService\HW14.MovieActors.Data\HW14.MovieActors.Data.csproj", "{2AB74692-BD19-4377-AFA2-E698EE036964}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -469,6 +477,22 @@ Global
 		{F355A994-9382-4555-9B90-388B4289FBF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F355A994-9382-4555-9B90-388B4289FBF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F355A994-9382-4555-9B90-388B4289FBF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5C25334-992D-4080-8C0B-E42699B55B39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5C25334-992D-4080-8C0B-E42699B55B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5C25334-992D-4080-8C0B-E42699B55B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5C25334-992D-4080-8C0B-E42699B55B39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9E4E4E8-AAC0-481A-BD9B-D1B89F464832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9E4E4E8-AAC0-481A-BD9B-D1B89F464832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9E4E4E8-AAC0-481A-BD9B-D1B89F464832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9E4E4E8-AAC0-481A-BD9B-D1B89F464832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4F6A473-79E9-45DE-B708-6ECB6E1878E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4F6A473-79E9-45DE-B708-6ECB6E1878E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4F6A473-79E9-45DE-B708-6ECB6E1878E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4F6A473-79E9-45DE-B708-6ECB6E1878E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AB74692-BD19-4377-AFA2-E698EE036964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AB74692-BD19-4377-AFA2-E698EE036964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AB74692-BD19-4377-AFA2-E698EE036964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AB74692-BD19-4377-AFA2-E698EE036964}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -560,6 +584,10 @@ Global
 		{2DAAF7AB-8341-404E-8CB9-3A6FFAE7F230} = {673A5445-7A09-4001-938E-34AB55458E3C}
 		{2CDC9BEA-8A85-4C4B-B13F-DD55528978D1} = {673A5445-7A09-4001-938E-34AB55458E3C}
 		{F355A994-9382-4555-9B90-388B4289FBF0} = {673A5445-7A09-4001-938E-34AB55458E3C}
+		{E5C25334-992D-4080-8C0B-E42699B55B39} = {E9A4F85A-940F-427B-A34A-F90597B70163}
+		{F9E4E4E8-AAC0-481A-BD9B-D1B89F464832} = {E9A4F85A-940F-427B-A34A-F90597B70163}
+		{E4F6A473-79E9-45DE-B708-6ECB6E1878E6} = {E9A4F85A-940F-427B-A34A-F90597B70163}
+		{2AB74692-BD19-4377-AFA2-E698EE036964} = {E9A4F85A-940F-427B-A34A-F90597B70163}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {57CEC84A-4A6F-4CE3-9786-DA0F0F9265F8}

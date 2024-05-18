@@ -1,6 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using HW14.MovieManager.Service.CommandsAndQueries.Movies;
-using HW14.MovieManager.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,18 +18,12 @@ builder.Services.AddApiVersioning(options =>
     options.AssumeDefaultVersionWhenUnspecified = true;
     options.ReportApiVersions = true;
 });
-
-
-builder.Services.AddServiceLayer();
-//builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(System.Reflection.Assembly.GetExecutingAssembly() ));
-
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(HW14.MovieManager.Service.CommandsAndQueries.Movies.MovieQueryGetAll).Assembly ));
 builder.Services.AddDbContext<HW14.MovieManager.Data.Context.AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AppDb"),
     b => b.MigrationsAssembly(typeof(HW14.MovieManager.Data.Context.AppDbContext).Assembly.FullName)));
 
-
 var app = builder.Build();
-
 
 if(app.Environment.IsDevelopment())
 {
@@ -42,6 +34,7 @@ if(app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+
 foreach (var service in builder.Services)
 {
     Console.WriteLine($"{service.Lifetime} | {service.ServiceType}");
