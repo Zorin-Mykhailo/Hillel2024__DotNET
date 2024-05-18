@@ -1,3 +1,4 @@
+using HW14.MovieManager.Service.OuterServices;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +24,7 @@ builder.Services.AddDbContext<HW14.MovieManager.Data.Context.AppDbContext>(optio
     options.UseSqlServer(builder.Configuration.GetConnectionString("AppDb"),
     b => b.MigrationsAssembly(typeof(HW14.MovieManager.Data.Context.AppDbContext).Assembly.FullName)));
 builder.Services.AddHttpClient();
+builder.Services.AddScoped<IMovieActorsService, MovieActorsService>();
 
 var app = builder.Build();
 
