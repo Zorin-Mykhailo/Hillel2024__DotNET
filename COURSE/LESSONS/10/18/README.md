@@ -7,7 +7,7 @@
 ## [Lesson video (02:10:10)](https://youtu.be/jwnuovyS19s)
 
 [`00:04:37` Вступ](https://youtu.be/jwnuovyS19s?t=277)  
-[`00:00:00` ](https://youtu.be/jwnuovyS19s?t=797)  
+[`00:12:25` Знайомство із XAML](https://youtu.be/jwnuovyS19s?t=744)  
 [`00:00:00` ]()  
 [`00:00:00` ]()  
 [`00:00:00` ]()  

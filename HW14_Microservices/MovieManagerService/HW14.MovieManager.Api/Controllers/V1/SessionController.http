@@ -1,0 +1,55 @@
+﻿###
+# ███ Session create ██████████████████████████████████████████████████
+###
+
+POST {{AppHostAddress}}/api/v{{ApiVersion}}/Session
+content-type: application/json
+
+{
+    "movieId": 1,
+    "roomName": "Зал 4b",
+    "startAt": "2024-04-11T14:30:00"
+
+}
+
+
+
+###
+# ███ Session delete ██████████████████████████████████████████████████
+###
+
+DELETE {{AppHostAddress}}/api/v{{ApiVersion}}/Session/1
+content-type: application/json
+
+
+
+###
+# ███ Session update ██████████████████████████████████████████████████
+###
+
+PUT {{AppHostAddress}}/api/v{{ApiVersion}}/Session/1
+content-type: application/json
+
+{
+    "movieId": 1,
+    "roomName": "Зал 4a",
+    "startAt": "2024-04-11T14:30:00"
+}
+
+
+
+###
+# ███ Session get all ██████████████████████████████████████████████████
+###
+
+GET {{AppHostAddress}}/api/v{{ApiVersion}}/Session
+content-type: application/json
+
+
+
+###
+# ███ SessionB get single ██████████████████████████████████████████████████
+###
+
+GET {{AppHostAddress}}/api/v{{ApiVersion}}/Session/10
+content-type: application/json
