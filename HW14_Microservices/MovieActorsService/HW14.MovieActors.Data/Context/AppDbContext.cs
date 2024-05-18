@@ -1,8 +1,7 @@
-﻿using HW14.MovieManager.Data.Entities;
+﻿using HW14.MovieActors.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace HW14.MovieManager.Data.Context;
-
+namespace HW14.MovieActors.Data.Context;
 public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
@@ -17,7 +16,5 @@ public class AppDbContext : DbContext
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken)
         => await base.SaveChangesAsync(cancellationToken);
 
-    public DbSet<Movie> Movies { get; set; }
-
-    public DbSet<Session> Sessions { get; set; }
+    public DbSet<Actor> Actors { get; set; }
 }
