@@ -1,0 +1,15 @@
+﻿###
+# ███ Actor get all ██████████████████████████████████████████████████
+###
+
+GET {{AppHostAddress}}/api/v{{ApiVersion}}/Actor
+content-type: application/json
+
+
+
+###
+# ███ Actor get single ██████████████████████████████████████████████████
+###
+
+GET {{AppHostAddress}}/api/v{{ApiVersion}}/Actor/1
+content-type: application/json

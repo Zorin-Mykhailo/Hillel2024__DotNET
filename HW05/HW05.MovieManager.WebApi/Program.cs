@@ -1,10 +1,7 @@
 using Asp.Versioning;
 using HW05.MovieManager.Application;
-using HW05.MovieManager.Application.CommandsAndQueries.Movies;
 using HW05.MovieManager.Persistence;
-using HW05.MovieManager.WebApi;
 using Microsoft.OpenApi.Models;
-using System.Reflection;
 
 internal class Program
 {
@@ -51,6 +48,12 @@ internal class Program
         app.UseHttpsRedirection();
         app.UseAuthorization();
         app.MapControllers();
+
+        foreach(var service in builder.Services)
+        {
+            Console.WriteLine($"{service.Lifetime} | {service.ServiceType}");
+        }
+
         app.Run();
     }
 }

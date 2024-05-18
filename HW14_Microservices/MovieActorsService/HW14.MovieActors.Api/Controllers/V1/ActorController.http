@@ -1,0 +1,57 @@
+﻿###
+# ▬▬▬ Actor create ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+###
+
+POST {{AppHostAddress}}/api/v{{ApiVersion}}/Actor
+content-type: application/json
+
+{
+    "firstName": "Роберт",
+    "lastName": "Дауні мол.",
+    "dateOfBirth": "1965-04-04",
+    "description": "Актор, продюсер, сценарист, композитор"
+
+}
+
+
+
+###
+# ▬▬▬ Actor delete ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+###
+
+DELETE {{AppHostAddress}}/api/v{{ApiVersion}}/Actor/8
+content-type: application/json
+
+
+
+###
+# ▬▬▬ Actor update ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+###
+
+PUT {{AppHostAddress}}/api/v{{ApiVersion}}/Actor/8
+content-type: application/json
+
+{
+    "firstName": "Роберт",
+    "lastName": "Дауні молодший",
+    "dateOfBirth": "1965-04-04",
+    "description": "Актор, продюсер, сценарист, композитор"
+}
+
+
+
+###
+# ▬▬▬ Actor get all ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+###
+
+GET {{AppHostAddress}}/api/v{{ApiVersion}}/Actor
+content-type: application/json
+
+
+
+###
+# ▬▬▬ Actor get single ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+###
+
+GET {{AppHostAddress}}/api/v{{ApiVersion}}/Actor/8
+content-type: application/json

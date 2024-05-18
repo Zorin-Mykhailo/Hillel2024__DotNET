@@ -1,0 +1,55 @@
+﻿###
+# ███ Movie create ██████████████████████████████████████████████████
+###
+
+POST {{AppHostAddress}}/api/v{{ApiVersion}}/Movie
+content-type: application/json
+
+{
+    "title": "Дюна: Частина друга",
+    "description": "Фантастично - пригодницький бойовик «Дюна: Частина друга» є продовженням фільму, що вийшов на екрани в 2021 році. В основу сюжету покладено однойменний роман Френка Герберта.",
+    "releaseDate": "2024-04-12T07:36:23.196Z"
+
+}
+
+
+
+###
+# ███ Movie delete ██████████████████████████████████████████████████
+###
+
+DELETE {{AppHostAddress}}/api/v{{ApiVersion}}/Movie/5
+content-type: application/json
+
+
+
+###
+# ███ Movie update ██████████████████████████████████████████████████
+###
+
+PUT {{AppHostAddress}}/api/v{{ApiVersion}}/Movie/1
+content-type: application/json
+
+{
+    "title": "Приборкувачка драконів",
+    "description": "У стародавньому Китаї дракони колись були друзями людей, але жадібність занапастила їхній союз, і на цих чарівних істот почалося полювання. Плинув час і одного разу, у віддаленій фортеці дівчина Пін заводить малоймовірну дружбу зі справжнім драконом.",
+    "releaseDate": "2024-04-11"
+}
+
+
+
+###
+# ███ Movie get all ██████████████████████████████████████████████████
+###
+
+GET {{AppHostAddress}}/api/v{{ApiVersion}}/Movie
+content-type: application/json
+
+
+
+###
+# ███ Movie get single ██████████████████████████████████████████████████
+###
+
+GET {{AppHostAddress}}/api/v{{ApiVersion}}/Movie/5
+content-type: application/json
