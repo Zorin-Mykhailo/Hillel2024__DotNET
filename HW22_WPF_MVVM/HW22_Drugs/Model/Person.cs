@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace HW22_Drugs.Model;
 public class Person : INotifyPropertyChanged
 {
-    private string _name;
+    private string _name = string.Empty;
     public string Name
     {
         get => _name;
