@@ -7,33 +7,6 @@
 ## [Lesson video (00:00:00)](https://youtu.be/K36Ui-USSdY)
 [`00:00:00` ](https://youtu.be/K36Ui-USSdY)  
 
-
-[`00:01:38` Вступ](https://youtu.be/aK00DA-rkKU?t=98)  
-[`00:06:25` Огляд ДЗ](https://youtu.be/aK00DA-rkKU?t=385)  
-[`00:10:58` CoreReferenceData](https://youtu.be/aK00DA-rkKU?t=658)  
-[`00:13:51` ReferenceDataController](https://youtu.be/aK00DA-rkKU?t=831)  
-[`00:14:12` ReferenceDataService](https://youtu.be/aK00DA-rkKU?t=852)  
-[`00:21:54` HttpClientBase](https://youtu.be/aK00DA-rkKU?t=1314)  
-[`00:31:26` CoreModule](https://youtu.be/aK00DA-rkKU?t=1886)  
-[`00:32:49` Рефакторинг](https://youtu.be/aK00DA-rkKU?t=1969)  
-[`00:33:45` Підходи до розміщення інтерфейсів у проекті](https://youtu.be/aK00DA-rkKU?t=2025)  
-[`01:12:55` ⏸ Початок перерви](https://youtu.be/aK00DA-rkKU?t=4375)  
-[`01:22:49` ▶️ Продовження уроку. RabbitMQ - основні поняття](https://youtu.be/aK00DA-rkKU?t=4969)  
-[`01:27:34` Пакети для роботи з RabbitMQ](https://youtu.be/aK00DA-rkKU?t=5254)  
-[`01:29:35` Встановлення RabbitMQ в Docker](https://youtu.be/aK00DA-rkKU?t=5375)  
-[`01:30:34` Адмінка RabbitMQ](https://youtu.be/aK00DA-rkKU?t=5434)  
-[`01:33:17` Запуск додатку з RabbitMQ](https://youtu.be/aK00DA-rkKU?t=5597)  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-
 ## [Lesson materials](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/lessons/65a65fe44c3a2d3372eef981)
 
 Взаємодія з базою даних.
