@@ -1,8 +1,8 @@
 ﻿[`🏠 HOME`](../../../README.md)  
 
-[`⏪ Назад`](../07/README.md)  [`📕 HOMEWORKS`](../../README.md)
+[`⏪ Назад`](../08/README.md)  [`📕 HOMEWORKS`](../../README.md)  [`⏩ Вперед`](../10/README.md)
 
-# [`📕 Homework 08 (Lesson 22)` MVVM](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/664e01867a7b82af098cf127)  
+# [`📕 Homework 09 (Lesson 22)` MVVM](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/homeworks/664e01867a7b82af098cf127)  
 **Створити додаток з використанням паттерна MVVM - помічник для керування прийомом ліків для сім'ї.**
 
 Основні функції програми:
