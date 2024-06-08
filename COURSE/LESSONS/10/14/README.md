@@ -21,16 +21,6 @@
 [`01:29:35` Встановлення RabbitMQ в Docker](https://youtu.be/aK00DA-rkKU?t=5375)  
 [`01:30:34` Адмінка RabbitMQ](https://youtu.be/aK00DA-rkKU?t=5434)  
 [`01:33:17` Запуск додатку з RabbitMQ](https://youtu.be/aK00DA-rkKU?t=5597)  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
-[`00:00:00` ]()  
 
 ## [Lesson materials](https://lms.ithillel.ua/groups/65a65fe34c3a2d3372eef8ea/lessons/65a65fe44c3a2d3372eef978)
 
