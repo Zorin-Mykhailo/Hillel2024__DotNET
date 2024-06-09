@@ -7,5 +7,6 @@
 - [Мікросервіси](./Microservices/README.md)
 - [Тестування програмного забезпечення](./AppTesting/README.md)
 - [Entity Framework](./EntityFramework/README.md)
+- [MAUI](./MAUI/README.md)
 - [RabbitMQ](./RabbitMQ/README.md)
 - [SQL](./SQL/README.md)
