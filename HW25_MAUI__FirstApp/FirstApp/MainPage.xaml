@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirstApp.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource TextTitle}"
+                   Text="Mykhailo Zorin"/>
+
+            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource TextAccentPlus}"                   
+                   Text="Middle back-end .NET developer"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="4*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Grid.Column="0"
+                       Source="dotnet_bot.png"
+                       HeightRequest="185"
+                       Aspect="AspectFit"/>
+
+                <VerticalStackLayout Grid.Row="0" Grid.Column="1">
+                    <Label Style="{StaticResource TextAccentMinus}"
+                           Text="Location"/>
+                    <Label Style="{StaticResource TextUsual}"
+                           Text="Vinnytsia, Vinnytsia Oblast, Ukraine"/>
+                    <Label Style="{StaticResource TextAccentMinus}"
+                           Text="Email"/>
+                    <Label Style="{StaticResource TextUsual}"
+                           Text="Zorin.mikhail.84284@gmail.com"/>
+                    <Label Style="{StaticResource TextAccentMinus}"
+                           Text="Phone"/>
+                    <Label Style="{StaticResource TextUsual}"
+                           Text="+38 (097) 621 9438"/>
+                </VerticalStackLayout>
+            </Grid>
+
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0"  Style="{StaticResource TextHeader01}"
+                           Text="Summary"/>
+
+                <Label Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="2" Style="{StaticResource TextUsual}"
+                           Text="Currently I work as a backend C# developer in an agricultural company. I implement and support business processses in the company's BPM system, and also implement its integration with other company systems. I realy love my profession and really want to gain new skills and real experience working in a team using modern C# and .NET, and not stop there."/>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0"  Style="{StaticResource TextHeader01}"
+                           Text="Skills"/>
+
+                <Label Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="2" Style="{StaticResource TextUsual}"
+                           Text="C#; .NET Framework; REST; JSON; SOLID; SQL; MS SQL Server; WPF: GIT"/>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0" Style="{StaticResource TextHeader01}"
+                           Text="Education"/>
+
+                <Label Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1" Style="{StaticResource TextHeader02}"
+                       Text="2001 - 2006"/>
+                <Label Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Style="{StaticResource TextUsual}"
+                       Text="Pharmacy at Vinnytsia National Medical University N.I. Pirogov"/>
+
+                <Label Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="3" Style="{StaticResource TextHeader02}"
+                           Text="2009 - 2011"/>
+                <Label Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="4" Style="{StaticResource TextUsual}"
+                           Text="Information techonoly at Computer Academy STEP"/>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0" Style="{StaticResource TextHeader01}"
+                           Text="Aditional courses and trainings"/>
+
+                <Label Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1" Style="{StaticResource TextHeader02}"
+                           Text="2023"/>
+                <Label Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Style="{StaticResource TextUsual}"
+                           Text="C# Pro at Hillel IT School"/>
+
+                <Label Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="3" Style="{StaticResource TextHeader02}"
+                           Text="2023"/>
+                <Label Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="4" Style="{StaticResource TextUsual}"
+                           Text="Python Pro at Hillel IT School"/>
+
+                <Label Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="5" Style="{StaticResource TextHeader02}"
+                       Text="2022"/>
+                <Label Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="6" Style="{StaticResource TextUsual}"
+                       Text="Python Basic at Hillel IT School"/>
+
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0" Style="{StaticResource TextHeader01}"
+                           Text="Work experience"/>
+
+                <Label Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1" Style="{StaticResource TextHeader02}"
+                       Text="2017 - present"/>
+                <Label Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Style="{StaticResource TextAccentPlus}"
+                       Text="Software engineer at Kusto Agro LLC"/>
+
+                <Label Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="3" Style="{StaticResource TextUsual}"
+                       Text="My main responsibilities included working with the ELMA BPM system (a system for electronic document management and business process management):"/>
+
+                <Label Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="4" Style="{StaticResource TextUsual}"
+                       Text="- Delevlopment of new and support of existing business processes"/>
+                <Label Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="5" Style="{StaticResource TextUsual}"
+                       Text="- Integration of sustem with other company sofware (APS Tender, Cropio)"/>
+                <Label Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="6" Style="{StaticResource TextUsual}"
+                       Text="- Business Process Analyst"/>
+                <Label Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="7" Style="{StaticResource TextUsual}"
+                       Text="- Working with system users (support and training)"/>
+                <Label Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="8" Style="{StaticResource TextUsual}"
+                       Text=""/>
+                <Label Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="9" Style="{StaticResource TextUsual}"
+                       Text="As second responsibilities working with the APS Tender platform:"/>
+                <Label Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="10" Style="{StaticResource TextUsual}"
+                       Text="- interaction with the software developers of system in order to improve the tender process,"/>
+                <Label Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="11" Style="{StaticResource TextUsual}"
+                       Text="- working with system users (support and training)."/>
+                <Label Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="12" Style="{StaticResource TextUsual}"
+                       Text=""/>
+                <Label Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="13" Style="{StaticResource TextUsual}"
+                       Text="In addition, I was involved in testing software that was developed by third-party developers for the needs of the company."/>
+
+                <Label Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="14" Style="{StaticResource TextHeader02}"
+                       Text="2015 - 2017"/>
+                <Label Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="15" Style="{StaticResource TextAccentPlus}"
+                       Text="Validation engineer at Joint Ukrainian-Spanish pharmaceutical company ''Sperco Ukraine''"/>
+                <Label Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="16" Style="{StaticResource TextUsual}"
+                       Text="Validation of equipment and processes for the production of medicines."/>
+
+                <Label Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="17" Style="{StaticResource TextHeader02}"
+                       Text="2014 - 2015"/>
+                <Label Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="18" Style="{StaticResource TextAccentPlus}"
+                       Text="Deputy authorized person of the pharmacy warehouse at Joint Ukrainian-Spanish pharmaceutical company ''Sperco Ukraine''"/>
+                <Label Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="19" Style="{StaticResource TextUsual}"
+                       Text="Incoming control of imported medicines and writing documentation."/>
+
+                <Label Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="20" Style="{StaticResource TextHeader02}"
+                       Text="2007 - 2014"/>
+                <Label Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="21" Style="{StaticResource TextAccentPlus}"
+                       Text="Pharmacist of a pharmacy warehouse at Joint Ukrainian-Spanish pharmaceutical company ''Sperco Ukraine''"/>
+                <Label Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="22" Style="{StaticResource TextUsual}"
+                       Text="Warehouse work with medicines, writing documentation."/>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0" Style="{StaticResource TextHeader01}"
+                           Text="Hobby"/>                
+                <Label Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1" Style="{StaticResource TextUsual}"
+                           Text="Hiking and traveling, sometimes something extreme, such as skydiving. Also I like playing logic games and quests."/>
+            </Grid>
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
