@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace HW22_Drugs.Application;
 
-namespace HW22_Drugs;
 public interface IDialogService
 {
     void ShowMessage(string message);   // показ сообщения

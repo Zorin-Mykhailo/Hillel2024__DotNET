@@ -5,11 +5,11 @@ namespace HW22_Drugs.Model;
 
 public abstract class BaseEntity : INotifyPropertyChanged
 {
-    private int _id;
-    public int Id
+    private Guid _uuid;
+    public Guid UUID
     {
-        get => _id;
-        private set { _id = value; OnPropChanged(nameof(Id)); }
+        get => _uuid;
+        private set { _uuid = value; OnPropChanged(nameof(UUID)); }
     }
 
 

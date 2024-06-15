@@ -1,4 +1,6 @@
-﻿namespace HW22_Drugs.Model;
+﻿using System.Collections.ObjectModel;
+
+namespace HW22_Drugs.Model;
 
 public class MedicationCourse : BaseEntity
 {
@@ -52,5 +54,14 @@ public class MedicationCourse : BaseEntity
     {
         get => _timeToNextDose;
         private set { _timeToNextDose = value; OnPropChanged(nameof(TimeToNextDose)); }
+    }
+
+
+
+    private ObservableCollection<SheduledMedicationIntake> _medicationCourses = new();
+    public ObservableCollection<SheduledMedicationIntake> MedicationCourses
+    {
+        get => _medicationCourses;
+        private set { _medicationCourses = value; OnPropChanged(nameof(MedicationCourses)); }
     }
 }

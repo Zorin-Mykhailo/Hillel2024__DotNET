@@ -1,12 +1,9 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HW22_Drugs.Application;
+using Microsoft.Win32;
 using System.Windows;
 
 namespace HW22_Drugs;
+
 public class DefaultDialogService : IDialogService
 {
     public string FilePath { get; set; }
