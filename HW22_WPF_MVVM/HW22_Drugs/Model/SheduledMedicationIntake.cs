@@ -1,7 +1,23 @@
 ﻿namespace HW22_Drugs.Model;
 
-public class MedicationCourse : BaseEntity
+public class SheduledMedicationIntake : BaseEntity
 {
+    private DateTime _planedTime;
+    public DateTime PlanedTime
+    {
+        get => _planedTime;
+        private set { _planedTime = value; OnPropChanged(nameof(PlanedTime)); }
+    }
+
+    
+    
+    private DateTime? _factTime;
+    public DateTime? FactTime
+    {
+        get => _factTime;
+        private set { _factTime = value; OnPropChanged(nameof(FactTime)); }
+    }
+
     private FamilyMember _familyMember = default!;
     public FamilyMember FamilyMember
     {
@@ -27,30 +43,4 @@ public class MedicationCourse : BaseEntity
         private set { _intakeInstruction = value; OnPropChanged(nameof(IntakeInstruction)); }
     }
 
-
-
-    private DateTime _startAt;
-    public DateTime StartAt
-    {
-        get => _startAt;
-        private set { _startAt = value; OnPropChanged(nameof(StartAt)); }
-    }
-
-
-
-    private int _totalDozesCount;
-    public int TotalDozesCount
-    {
-        get => _totalDozesCount;
-        private set { _totalDozesCount = value; OnPropChanged(nameof(TotalDozesCount)); }
-    }
-
-
-
-    private TimeSpan _timeToNextDose;
-    public TimeSpan TimeToNextDose
-    {
-        get => _timeToNextDose;
-        private set { _timeToNextDose = value; OnPropChanged(nameof(TimeToNextDose)); }
-    }
 }
