@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace HW22_Drugs.Application;
+namespace HW22_Drugs.Contracts;
 
 public class RelayCommand(Action<object?> execute, Func<object?, bool>? canExecute = null) : ICommand
 {

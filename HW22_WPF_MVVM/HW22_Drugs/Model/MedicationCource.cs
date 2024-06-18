@@ -8,7 +8,7 @@ public class MedicationCourse : BaseEntity
     public FamilyMember FamilyMember
     {
         get => _familyMember;
-        private set { _familyMember = value; OnPropChanged(nameof(FamilyMember)); }
+        set { _familyMember = value; OnPropChanged(nameof(FamilyMember)); }
     }
 
 
@@ -17,7 +17,7 @@ public class MedicationCourse : BaseEntity
     public string Medication
     {
         get => _medication;
-        private set { _medication = value; OnPropChanged(nameof(Medication)); }
+        set { _medication = value; OnPropChanged(nameof(Medication)); }
     }
 
 
@@ -26,7 +26,7 @@ public class MedicationCourse : BaseEntity
     public string IntakeInstruction
     {
         get => _intakeInstruction;
-        private set { _intakeInstruction = value; OnPropChanged(nameof(IntakeInstruction)); }
+        set { _intakeInstruction = value; OnPropChanged(nameof(IntakeInstruction)); }
     }
 
 
@@ -35,7 +35,7 @@ public class MedicationCourse : BaseEntity
     public DateTime StartAt
     {
         get => _startAt;
-        private set { _startAt = value; OnPropChanged(nameof(StartAt)); }
+        set { _startAt = value; OnPropChanged(nameof(StartAt)); }
     }
 
 
@@ -44,7 +44,7 @@ public class MedicationCourse : BaseEntity
     public int TotalDozesCount
     {
         get => _totalDozesCount;
-        private set { _totalDozesCount = value; OnPropChanged(nameof(TotalDozesCount)); }
+        set { _totalDozesCount = value; OnPropChanged(nameof(TotalDozesCount)); }
     }
 
 
@@ -53,7 +53,7 @@ public class MedicationCourse : BaseEntity
     public TimeSpan TimeToNextDose
     {
         get => _timeToNextDose;
-        private set { _timeToNextDose = value; OnPropChanged(nameof(TimeToNextDose)); }
+        set { _timeToNextDose = value; OnPropChanged(nameof(TimeToNextDose)); }
     }
 
 
@@ -62,6 +62,6 @@ public class MedicationCourse : BaseEntity
     public ObservableCollection<SheduledMedicationIntake> MedicationCourses
     {
         get => _medicationCourses;
-        private set { _medicationCourses = value; OnPropChanged(nameof(MedicationCourses)); }
+        set { _medicationCourses = value; OnPropChanged(nameof(MedicationCourses)); }
     }
 }

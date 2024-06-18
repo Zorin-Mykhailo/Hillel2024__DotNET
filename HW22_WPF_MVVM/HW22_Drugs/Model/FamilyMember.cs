@@ -8,7 +8,7 @@ public class FamilyMember : BaseEntity
     public string Name
     {
         get => _name;
-        private set { _name = value; OnPropChanged(nameof(Name)); }
+        set { _name = value; OnPropChanged(nameof(Name)); }
     }
 
 
@@ -17,7 +17,7 @@ public class FamilyMember : BaseEntity
     public DateTime DateOfBirth
     {
         get => _dateOfBirth;
-        private set { _dateOfBirth = value; OnPropChanged(nameof(DateOfBirth)); }
+        set { _dateOfBirth = value; OnPropChanged(nameof(DateOfBirth)); }
     }
 
 
@@ -25,6 +25,6 @@ public class FamilyMember : BaseEntity
     public ObservableCollection<MedicationCourse> MedicationCourses
     {
         get => _medicationCourses;
-        private set { _medicationCourses = value; OnPropChanged(nameof(MedicationCourses)); }
+        set { _medicationCourses = value; OnPropChanged(nameof(MedicationCourses)); }
     }
 }

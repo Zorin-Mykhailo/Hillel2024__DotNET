@@ -9,7 +9,7 @@ public abstract class BaseEntity : INotifyPropertyChanged
     public Guid UUID
     {
         get => _uuid;
-        private set { _uuid = value; OnPropChanged(nameof(UUID)); }
+        set { _uuid = value; OnPropChanged(nameof(UUID)); }
     }
 
 

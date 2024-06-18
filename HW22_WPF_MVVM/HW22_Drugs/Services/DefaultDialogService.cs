@@ -1,8 +1,8 @@
-﻿using HW22_Drugs.Application;
+﻿using HW22_Drugs.Contracts;
 using Microsoft.Win32;
 using System.Windows;
 
-namespace HW22_Drugs;
+namespace HW22_Drugs.Services;
 
 public class DefaultDialogService : IDialogService
 {

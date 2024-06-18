@@ -1,4 +1,4 @@
-﻿namespace HW22_Drugs.Application;
+﻿namespace HW22_Drugs.Contracts;
 
 public interface IDialogService
 {

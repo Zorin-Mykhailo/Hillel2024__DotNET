@@ -1,6 +1,6 @@
 ﻿using HW22_Drugs.Model;
 
-namespace HW22_Drugs.Application;
+namespace HW22_Drugs.Contracts;
 
 public interface IFileService
 {

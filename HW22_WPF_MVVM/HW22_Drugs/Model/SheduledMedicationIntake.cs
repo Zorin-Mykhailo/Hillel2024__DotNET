@@ -6,7 +6,7 @@ public class SheduledMedicationIntake : BaseEntity
     public DateTime PlanedTime
     {
         get => _planedTime;
-        private set { _planedTime = value; OnPropChanged(nameof(PlanedTime)); }
+        set { _planedTime = value; OnPropChanged(nameof(PlanedTime)); }
     }
 
     
@@ -15,14 +15,14 @@ public class SheduledMedicationIntake : BaseEntity
     public DateTime? FactTime
     {
         get => _factTime;
-        private set { _factTime = value; OnPropChanged(nameof(FactTime)); }
+        set { _factTime = value; OnPropChanged(nameof(FactTime)); }
     }
 
     private FamilyMember _familyMember = default!;
     public FamilyMember FamilyMember
     {
         get => _familyMember;
-        private set { _familyMember = value; OnPropChanged(nameof(FamilyMember)); }
+        set { _familyMember = value; OnPropChanged(nameof(FamilyMember)); }
     }
 
 
@@ -31,7 +31,7 @@ public class SheduledMedicationIntake : BaseEntity
     public string Medication
     {
         get => _medication;
-        private set { _medication = value; OnPropChanged(nameof(Medication)); }
+        set { _medication = value; OnPropChanged(nameof(Medication)); }
     }
 
 
@@ -40,7 +40,6 @@ public class SheduledMedicationIntake : BaseEntity
     public string IntakeInstruction
     {
         get => _intakeInstruction;
-        private set { _intakeInstruction = value; OnPropChanged(nameof(IntakeInstruction)); }
+        set { _intakeInstruction = value; OnPropChanged(nameof(IntakeInstruction)); }
     }
-
 }
