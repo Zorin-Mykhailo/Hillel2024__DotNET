@@ -20,6 +20,6 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        DataContext = new AppViewModel(new DefaultDialogService(), new JsonFileService());
+        DataContext = new AppViewModel(new DefaultDialogService(), new JsonFileService(), this);
     }
 }

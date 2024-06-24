@@ -1,0 +1,121 @@
+﻿<Window x:Class="HW22_Drugs.Windows.MedicationCourseUpsertDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HW22_Drugs.Windows"
+        mc:Ignorable="d"
+        Title="Medication course upsert dialog" Height="450" Width="800"
+        ResizeMode="NoResize" ShowInTaskbar="True" WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight" >
+    <Window.Resources>
+        <Style TargetType="TextBlock" x:Key="UsualField">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="3"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="RequiredField" BasedOn="{StaticResource UsualField}">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="MinWidth" Value="300"/>
+        </Style>
+        
+        <Style TargetType="Button">
+            <Setter Property="MinWidth" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="5,15" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        
+        
+        <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource RequiredField}"
+               Text="* Лікарський засіб"/>
+        <TextBox Grid.Row="1" Grid.Column="1"
+                 Text="{Binding Medication, UpdateSourceTrigger=PropertyChanged}"/>
+
+        
+        
+        <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource RequiredField}"
+               Text="* Опис"/>
+        <TextBox Grid.Row="2" Grid.Column="1" 
+                 Text="{Binding MedicationDescription, UpdateSourceTrigger=PropertyChanged}"/>
+
+        
+        
+        <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource RequiredField}"
+               Text="* Група"/>
+        <TextBox Grid.Row="3" Grid.Column="1" 
+                 Text="{Binding MedicationGroup, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+        
+        <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource RequiredField}"
+               Text="* Спосіб застосування"/>
+        <TextBox Grid.Row="4" Grid.Column="1" 
+                 Text="{Binding IntakeInstruction, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource RequiredField}"
+               Text="* Початок курсу"/>
+        <TextBox Grid.Row="5" Grid.Column="1" 
+                 Text="{Binding StartAt, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+        
+        <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource RequiredField}"
+               Text="* Кількість прийомів (на увесь курс)"/>
+        <TextBox Grid.Row="6" Grid.Column="1" 
+                 Text="{Binding TotalDozesCount, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+
+        <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource RequiredField}"
+               Text="* Час між прийомами"/>
+        <TextBox Grid.Row="7" Grid.Column="1" 
+                 Text="{Binding TimeToNextDose, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+
+        <Grid Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" MinHeight="15"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1"
+              Background="AliceBlue">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Row="0" Grid.Column="1"
+                        Orientation="Horizontal">
+                    <Button Content="Відмінити" IsCancel="True"/>
+                    <Button Content="OK" IsDefault="True" Command="{Binding DialogOkCommand}" CommandParameter="{Binding}"/>
+                </StackPanel>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

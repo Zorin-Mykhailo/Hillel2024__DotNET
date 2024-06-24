@@ -21,10 +21,20 @@ public class FamilyMember : BaseEntity
     }
 
 
+
     private ObservableCollection<MedicationCourse> _medicationCourses = new();
     public ObservableCollection<MedicationCourse> MedicationCourses
     {
         get => _medicationCourses;
         set { _medicationCourses = value; OnPropChanged(nameof(MedicationCourses)); }
+    }
+
+
+
+    private ObservableCollection<SheduledMedicationIntake> _scheduledMedicationIntakes = new();
+    public ObservableCollection<SheduledMedicationIntake> ScheduledMedicationIntakes
+    {
+        get => _scheduledMedicationIntakes;
+        set { _scheduledMedicationIntakes = value; OnPropChanged(nameof(ScheduledMedicationIntakes)); }
     }
 }

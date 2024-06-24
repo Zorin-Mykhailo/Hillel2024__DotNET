@@ -4,15 +4,6 @@ namespace HW22_Drugs.Model;
 
 public class MedicationCourse : BaseEntity
 {
-    private FamilyMember _familyMember = default!;
-    public FamilyMember FamilyMember
-    {
-        get => _familyMember;
-        set { _familyMember = value; OnPropChanged(nameof(FamilyMember)); }
-    }
-
-
-
     private string _medication = string.Empty;
     public string Medication
     {
@@ -22,6 +13,24 @@ public class MedicationCourse : BaseEntity
 
 
 
+    private string _medicationDescription = string.Empty;
+    public string MedicationDescription
+    {
+        get => _medicationDescription;
+        set { _medicationDescription = value; OnPropChanged(nameof(MedicationDescription)); }
+    }
+
+
+
+    private string _medicationGroup = string.Empty;
+    public string MedicationGroup
+    {
+        get => _medicationGroup;
+        set { _medicationGroup = value; OnPropChanged(nameof(MedicationGroup)); }
+    }
+
+    
+    
     private string _intakeInstruction = string.Empty;
     public string IntakeInstruction
     {
@@ -54,14 +63,5 @@ public class MedicationCourse : BaseEntity
     {
         get => _timeToNextDose;
         set { _timeToNextDose = value; OnPropChanged(nameof(TimeToNextDose)); }
-    }
-
-
-
-    private ObservableCollection<SheduledMedicationIntake> _medicationCourses = new();
-    public ObservableCollection<SheduledMedicationIntake> MedicationCourses
-    {
-        get => _medicationCourses;
-        set { _medicationCourses = value; OnPropChanged(nameof(MedicationCourses)); }
     }
 }
