@@ -3,10 +3,403 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:conv="clr-namespace:HW22_Drugs.Converters"
         xmlns:local="clr-namespace:HW22_Drugs"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="1000" Background="#334F66">
+    <Window.Resources>
+        <SolidColorBrush Color="#0094FF" x:Key="PlanedTimeBrush"/>
+        <SolidColorBrush Color="#00BF13" x:Key="FactTimeBrush"/>
+        <SolidColorBrush Color="#00BF13" x:Key="TakeBrush"/>
+        <SolidColorBrush Color="#BC0000" x:Key="SkipBrush"/>
+        
+        
+        <Style TargetType="TextBlock" x:Key="IntakeResult_Taken">
+            <Setter Property="Foreground" Value="{StaticResource TakeBrush}"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="IntakeResult_Skiped">
+            <Setter Property="Foreground" Value="{StaticResource SkipBrush}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+
+        <conv:DateTimeToString_ValConverter x:Key="DateTimeToStringValConverter"/>
+        <conv:DateTime2ToString_ValConverter x:Key="DateTime2ToStringValConverter"/>
+        <conv:DateToString_ValConverter x:Key="DateToStringValConverter"/>
+        <conv:Int32ToString_ValConverter x:Key="Int32ToStringValConverter"/>
+        <conv:TimeSpanToString_ValConverter x:Key="TimeSpanToStringValConverter"/>
+        <conv:EnumToDisplayName_ValConverter x:Key="EnumToDisplayNameValConverter"/>
+        <conv:EMedicationIntakeResultToStyle_ValConverter x:Key="EMedicationIntakeResultToStyleValConverter"
+                                      StyleIfTaken="{StaticResource IntakeResult_Taken}"
+                                      StyleIfSkiped="{StaticResource IntakeResult_Skiped}"/>
+
+        
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="Field">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="3"/>
+        </Style>
+        
+        <Style TargetType="TextBlock" x:Key="FieldName" BasedOn="{StaticResource Field}">
+            <Setter Property="Foreground" Value="Gray"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="FieldValue" BasedOn="{StaticResource Field}">
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="FieldValueAccent" BasedOn="{StaticResource Field}">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="MinWidth" Value="30" />
+            <Setter Property="Margin" Value="3" />
+        </Style>
+
+        <Style TargetType="DataGrid" x:Key="DataTable">
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="GridLinesVisibility" Value="All"/>
+            <Setter Property="VerticalGridLinesBrush" Value="#EDF0F2"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#F2F5F7"/>
+            <Setter Property="AlternatingRowBackground" Value="#F9FBFC"/>
+            <Setter Property="SelectionMode" Value="Single"/>
+            <Setter Property="SelectionUnit" Value="FullRow"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserDeleteRows" Value="False"/>
+            <Setter Property="CanUserReorderColumns" Value="True"/>
+            <Setter Property="CanUserResizeColumns" Value="True"/>
+            <Setter Property="CanUserResizeRows" Value="False"/>
+            <Setter Property="CanUserSortColumns" Value="True"/>
+            <Setter Property="MinHeight" Value="100"/>
+            <Setter Property="Margin" Value="3"/>
+
+            <Style.Resources>
+                <SolidColorBrush Color="#D7DDE0" x:Key="{x:Static SystemColors.HighlightBrushKey}" />
+                <SolidColorBrush Color="#E0E4E5" x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" />
+                <SolidColorBrush Color="{x:Static SystemColors.ControlTextColor}" x:Key="{x:Static SystemColors.HighlightTextBrushKey}"/>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="4"/>
+            <ColumnDefinition Width="*" MinWidth="100"/>
+            <ColumnDefinition Width="Auto" MinWidth="4"/>
+            <ColumnDefinition Width="3*" MinWidth="100"/>
+            <ColumnDefinition Width="Auto" MinWidth="4"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" MinHeight="3"/>
+            <RowDefinition Height="*" MinHeight="100"/>
+            <RowDefinition Height="Auto" MinHeight="3"/>
+            <RowDefinition Height="*" MinHeight="100"/>
+            <RowDefinition Height="Auto" MinHeight="3"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Відкрити" Command="{Binding FileOpenCommand}"/>
+                <MenuItem Header="Зберегти" Command="{Binding FileSaveCommand}"/>
+            </MenuItem>
+        </Menu>
+
+        <GridSplitter Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Height="4" Background="Transparent"/>
+
+        <GridSplitter Grid.Row="2" Grid.RowSpan="3" Grid.Column="2"  HorizontalAlignment="Stretch" Width="4" Background="Transparent"/>
+
+        <Border Grid.Row="2" Grid.Column="1" CornerRadius="5"
+                BorderThickness="1" BorderBrush="#0078D7" Background="#CEDBE5">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
+                           Text="Члени сім'ї" Margin="3" FontSize="11" FontWeight="Bold"/>
+                <Button Grid.Row="1" Grid.Column="0"
+                        Command="{Binding FamilyMemberAddCommand}"
+                        Content="➕" Foreground="Green" FontWeight="Bold"/>
+                <Button Grid.Row="1" Grid.Column="1"
+                        Command="{Binding FamilyMemberEditCommand}" CommandParameter="{Binding SelectedFamilyMember}"
+                        Content="✏" Foreground="Blue" FontWeight="Bold"/>
+                <Button Grid.Row="1" Grid.Column="3"
+                        Command="{Binding FamilyMemberRemoveCommand}" CommandParameter="{Binding SelectedFamilyMember}"
+                        Content="❌" Foreground="Red" FontWeight="Bold"/>
+                <ListBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4"
+                         ItemsSource="{Binding FamilyMembers}" SelectedItem="{Binding SelectedFamilyMember}"
+                         Margin="3">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" MinHeight="20"/>
+                                    <RowDefinition Height="Auto" MinHeight="20"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0"
+                                               FontSize="18" Text="{Binding Path=Name}" FontWeight="Bold" Foreground="SteelBlue"/>
+                                <TextBlock Grid.Row="1" Grid.Column="0"
+                                               Text="{Binding Path=DateOfBirth, Converter={StaticResource DateToStringValConverter}}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </Border >
+
+        
+
+        <Border Grid.Row="4" Grid.Column="1" CornerRadius="5"
+                BorderThickness="1" BorderBrush="#0078D7"  Background="#CEDBE5">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
+                           Text="Курси ліків обраного члена сім'ї" Margin="3" FontSize="11" FontWeight="Bold"/>
+                <Button Grid.Row="1" Grid.Column="0"
+                        Command="{Binding MedicationCourseAddCommand}" CommandParameter="{Binding SelectedMedicationCourse}"
+                        Content="➕" Foreground="Green" FontWeight="Bold"/>
+                <Button Grid.Row="1" Grid.Column="1"
+                        Command="{Binding MedicationCourseEditCommand}" CommandParameter="{Binding SelectedMedicationCourse}"
+                        Content="✏" Foreground="Blue" FontWeight="Bold"/>
+                <Button Grid.Row="1" Grid.Column="3"
+                        Command="{Binding MedicationCourseRemoveCommand}" CommandParameter="{Binding SelectedMedicationCourse}"
+                        Content="❌" Foreground="Red" FontWeight="Bold"/>
+                <ListBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4"
+                         ItemsSource="{Binding SelectedFamilyMember.MedicationCourses}" SelectedItem="{Binding SelectedMedicationCourse}"
+                         Margin="3">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" MinHeight="20"/>
+                                    <RowDefinition Height="Auto" MinHeight="20"/>
+                                    <RowDefinition Height="Auto" MinHeight="20"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Row="0" Grid.Column="0"
+                                               FontSize="18" Text="{Binding Path=Medication}" FontWeight="Bold" Foreground="SteelBlue"/>
+                                <TextBlock Grid.Row="1" Grid.Column="0"
+                                               Text="{Binding Path=MedicationDescription}" FontWeight="Bold"/>
+                                <TextBlock Grid.Row="2" Grid.Column="0"
+                                               Text="{Binding Path=MedicationGroup}" Foreground="#A0A0A0"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </Border >
+
+        <Border Grid.Row="2" Grid.RowSpan="3" Grid.Column="3" CornerRadius="5"
+                BorderThickness="1" BorderBrush="#0078D7"  Background="#CEDBE5">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
+                           Text="Графік прийому ліків обраного члена сім'ї" Margin="3" FontSize="11" FontWeight="Bold"/>
+
+                <Button Grid.Row="1" Grid.Column="0" 
+                            Command="{Binding MedicationIntakedCommand}" CommandParameter="{Binding SelectedScheduledMedicationIntake}"
+                            Content="✔ Прийнято" Foreground="{StaticResource TakeBrush}" FontSize="16" FontWeight="Bold" MinWidth="150"/>
+                <Button Grid.Row="1"  Grid.Column="1"
+                            Command="{Binding MedicationSkipedCommand}" CommandParameter="{Binding SelectedScheduledMedicationIntake}"
+                            Content="❌ Пропущено" Foreground="{StaticResource SkipBrush}" FontSize="16" FontWeight="Bold" MinWidth="150"/>
+
+                <DataGrid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Style="{StaticResource DataTable}"
+                          ItemsSource="{Binding SelectedFamilyMember.ScheduledMedicationIntakes}"
+                          SelectedItem="{Binding SelectedScheduledMedicationIntake}">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock>
+                                    <Run Text="Відмітка"/>
+                                    <LineBreak/>
+                                    <Run Text="прийому"/>
+                                </TextBlock>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=Result, Converter={StaticResource EnumToDisplayNameValConverter}}"
+                                               Style="{Binding Path=Result, Converter={StaticResource EMedicationIntakeResultToStyleValConverter}}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        
+                        
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock>
+                                    <Run Text="Час"/>
+                                    <LineBreak/>
+                                    <Run Text="фактичний"/>
+                                </TextBlock>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=FactTime, Converter={StaticResource DateTime2ToStringValConverter}}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock>
+                                    <Run Text="Час"/>
+                                    <LineBreak/>
+                                    <Run Text="плановий"/>
+                                </TextBlock>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=PlanedTime, Converter={StaticResource DateTime2ToStringValConverter}}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock>
+                                    <Run Text="Лікарський"/>
+                                    <LineBreak/>
+                                    <Run Text="засіб"/>
+                                </TextBlock>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock>
+                                        <Run Text="{Binding Path=MedicationCourse.Medication}" FontWeight="Bold"/>
+                                        <LineBreak/>
+                                        <Run Text="{Binding Path=MedicationCourse.MedicationDescription}" Foreground="Gray"/>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"
+                           Text="Деталі" Margin="3" FontSize="11" FontWeight="Bold"/>
+                <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4"
+                      Background="White" Margin="3"
+                      
+                      >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto" MinWidth="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>                    
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldName}"
+                             Text="Відмітка прийому" />
+                    <TextBlock Grid.Row="0" Grid.Column="2" Style="{Binding SelectedScheduledMedicationIntake.Result, Converter={StaticResource EMedicationIntakeResultToStyleValConverter}}"
+                               Text="{Binding SelectedScheduledMedicationIntake.Result, Converter={StaticResource EnumToDisplayNameValConverter}}"/>
+                    
+                    <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldName}"
+                             Text="Фактичний час" />
+                    <TextBlock Grid.Row="1" Grid.Column="2" Style="{StaticResource FieldValue}"
+                               Text="{Binding SelectedScheduledMedicationIntake.FactTime, Converter={StaticResource DateTimeToStringValConverter}}"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldName}"
+                               Text="Плановий час"/>
+                    <TextBlock Grid.Row="2" Grid.Column="2" Style="{StaticResource FieldValue}"
+                               Text="{Binding SelectedScheduledMedicationIntake.PlanedTime, Converter={StaticResource DateTimeToStringValConverter}}"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldName}"
+                             Text="Лікарський засіб" />
+                    <TextBlock Grid.Row="3" Grid.Column="2" Style="{StaticResource FieldValueAccent}"
+                               Text="{Binding SelectedScheduledMedicationIntake.MedicationCourse.Medication}"/>
+
+                    <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource FieldName}"
+                             Text="Опис" />
+                    <TextBlock Grid.Row="4" Grid.Column="2" Style="{StaticResource FieldValue}"
+                               Text="{Binding SelectedScheduledMedicationIntake.MedicationCourse.MedicationDescription}"/>
+
+                    <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource FieldName}"
+                             Text="Група" />
+                    <TextBlock Grid.Row="5" Grid.Column="2" Style="{StaticResource FieldValue}"
+                               Text="{Binding SelectedScheduledMedicationIntake.MedicationCourse.MedicationGroup}"/>
+
+                    <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource FieldName}"
+                             Text="Спосіб застосування" />
+                    <TextBlock Grid.Row="6" Grid.Column="2" Style="{StaticResource FieldValueAccent}"
+                               Text="{Binding SelectedScheduledMedicationIntake.MedicationCourse.IntakeInstruction}"/>
+
+                    <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource FieldName}"
+                             Text="Початок курсу" />
+                    <TextBlock Grid.Row="7" Grid.Column="2" Style="{StaticResource FieldValue}"
+                               Text="{Binding SelectedScheduledMedicationIntake.MedicationCourse.StartAt, Converter={StaticResource DateTimeToStringValConverter}}"/>
+
+                    <TextBlock Grid.Row="8" Grid.Column="0" Style="{StaticResource FieldName}"
+                             Text="Інтервал між прийомами" />
+                    <TextBlock Grid.Row="8" Grid.Column="2" Style="{StaticResource FieldValue}"
+                               Text="{Binding SelectedScheduledMedicationIntake.MedicationCourse.TimeToNextDose, Converter={StaticResource TimeSpanToStringValConverter}}"/>
+
+                    <TextBlock Grid.Row="9" Grid.Column="0" Style="{StaticResource FieldName}"
+                             Text="Кількість доз" />
+                    <TextBlock Grid.Row="9" Grid.Column="2" Style="{StaticResource FieldValue}"
+                               Text="{Binding SelectedScheduledMedicationIntake.MedicationCourse.TotalDozesCount, Converter={StaticResource Int32ToStringValConverter}}"/>
+                </Grid>
+            </Grid>
+        </Border >
 
     </Grid>
 </Window>

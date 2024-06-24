@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using HW22_Drugs.Services;
+using HW22_Drugs.ViewModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -18,5 +20,6 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        DataContext = new AppViewModel(new DefaultDialogService(), new JsonFileService(), this);
     }
 }
