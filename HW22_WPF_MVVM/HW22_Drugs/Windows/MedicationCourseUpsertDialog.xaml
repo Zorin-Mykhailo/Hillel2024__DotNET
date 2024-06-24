@@ -4,10 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HW22_Drugs.Windows"
+        xmlns:conv="clr-namespace:HW22_Drugs.Converters"
         mc:Ignorable="d"
         Title="Medication course upsert dialog" Height="450" Width="800"
         ResizeMode="NoResize" ShowInTaskbar="True" WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight" >
     <Window.Resources>
+        <conv:DateTimeToString_ValConverter x:Key="DateTimeToStringValConverter"/>
+        <conv:DateTime2ToString_ValConverter x:Key="DateTime2ToStringValConverter"/>
+        <conv:DateToString_ValConverter x:Key="DateToStringValConverter"/>
+        <conv:Int32ToString_ValConverter x:Key="Int32ToStringValConverter"/>
+        <conv:TimeSpanToString_ValConverter x:Key="TimeSpanToStringValConverter"/>
+        
         <Style TargetType="TextBlock" x:Key="UsualField">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Margin" Value="3"/>
@@ -28,75 +35,88 @@
             <Setter Property="Margin" Value="5,15" />
         </Style>
     </Window.Resources>
+
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" MinHeight="15"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        
-        
-        <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource RequiredField}"
-               Text="* Лікарський засіб"/>
-        <TextBox Grid.Row="1" Grid.Column="1"
-                 Text="{Binding Medication, UpdateSourceTrigger=PropertyChanged}"/>
-
-        
-        
-        <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource RequiredField}"
-               Text="* Опис"/>
-        <TextBox Grid.Row="2" Grid.Column="1" 
-                 Text="{Binding MedicationDescription, UpdateSourceTrigger=PropertyChanged}"/>
-
-        
-        
-        <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource RequiredField}"
-               Text="* Група"/>
-        <TextBox Grid.Row="3" Grid.Column="1" 
-                 Text="{Binding MedicationGroup, UpdateSourceTrigger=PropertyChanged}"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
 
-        
-        <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource RequiredField}"
-               Text="* Спосіб застосування"/>
-        <TextBox Grid.Row="4" Grid.Column="1" 
-                 Text="{Binding IntakeInstruction, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource UsualField}"
+                   Text="ID"/>
+            <TextBlock Grid.Row="0" Grid.Column="1"
+                   Text="{Binding UUID}"/>
 
 
 
-        <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource RequiredField}"
-               Text="* Початок курсу"/>
-        <TextBox Grid.Row="5" Grid.Column="1" 
-                 Text="{Binding StartAt, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource RequiredField}"
+                       Text="* Лікарський засіб"/>
+            <TextBox Grid.Row="1" Grid.Column="1"
+                     Text="{Binding Medication}"/>
 
 
-        
-        <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource RequiredField}"
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource RequiredField}"
+                       Text="* Опис"/>
+            <TextBox Grid.Row="2" Grid.Column="1" 
+                     Text="{Binding MedicationDescription}"/>
+
+
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource RequiredField}"
+                       Text="* Група"/>
+            <TextBox Grid.Row="3" Grid.Column="1" 
+                     Text="{Binding MedicationGroup}"/>
+
+
+
+            <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource RequiredField}"
+                       Text="* Спосіб застосування"/>
+            <TextBox Grid.Row="4" Grid.Column="1" 
+                     Text="{Binding IntakeInstruction}"/>
+
+
+
+            <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource RequiredField}"
+                       Text="* Початок курсу"/>
+            <TextBox Grid.Row="5" Grid.Column="1" 
+                     Text="{Binding StartAt, Converter={StaticResource DateTimeToStringValConverter}}"/>
+
+
+
+            <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource RequiredField}"
                Text="* Кількість прийомів (на увесь курс)"/>
-        <TextBox Grid.Row="6" Grid.Column="1" 
-                 Text="{Binding TotalDozesCount, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="6" Grid.Column="1" 
+                     Text="{Binding TotalDozesCount, Converter={StaticResource Int32ToStringValConverter}}"/>
 
 
 
-        <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource RequiredField}"
-               Text="* Час між прийомами"/>
-        <TextBox Grid.Row="7" Grid.Column="1" 
-                 Text="{Binding TimeToNextDose, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource RequiredField}"
+                       Text="* Час між прийомами"/>
+            <TextBox Grid.Row="7" Grid.Column="1" 
+                     Text="{Binding TimeToNextDose, Converter={StaticResource TimeSpanToStringValConverter}}"/>
+        </Grid>
 
 
-
-        <Grid Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2">
+        <Grid Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" MinHeight="15"/>
                 <RowDefinition Height="*"/>
@@ -118,4 +138,7 @@
             </Grid>
         </Grid>
     </Grid>
+
+
+    
 </Window>

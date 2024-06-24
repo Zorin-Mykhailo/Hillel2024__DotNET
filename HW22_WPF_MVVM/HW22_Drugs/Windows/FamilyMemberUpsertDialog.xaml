@@ -28,44 +28,67 @@
             <Setter Property="Margin" Value="5,15" />
         </Style>
     </Window.Resources>
+    
+    
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" MinHeight="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto" MinHeight="15"/>
-            <RowDefinition Height="*" MinHeight="40"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="1" Grid.Column="0" 
-               Text="Ім'я"/>
-
-        <TextBox Grid.Row="1" Grid.Column="1"
-                 Text="{Binding Name}"/>
-
-        <TextBlock Grid.Row="2" Grid.Column="0"
-               Text="Дата народження"/>
-
-        <TextBox Grid.Row="2" Grid.Column="1" 
-                 Text="{Binding DateOfBirth, Converter={StaticResource DateToStringValConverter}}"/>
-
-        <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
-              Background="AliceBlue">
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Row="0" Grid.Column="1"
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="ID"/>
+            <TextBlock Grid.Row="0" Grid.Column="1"
+                     Text="{Binding UUID}"/>
+
+
+            <TextBlock Grid.Row="1" Grid.Column="0"
+                       Text="Ім'я"/>
+            <TextBox Grid.Row="1" Grid.Column="1"
+                     Text="{Binding Name}"/>
+
+
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                       Text="Дата народження"/>
+            <TextBox Grid.Row="2" Grid.Column="1"
+                     Text="{Binding DateOfBirth, Converter={StaticResource DateToStringValConverter}}"/>
+        </Grid>
+
+
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" MinHeight="15"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1"
+              Background="AliceBlue">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Row="0" Grid.Column="1"
                         Orientation="Horizontal">
-                <Button Content="Відмінити" IsCancel="True"/>
-                <Button Content="OK" IsDefault="True" Command="{Binding DialogOkCommand}" CommandParameter="{Binding}"/>
-            </StackPanel>
-            
+                    <Button Content="Відмінити" IsCancel="True"/>
+                    <Button Content="OK" IsDefault="True" Command="{Binding DialogOkCommand}" CommandParameter="{Binding}"/>
+                </StackPanel>
+
+            </Grid>
         </Grid>
     </Grid>
+    
 </Window>

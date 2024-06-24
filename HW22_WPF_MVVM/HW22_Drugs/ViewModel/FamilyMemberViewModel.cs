@@ -1,18 +1,22 @@
 ﻿using HW22_Drugs.Contracts;
 using HW22_Drugs.Model;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace HW22_Drugs.ViewModel;
 
 public partial class FamilyMemberViewModel
 {
+    private Guid _uuid;
+    public Guid UUID
+    {
+        get => _uuid;
+        set { _uuid = value; OnPropChanged(nameof(UUID)); }
+    }
+
+    
+    
     private string _name = string.Empty;
     public string Name
     {
@@ -44,6 +48,7 @@ public partial class FamilyMemberViewModel
 
     public void UpdateFromEntity(FamilyMember entity)
     {
+        UUID = entity.UUID;
         Name = entity.Name;
         DateOfBirth = entity.DateOfBirth;
     }

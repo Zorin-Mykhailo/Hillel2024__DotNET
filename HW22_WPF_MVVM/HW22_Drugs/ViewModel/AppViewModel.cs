@@ -22,7 +22,7 @@ public partial class AppViewModel
     private IDialogService _dialogService;
 
 
-    public ObservableCollection<FamilyMember> FamilyMembers { get; set; }
+    public ObservableCollection<FamilyMember> FamilyMembers { get; set; } = new();
 
     
     
@@ -57,35 +57,6 @@ public partial class AppViewModel
         _ownedWindow = ownedWindow;
         _dialogService = dialogService;
         _fileService = fileService;
-
-        
-
-        FamilyMember father = new(){ Name = "Пупкін Василь", DateOfBirth = new (1980, 06, 15), UUID = Guid.NewGuid() };
-        FamilyMember mother = new(){ Name = "Пупкіна Марія", DateOfBirth = new (1983, 02, 27), UUID = Guid.NewGuid() };
-            
-        
-        MedicationCourse mc01 = new ()
-        {
-            Medication = "Парацетамол-Дарниця",
-            MedicationGroup = "Аналгетики та антипіретики. Аніліди",
-            MedicationDescription = "Таблетки по 500 мг №10",
-            IntakeInstruction = "1-2 т. 4 р/д після їжі в разі необхідності",
-            StartAt = DateTime.Now,
-            TimeToNextDose = new TimeSpan(8, 0, 0),
-            TotalDozesCount = 15,
-            UUID = Guid.NewGuid()
-        };
-
-        SheduledMedicationIntake mi01 = new()
-        {
-             PlanedTime = DateTime.Now,
-             FactTime = DateTime.Now,
-        };
-
-        father.MedicationCourses.Add(mc01);
-        father.ScheduledMedicationIntakes.Add(mi01);
-
-        FamilyMembers = [father, mother];
     }
 
 
@@ -163,6 +134,7 @@ public partial class AppViewModel
                 if(familyMemberDialog.ShowDialog() == true)
                 {
                     FamilyMember familyMember = new ();
+                    familyMember.UUID = Guid.NewGuid();
                     familyMemberDialog.EntityViewModel.UpdateEntity(familyMember);
                     FamilyMembers.Add(familyMember);
                     SelectedFamilyMember = familyMember;
@@ -223,10 +195,13 @@ public partial class AppViewModel
                 if(medicationCourseUpsertDialog.ShowDialog() == true)
                 {
                     MedicationCourse medicationCourse = new();
+                    medicationCourse.UUID = Guid.NewGuid();
 
                     medicationCourseUpsertDialog.EntityViewModel.UpdateEntity(medicationCourse);
                     SelectedFamilyMember.MedicationCourses.Add(medicationCourse);
                     SelectedMedicationCourse = medicationCourse;
+                    //
+                    UpdateSheduledMedicationIntakes(SelectedFamilyMember, SelectedMedicationCourse);
                 }
             },
             (obj) => SelectedFamilyMember != null);
@@ -235,8 +210,43 @@ public partial class AppViewModel
     }
 
 
+    private void UpdateSheduledMedicationIntakes(FamilyMember familyMember, MedicationCourse medicationCourse)
+    {
+        if(familyMember == null || medicationCourse == null) return;
 
-    // Family member • Edit command
+        Guid medicationCourseId = medicationCourse.UUID;
+
+
+
+        foreach(var e in familyMember.ScheduledMedicationIntakes.ToList())
+        {
+            if(e.MedicationCourse.UUID != medicationCourseId || e.Result != null)
+                continue;
+            familyMember.ScheduledMedicationIntakes.Remove(e);
+        }
+
+        DateTime timeStamp = medicationCourse.StartAt;
+        int dozeNumber = 0;
+
+        while(dozeNumber++ < medicationCourse.TotalDozesCount)
+        {
+            SheduledMedicationIntake sheduledMedicationIntake = new ();
+            SelectedFamilyMember.ScheduledMedicationIntakes.Add(sheduledMedicationIntake);
+            //
+            sheduledMedicationIntake.FactTime = null;
+            sheduledMedicationIntake.MedicationCourse = medicationCourse;
+            sheduledMedicationIntake.PlanedTime = timeStamp;
+            timeStamp += medicationCourse.TimeToNextDose;
+            sheduledMedicationIntake.Result = null;
+            sheduledMedicationIntake.UUID = Guid.NewGuid();
+        }
+        var orderedMedicalIntakes = SelectedFamilyMember.ScheduledMedicationIntakes.OrderBy(e => e.PlanedTime).ToList();
+        SelectedFamilyMember.ScheduledMedicationIntakes.Clear();
+        orderedMedicalIntakes.ForEach(e => SelectedFamilyMember.ScheduledMedicationIntakes.Add(e));
+    }
+
+
+    // Medication course • Edit command
     private RelayCommand _medicationCourseEditCommand;
     public RelayCommand MedicationCourseEditCommand
     {
@@ -246,7 +256,10 @@ public partial class AppViewModel
             {
                 MedicationCourseUpsertDialog medicationCourseUpsertDialog = new(_ownedWindow, SelectedMedicationCourse, "Редагування курсу лікарського засобу");
                 if(medicationCourseUpsertDialog.ShowDialog() == true)
+                {
                     medicationCourseUpsertDialog.EntityViewModel.UpdateEntity(SelectedMedicationCourse!);
+                    UpdateSheduledMedicationIntakes(SelectedFamilyMember!, SelectedMedicationCourse!);
+                }
             },
             (obj) => SelectedFamilyMember != null && SelectedMedicationCourse != null);
             return relayCommand;
@@ -265,9 +278,48 @@ public partial class AppViewModel
             {
                 MedicationCourse? medicationCourse = obj as MedicationCourse;
                 if(medicationCourse != null)
+                {
                     SelectedFamilyMember!.MedicationCourses.Remove(medicationCourse);
+                    UpdateSheduledMedicationIntakes(SelectedFamilyMember!, SelectedMedicationCourse!);
+                }
             },
             (obj) => SelectedFamilyMember != null && SelectedMedicationCourse != null);
+        }
+    }
+
+
+
+
+    // Medication intaked command
+    private RelayCommand _medicationIntakedCommand;
+    public RelayCommand MedicationIntakedCommand
+    {
+        get
+        {
+            return _medicationIntakedCommand ??= new RelayCommand(obj =>
+            {
+                SelectedScheduledMedicationIntake.FactTime = DateTime.Now;
+                SelectedScheduledMedicationIntake.Result = EMedicationIntakeResult.Taked;
+            },
+            (obj) => SelectedScheduledMedicationIntake != null && SelectedScheduledMedicationIntake.Result == null);
+        }
+    }
+
+
+
+
+    // Medication skiped command
+    private RelayCommand _medicationSkipedCommand;
+    public RelayCommand MedicationSkipedCommand
+    {
+        get
+        {
+            return _medicationSkipedCommand ??= new RelayCommand(obj =>
+            {
+                SelectedScheduledMedicationIntake.FactTime = null;
+                SelectedScheduledMedicationIntake.Result = EMedicationIntakeResult.Skiped;
+            },
+            (obj) => SelectedScheduledMedicationIntake != null && SelectedScheduledMedicationIntake.Result == null);
         }
     }
 }

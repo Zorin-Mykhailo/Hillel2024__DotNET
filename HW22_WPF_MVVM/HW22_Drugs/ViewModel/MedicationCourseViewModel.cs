@@ -15,6 +15,15 @@ namespace HW22_Drugs.ViewModel;
 
 public partial class MedicationCourseViewModel
 {
+    private Guid _uuid;
+    public Guid UUID
+    {
+        get => _uuid;
+        set { _uuid = value; OnPropChanged(nameof(UUID)); }
+    }
+    
+    
+    
     private string? _medication;
     public string? Medication
     {
@@ -92,6 +101,7 @@ public partial class MedicationCourseViewModel
 
     public void UpdateFromEntity(MedicationCourse entity)
     {
+        UUID = entity.UUID;
         Medication = entity.Medication;
         MedicationDescription = entity.MedicationDescription;
         MedicationGroup = entity.MedicationGroup;

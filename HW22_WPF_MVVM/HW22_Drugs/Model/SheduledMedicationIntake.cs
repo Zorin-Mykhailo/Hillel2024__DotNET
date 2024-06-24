@@ -1,4 +1,6 @@
-﻿namespace HW22_Drugs.Model;
+﻿using HW22_Drugs.Converters;
+
+namespace HW22_Drugs.Model;
 
 public class SheduledMedicationIntake : BaseEntity
 {
@@ -24,4 +26,22 @@ public class SheduledMedicationIntake : BaseEntity
         get => _factTime;
         set { _factTime = value; OnPropChanged(nameof(FactTime)); }
     }
+
+
+
+    private EMedicationIntakeResult? _result;
+    public EMedicationIntakeResult? Result
+    {
+        get => _result;
+        set { _result = value; OnPropChanged(nameof(Result)); }
+    }
+}
+
+
+public enum EMedicationIntakeResult
+{
+    [FriendlyName("✔ Прийнято")]
+    Taked,
+    [FriendlyName("❌ ПРОПУЩЕНО")]
+    Skiped
 }
