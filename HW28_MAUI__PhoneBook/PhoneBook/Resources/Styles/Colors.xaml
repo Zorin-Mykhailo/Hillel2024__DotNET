@@ -56,5 +56,5 @@
     <local:HSLColor x:Key="RedHi" H="0" S="100"/>
     <local:HSLColor x:Key="RedDefault" H="0" S="50"/>
     <local:HSLColor x:Key="RedLow" H="0" S="30" L="25, 75"/>
-
+    
 </ResourceDictionary>
