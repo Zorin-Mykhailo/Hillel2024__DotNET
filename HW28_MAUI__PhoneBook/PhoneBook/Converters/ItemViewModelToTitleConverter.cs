@@ -4,11 +4,11 @@ using System.Globalization;
 
 namespace PhoneBook.Converters;
 
-public class ItemToTitleConverter : IValueConverter
+public class ItemViewModelToTitleConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        if(value is not Item item) return "<Некоректний тип даних>";
+        if(value is not ItemViewModel item) return "<Некоректний тип даних>";
         return item.ID == 0 ? "<Новий контакт>" : $"{item.LastName} {item.FirstName}";
     }
 

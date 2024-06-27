@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace App.MarkupExtensions;
+namespace AppExt;
 
 public class HSLColorExtension : IMarkupExtension<Color>
 {

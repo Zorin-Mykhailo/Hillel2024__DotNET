@@ -2,14 +2,16 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PhoneBook.Views.ItemPage"
-             Title="{Binding ., Converter={StaticResource ItemToTitleConverter}}"
-             xmlns:converters="clr-namespace:PhoneBook.Converters"
-             xmlns:models="clr-namespace:PhoneBook.Models"
-             x:DataType="models:Item">
+             Title="{Binding ., Converter={StaticResource ItemViewModelToTitleConverter}}"
+             xmlns:converters="clr-namespace:PhoneBook.Converters">
     <ScrollView>
         <VerticalStackLayout Padding="20"
                              Spacing="10"
                              VerticalOptions="StartAndExpand">
+
+            <Label Text="Id" />
+            <Label Text="{Binding ID}" />
+
             <Label Text="Прізвище" />
             <Entry Text="{Binding LastName}" />
             
@@ -21,11 +23,11 @@
 
             <Label Text="Опис" />
             <Entry Text="{Binding Description}" />
-            
-            
-            <Button Text="Зберегти" Clicked="OnSaveClicked" />
-            <Button Text="Видалити" Clicked="OnDeleteClicked" />
-            <Button Text="Відміна" Clicked="OnCancelClicked" />
+
+
+            <Button Text="Зберегти" Command="{Binding SaveCommand}"/>
+            <Button Text="Видалити" Command="{Binding DeleteCommand}"/>
+            <Button Text="Відміна" Command="{Binding CancelCommand}"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

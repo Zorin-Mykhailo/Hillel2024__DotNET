@@ -6,5 +6,6 @@
     xmlns:converters="clr-namespace:PhoneBook.Converters">
 
     <converters:ItemToTitleConverter x:Key="ItemToTitleConverter"/>
+    <converters:ItemViewModelToTitleConverter x:Key="ItemViewModelToTitleConverter"/>
 
 </ResourceDictionary>
