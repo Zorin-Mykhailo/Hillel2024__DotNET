@@ -5,7 +5,25 @@
              x:Class="PhoneBook.Views.ItemsSetPage"
              xmlns:models="clr-namespace:PhoneBook.Models"
              ios:Page.UseSafeArea="True"
-             Title="Phonebook">
+             Title="Контакти">
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="Title">
+            <Setter Property="Margin" Value="3,0,0,0"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource BlueDefault}"/>
+        </Style>
+        <Style TargetType="Label" x:Key="Phone">
+            <Setter Property="Margin" Value="20,0,0,0"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="{StaticResource DefaultBase}"/>
+        </Style>
+        <Style TargetType="Label" x:Key="Description">
+            <Setter Property="Margin" Value="20,0,0,0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextColor" Value="{StaticResource DefaultFall2}"/>
+        </Style>
+    </ContentPage.Resources>
     <Grid RowDefinitions="*,Auto">
         <CollectionView 
                   VerticalOptions="Fill"
@@ -14,18 +32,29 @@
                   SelectionChanged="CollectionView_SelectionChanged">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Item">
-                    <Grid ColumnDefinitions="*, Auto" Padding="20">
-                        <Label Text="{Binding Name}"
-                                   VerticalTextAlignment="Center"/>
-                        <Label Text="✔️"
-                                   Grid.Column="1"
-                                   VerticalTextAlignment="Center"
-                                   IsVisible="{Binding Done}"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Title}"
+                               Text="{Binding ., Converter={StaticResource ItemToTitleConverter}}"/>
+
+                        <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Phone}"
+                               Text="{Binding Phone}"/>
+
+                        <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource Description}"
+                               Text="{Binding Description}"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Grid.Row="1" Text="Add New Item" Clicked="OnItemAdded"
+        <Button Grid.Row="1" Text="Новий контакт" Clicked="OnItemAdded"
                 Margin="20"/>
     </Grid>
 </ContentPage>

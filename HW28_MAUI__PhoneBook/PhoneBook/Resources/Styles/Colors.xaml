@@ -44,6 +44,10 @@
     <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
     <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
 
+    <local:HSLColor x:Key="DefaultBase"  H="0" S="0" L="100, 0"/>
+    <local:HSLColor x:Key="DefaultFall1" H="0" S="0" L="75, 25"/>
+    <local:HSLColor x:Key="DefaultFall2" H="0" S="0" L="50, 50"/>
+    <local:HSLColor x:Key="DefaultFall3" H="0" S="0" L="25, 75"/>    
 
     <local:HSLColor x:Key="BlueHi" H="205" S="100"/>
     <local:HSLColor x:Key="BlueDefault" H="205" S="50"/>
@@ -56,5 +60,7 @@
     <local:HSLColor x:Key="RedHi" H="0" S="100"/>
     <local:HSLColor x:Key="RedDefault" H="0" S="50"/>
     <local:HSLColor x:Key="RedLow" H="0" S="30" L="25, 75"/>
+
     
+
 </ResourceDictionary>

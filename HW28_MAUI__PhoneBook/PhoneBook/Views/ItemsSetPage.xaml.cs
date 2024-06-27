@@ -23,16 +23,14 @@ public partial class ItemsSetPage : ContentPage
         MainThread.BeginInvokeOnMainThread(() =>
         {
             Items.Clear();
-            foreach(var item in items)
-                Items.Add(item);
-
+            foreach(var item in items) Items.Add(item);
         });
     }
     async void OnItemAdded(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(ItemPage), true, new Dictionary<string, object>
         {
-            ["Item"] = new Item()
+            [nameof(ItemPage.Item)] = new Item()
         });
     }
 

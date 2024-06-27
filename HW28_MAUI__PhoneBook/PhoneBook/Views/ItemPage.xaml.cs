@@ -3,6 +3,7 @@ using PhoneBook.Models;
 
 namespace PhoneBook.Views;
 
+[QueryProperty(nameof(ItemPage.Item), nameof(ItemPage.Item))]
 public partial class ItemPage : ContentPage
 {
     Item item;
@@ -20,7 +21,7 @@ public partial class ItemPage : ContentPage
 
     async void OnSaveClicked(object sender, EventArgs e)
     {
-        if(string.IsNullOrWhiteSpace(Item.Name))
+        if(string.IsNullOrWhiteSpace(Item.FirstName))
         {
             await DisplayAlert("Name Required", "Please enter a name for the todo item.", "OK");
             return;
